@@ -1,38 +1,18 @@
 ﻿<Properties StartupConfiguration="{8A7F0ED7-3645-430B-A2BA-0503BBF1B343}|Default">
   <MonoDevelop.Ide.ItemProperties.DataStructurePractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Dictionary/KeyValuePair.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator (copy).cs">
     <Files>
-      <File FileName="DataStructurePractice/Dictionary/IDictionary.cs" Line="10" Column="1" />
-      <File FileName="DataStructurePractice/Dictionary/ChainedDictionary.cs" Line="9" Column="30" />
-      <File FileName="DataStructurePractice/Dictionary/IKeyValuePair.cs" Line="4" Column="24" />
-      <File FileName="DataStructurePractice/Dictionary/KeyValuePair.cs" Line="4" Column="30" />
+      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearch.cs" Line="10" Column="25" />
+      <File FileName="DataStructurePractice/Graph/Visitor/BreadthFirstSearch.cs" Line="28" Column="50" />
+      <File FileName="DataStructurePractice/Graph/Visitor/GraphSearch.cs" Line="22" Column="9" />
+      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" Line="6" Column="67" />
+      <File FileName="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator (copy).cs" Line="6" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BooleanParenthesization.cs" relfile="DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BooleanParenthesization.cs" line="196" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BooleanParenthesization.cs" relfile="DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BooleanParenthesization.cs" line="227" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/DynamicProgramming/Micellaneous/JumpGame.cs" relfile="DataStructurePractice/DynamicProgramming/Micellaneous/JumpGame.cs" line="84" column="36" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/ValidWordAbbreviation.cs" relfile="DataStructurePractice/GoogleProblems/ValidWordAbbreviation.cs" line="210" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/ValidWordAbbreviation.cs" relfile="DataStructurePractice/GoogleProblems/ValidWordAbbreviation.cs" line="113" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/MergeKLists.cs" relfile="DataStructurePractice/GoogleProblems/MergeKLists.cs" line="28" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/MergeKLists.cs" relfile="DataStructurePractice/GoogleProblems/MergeKLists.cs" line="53" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/Miscellaneous/LFUCache.cs" relfile="DataStructurePractice/Miscellaneous/LFUCache.cs" line="109" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/BasicCalculator.cs" relfile="DataStructurePractice/GoogleProblems/BasicCalculator.cs" line="30" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BurstBalloons.cs" relfile="DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BurstBalloons.cs" line="119" column="27" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/SkylineProblem.cs" relfile="DataStructurePractice/GoogleProblems/SkylineProblem.cs" line="198" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/SkylineProblem.cs" relfile="DataStructurePractice/GoogleProblems/SkylineProblem.cs" line="202" column="59" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/SkylineProblem.cs" relfile="DataStructurePractice/GoogleProblems/SkylineProblem.cs" line="191" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" relfile="DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" line="50" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" relfile="DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" line="51" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" relfile="DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" line="45" column="1" />
-      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" relfile="DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" line="73" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <DisabledProjects>
-    <String>AmazonPractice/DataStructurePractice.csproj</String>
-  </DisabledProjects>
 </Properties>
