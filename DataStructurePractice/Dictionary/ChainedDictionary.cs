@@ -17,14 +17,28 @@ namespace MDictionary
             return key.GetHashCode() % dictionary.Length;
         }
 
+        private LinkedListNode<KeyValuePair<K, V>> GetNode(K key)
+        {
+            int loc = GetLocation(key);
+            var list = dictionary[loc];
+            var node = list?.First;
+
+            while (node != null)
+            {
+                if (node.Value.Key.Equals(key))
+                {
+                    return node;
+                }
+                node = node.Next;
+            }
+            return null;
+        }
+
         public V Get(K key)
         {
-            var list = dictionary[GetLocation(key)];
-            foreach (var item in list)
-            {
-                if (item.Key.Equals(key))
-                    return item.Value;
-            }
+            var node = GetNode(key);
+            if (node != null)
+                return node.Value.Value;
             // Not found
             return default(V);
         }
@@ -38,56 +52,29 @@ namespace MDictionary
             }
 
             // Verify if it alreday exists
-            var list = dictionary[GetLocation(key)];
-            foreach (var item in list)
-            {
-                if (item.Key.Equals(key))
-                    return; // Found
-            }
+            var node = GetNode(key);
+            if (node != null)
+                return;
 
-            list.AddLast(new KeyValuePair<K, V>(key, value));
+            dictionary[loc].AddLast(new KeyValuePair<K, V>(key, value));
         }
 
         public void Remove(K key)
         {
-            int loc = GetLocation(key);
-            if (dictionary[loc] == null)
+            var node = GetNode(key);
+            if (node == null)
                 return;
-
-            var list = dictionary[GetLocation(key)];
-            var node = list.First;
-
-            while(node != null)
-            {
-                if (node.Value.Key.Equals(key))
-                {
-                    list.Remove(node);
-                    break;
-                }
-                node = node.Next;
-            }
+            int loc = GetLocation(key);
+            if (dictionary[loc] != null)
+                dictionary[loc].Remove(node);
         }
 
         public void Update(K key, V value)
         {
-            int loc = GetLocation(key);
-            if (dictionary[loc] == null)
-            {
-                dictionary[loc] = new LinkedList<KeyValuePair<K, V>>();
-            }
-
-            var list = dictionary[GetLocation(key)];
-            var node = list.First;
-
-            while (node != null)
-            {
-                if (node.Value.Key.Equals(key))
-                {
-                    node.Value.Value = value;
-                    break;
-                }
-                node = node.Next;
-            }
+            var node = GetNode(key);
+            if (node == null)
+                return;
+            node.Value.Value = value;
         }
     }
 }
