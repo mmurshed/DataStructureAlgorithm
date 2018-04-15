@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Graph\" />
+    <Folder Include="Graph\Enumerator\" />
+    <Folder Include="Graph\Visitor\" />
+    <Folder Include="Graph\Builder\" />
+    <Folder Include="Graph\Edge\" />
+    <Folder Include="Graph\Vertex\" />
+    <Folder Include="Graph\Algorithms\" />
+    <Folder Include="Queue\" />
+    <Folder Include="Tree\" />
+    <Folder Include="DynamicProgramming\" />
+    <Folder Include="List\" />
+    <Folder Include="Graph\Algorithms\TopologicalSort\" />
+    <Folder Include="Graph\Algorithms\ShortestPath\" />
+    <Folder Include="Graph\Algorithms\MinimalSpanningTree\" />
+    <Folder Include="Sorting\" />
+    <Folder Include="Sorting\NSquared\" />
+    <Folder Include="Sorting\NLogN\" />
+    <Folder Include="Sorting\N\" />
+    <Folder Include="Sorting\NLogSquaredN\" />
+    <Folder Include="Graph\Algorithms\ShortestPath\AStarSearch\" />
+    <Folder Include="StringMatch\" />
+    <Folder Include="DynamicProgramming\LongestCommonSubsequence\" />
+    <Folder Include="DynamicProgramming\LongestIncreasingSubsequence\" />
+    <Folder Include="DynamicProgramming\01Knapsack\" />
+    <Folder Include="DynamicProgramming\MatrixChainMultiplication\" />
+    <Folder Include="DynamicProgramming\LargestSum\" />
+    <Folder Include="DynamicProgramming\Micellaneous\" />
+    <Folder Include="Backtracking\" />
+    <Folder Include="Tree\Visitor\" />
+    <Folder Include="Tree\BinarySearchTree\" />
+    <Folder Include="Tree\TriePrefix\" />
+    <Folder Include="Tree\RadixTree\" />
+    <Folder Include="Tree\SgementTree\" />
+    <Folder Include="Tree\AVLTree\" />
+    <Folder Include="Tree\BinarySearchTree\Node\" />
+    <Folder Include="Tree\AVLTree\Node\" />
+    <Folder Include="DynamicProgramming\BuySellStocks\" />
+    <Folder Include="Tree\HuffmanTree\" />
+    <Folder Include="Tree\Problems\" />
+    <Folder Include="Tree\CartesianTree\" />
+    <Folder Include="Miscellaneous\" />
+    <Folder Include="DynamicProgramming\Numbers\" />
+    <Folder Include="GoogleProblems\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Tree\Node\BinaryNode %28copy%29.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="List\BitVector.config" />
+  </ItemGroup>
+</Project>

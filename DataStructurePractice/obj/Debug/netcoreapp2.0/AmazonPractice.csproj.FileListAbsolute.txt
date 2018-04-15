@@ -1,0 +1,11 @@
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/obj/Debug/netcoreapp2.0/AmazonPractice.csprojResolveAssemblyReference.cache
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/obj/Debug/netcoreapp2.0/AmazonPractice.csproj.CoreCompileInputs.cache
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/obj/Debug/netcoreapp2.0/AmazonPractice.AssemblyInfoInputs.cache
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/obj/Debug/netcoreapp2.0/AmazonPractice.AssemblyInfo.cs
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/bin/Debug/netcoreapp2.0/AmazonPractice.deps.json
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/bin/Debug/netcoreapp2.0/AmazonPractice.runtimeconfig.json
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/bin/Debug/netcoreapp2.0/AmazonPractice.runtimeconfig.dev.json
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/bin/Debug/netcoreapp2.0/AmazonPractice.dll
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/bin/Debug/netcoreapp2.0/AmazonPractice.pdb
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/obj/Debug/netcoreapp2.0/AmazonPractice.dll
+/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/obj/Debug/netcoreapp2.0/AmazonPractice.pdb

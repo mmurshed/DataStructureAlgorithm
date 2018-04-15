@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{08AF7FCC-2DFE-48D4-8121-0B96E26A1900}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AmazonPractice/Sorting/BubbleSort.cs">
+    <Files>
+      <File FileName="AmazonPractice/Graph/Algorithms/MinimalSpanningTree/MinimalSpanningTree.cs" Line="4" Column="21" />
+      <File FileName="AmazonPractice/Graph/Algorithms/MinimalSpanningTree/MinimalSpanningTreePrim.cs" Line="17" Column="9" />
+      <File FileName="AmazonPractice/Graph/Algorithms/ShortestPath/SingleSourceShortestPathSimple.cs" Line="28" Column="18" />
+      <File FileName="AmazonPractice/Graph/Algorithms/MinimalSpanningTree/UnionFind.cs" Line="24" Column="33" />
+      <File FileName="AmazonPractice/Graph/Algorithms/MinimalSpanningTree/MinimalSpanningTreeKruskal.cs" Line="1" Column="1" />
+      <File FileName="AmazonPractice/Graph/Builder/MSTGraphListBuilder.cs" Line="62" Column="32" />
+      <File FileName="AmazonPractice/Program.cs" Line="190" Column="44" />
+      <File FileName="AmazonPractice/Graph/Enumerator/BreadthFirstEnumerator.cs" Line="28" Column="66" />
+      <File FileName="AmazonPractice/Graph/Enumerator/GraphEnumerator.cs" Line="9" Column="18" />
+      <File FileName="AmazonPractice/Graph/Enumerator/DepthFirstEnumerator.cs" Line="21" Column="14" />
+      <File FileName="AmazonPractice/Graph/GraphList2.cs" Line="71" Column="10" />
+      <File FileName="AmazonPractice/Graph/Edge/VertexPair.cs" Line="23" Column="10" />
+      <File FileName="AmazonPractice/Graph/Vertex/Vertex2.cs" Line="23" Column="39" />
+      <File FileName="AmazonPractice/Graph/Vertex/IVertex2.cs" Line="7" Column="6" />
+      <File FileName="AmazonPractice/Graph/Edge/IEdge2.cs" Line="6" Column="61" />
+      <File FileName="AmazonPractice/Graph/Edge/Edge2.cs" Line="29" Column="10" />
+      <File FileName="AmazonPractice/Sorting/BubbleSort.cs" Line="10" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/mahbub/Google Drive/AmazonPractice/AmazonPractice/Graph.cs" relfile="AmazonPractice/Graph.cs" line="144" column="13" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AmazonPractice PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
