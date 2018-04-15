@@ -49,11 +49,17 @@
     <Folder Include="Miscellaneous\" />
     <Folder Include="DynamicProgramming\Numbers\" />
     <Folder Include="GoogleProblems\" />
+    <Folder Include="Dictionary\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tree\Node\BinaryNode %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="List\BitVector.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Link>README.md</Link>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,6 +1,13 @@
 ﻿<Properties StartupConfiguration="{8A7F0ED7-3645-430B-A2BA-0503BBF1B343}|Default">
   <MonoDevelop.Ide.ItemProperties.DataStructurePractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Dictionary/KeyValuePair.cs">
+    <Files>
+      <File FileName="DataStructurePractice/Dictionary/IDictionary.cs" Line="10" Column="1" />
+      <File FileName="DataStructurePractice/Dictionary/ChainedDictionary.cs" Line="9" Column="30" />
+      <File FileName="DataStructurePractice/Dictionary/IKeyValuePair.cs" Line="4" Column="24" />
+      <File FileName="DataStructurePractice/Dictionary/KeyValuePair.cs" Line="4" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
