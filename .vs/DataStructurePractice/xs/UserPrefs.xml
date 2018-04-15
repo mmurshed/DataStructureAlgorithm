@@ -1,25 +1,6 @@
 ﻿<Properties StartupConfiguration="{8A7F0ED7-3645-430B-A2BA-0503BBF1B343}|Default">
   <MonoDevelop.Ide.ItemProperties.DataStructurePractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Graph/Enumerator/DepthFirstEnumerator.cs">
-    <Files>
-      <File FileName="DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/BurstBalloons.cs" Line="27" Column="1" />
-      <File FileName="DataStructurePractice/Program.cs" Line="435" Column="38" />
-      <File FileName="DataStructurePractice/DynamicProgramming/MatrixChainMultiplication/MatrixChainMultiplication.cs" Line="163" Column="25" />
-      <File FileName="DataStructurePractice/DynamicProgramming/LongestIncreasingSubsequence/LongestIncreasingPathMatrix.cs" Line="89" Column="1" />
-      <File FileName="DataStructurePractice/GoogleProblems/LongestIncreasingPathMatrix.cs" Line="27" Column="79" />
-      <File FileName="DataStructurePractice/GoogleProblems/SkylineProblem.cs" Line="161" Column="13" />
-      <File FileName="DataStructurePractice/Queue/PriorityQueue.cs" Line="25" Column="1" />
-      <File FileName="DataStructurePractice/GoogleProblems/ExpressionAddOperators.cs" Line="74" Column="20" />
-      <File FileName="DataStructurePractice/List/SkipList.cs" Line="158" Column="1" />
-      <File FileName="DataStructurePractice/List/SkipList.txt" Line="34" Column="28" />
-      <File FileName="DataStructurePractice/List/LinkedList.cs" Line="1" Column="1" />
-      <File FileName="DataStructurePractice/List/BitVector.cs" Line="109" Column="22" />
-      <File FileName="DataStructurePractice/List/BitManipulator.cs" Line="30" Column="59" />
-      <File FileName="DataStructurePractice/Graph/Enumerator/DepthFirstEnumerator.cs" Line="1" Column="1" />
-      <File FileName="DataStructurePractice/Graph/Enumerator/GraphEnumerator.cs" Line="1" Column="1" />
-      <File FileName="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

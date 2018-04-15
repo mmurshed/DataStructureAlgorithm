@@ -20,14 +20,3 @@
 /Users/mahbub/Google Drive/DataStructurePractice/AmazonPractice/bin/Debug/netcoreapp2.0/DataStructurePractice.pdb
 /Users/mahbub/Google Drive/DataStructurePractice/AmazonPractice/obj/Debug/netcoreapp2.0/DataStructurePractice.dll
 /Users/mahbub/Google Drive/DataStructurePractice/AmazonPractice/obj/Debug/netcoreapp2.0/DataStructurePractice.pdb
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/bin/Debug/netcoreapp2.0/DataStructurePractice.deps.json
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/bin/Debug/netcoreapp2.0/DataStructurePractice.runtimeconfig.json
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/bin/Debug/netcoreapp2.0/DataStructurePractice.runtimeconfig.dev.json
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/bin/Debug/netcoreapp2.0/DataStructurePractice.dll
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/bin/Debug/netcoreapp2.0/DataStructurePractice.pdb
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/obj/Debug/netcoreapp2.0/DataStructurePractice.csprojResolveAssemblyReference.cache
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/obj/Debug/netcoreapp2.0/DataStructurePractice.csproj.CoreCompileInputs.cache
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/obj/Debug/netcoreapp2.0/DataStructurePractice.AssemblyInfoInputs.cache
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/obj/Debug/netcoreapp2.0/DataStructurePractice.AssemblyInfo.cs
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/obj/Debug/netcoreapp2.0/DataStructurePractice.dll
-/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/obj/Debug/netcoreapp2.0/DataStructurePractice.pdb
