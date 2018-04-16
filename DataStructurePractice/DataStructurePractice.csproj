@@ -52,6 +52,7 @@
     <Folder Include="Dictionary\" />
     <Folder Include="Graph\Algorithms\Connectedness\" />
     <Folder Include="Graph\Bipartite\" />
+    <Folder Include="Graph\Algorithms\Cycle\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tree\Node\BinaryNode %28copy%29.cs" />
