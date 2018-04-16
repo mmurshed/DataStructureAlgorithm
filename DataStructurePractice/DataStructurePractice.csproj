@@ -51,6 +51,7 @@
     <Folder Include="GoogleProblems\" />
     <Folder Include="Dictionary\" />
     <Folder Include="Graph\Algorithms\Connectedness\" />
+    <Folder Include="Graph\Bipartite\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tree\Node\BinaryNode %28copy%29.cs" />
