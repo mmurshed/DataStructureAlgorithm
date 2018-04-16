@@ -1,12 +1,21 @@
 ﻿<Properties StartupConfiguration="{8A7F0ED7-3645-430B-A2BA-0503BBF1B343}|Default">
   <MonoDevelop.Ide.ItemProperties.DataStructurePractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator (copy).cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Graph/Algorithms/TopologicalSort/DFSTopoSortVisitor.cs">
     <Files>
-      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearch.cs" Line="10" Column="25" />
-      <File FileName="DataStructurePractice/Graph/Visitor/BreadthFirstSearch.cs" Line="28" Column="50" />
-      <File FileName="DataStructurePractice/Graph/Visitor/GraphSearch.cs" Line="22" Column="9" />
-      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" Line="6" Column="67" />
-      <File FileName="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator (copy).cs" Line="6" Column="42" />
+      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearch.cs" Line="18" Column="31" />
+      <File FileName="DataStructurePractice/Graph/Visitor/BreadthFirstSearch.cs" Line="28" Column="44" />
+      <File FileName="DataStructurePractice/Graph/Visitor/GraphSearch.cs" Line="29" Column="37" />
+      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" Line="28" Column="44" />
+      <File FileName="DataStructurePractice/Graph/Enumerator/DepthFirstEnumeratorStack.cs" Line="14" Column="12" />
+      <File FileName="DataStructurePractice/Graph/Algorithms/TopologicalSort/TopologicalSortBFS.cs" Line="43" Column="1" />
+      <File FileName="DataStructurePractice/Graph/Algorithms/Connectedness/ConnectednessTest.cs" Line="19" Column="56" />
+      <File FileName="DataStructurePractice/Graph/Algorithms/TopologicalSort/TopologicalSortDFS.cs" Line="4" Column="27" />
+      <File FileName="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator.cs" Line="9" Column="9" />
+      <File FileName="DataStructurePractice/Graph/Visitor/ConsoleWriterVisitor.cs" Line="12" Column="21" />
+      <File FileName="DataStructurePractice/Graph/Visitor/DummyVertexVisitor.cs" Line="11" Column="21" />
+      <File FileName="DataStructurePractice/Graph/Visitor/DummyEdgeVisitor.cs" Line="5" Column="27" />
+      <File FileName="DataStructurePractice/Graph/Visitor/IVisitor.cs" Line="8" Column="14" />
+      <File FileName="DataStructurePractice/Graph/Algorithms/TopologicalSort/DFSTopoSortVisitor.cs" Line="16" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

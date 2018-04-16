@@ -5,7 +5,7 @@ namespace Graph
 {
     public class BreadthFirstSearch<V, E> : GraphSearch<V, E>
     {
-        public override void Search(IVertex<V> root, IVisitor<IVertex<V>> visitor)
+        public override void Search(IGraph<V, E> graph, IVertex<V> root, IVisitor<IVertex<V>> vertexVisitor, IVisitor<IEdge<V, E>> edgeVisitor)
         {
             if (IsVisited(root))
                 return;
@@ -20,11 +20,12 @@ namespace Graph
 
                 if (!IsVisited(vertex))
                 {
-                    visitor.PreVisit(vertex);
+                    vertexVisitor.PreVisit(vertex);
                     SetVisited(vertex);
 
                     foreach (var neighbour in vertex.Neighbours)
                     {
+                        edgeVisitor.Visit(graph.GetEdge(vertex, neighbour));
                         queue.Enqueue(neighbour);
                     }
                 }

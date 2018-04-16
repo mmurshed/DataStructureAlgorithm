@@ -6,25 +6,26 @@ namespace Graph
     public abstract class GraphSearch<V, E>
     {
         private readonly HashSet<IVertex<V>> visited = new HashSet<IVertex<V>>();
-        public void Search(IGraph<V, E> graph, IVisitor<IVertex<V>> visitor)
+
+        public void Search(IGraph<V, E> graph, IVisitor<IVertex<V>> vextexVisitor, IVisitor<IEdge<V, E>> edgeVisitor)
         {
             visited.Clear();
             foreach (var vertex in graph.Vertices)
             {
-                Search(vertex, visitor);
+                Search(graph, vertex, vextexVisitor, edgeVisitor);
             }
         }
 
-        protected bool IsVisited(IVertex<V> vertex)
+        public bool IsVisited(IVertex<V> vertex)
         {
             return visited.Contains(vertex);
         }
 
-        protected void SetVisited(IVertex<V> vertex)
+        public void SetVisited(IVertex<V> vertex)
         {
             visited.Add(vertex);
         }
 
-        public abstract void Search(IVertex<V> root, IVisitor<IVertex<V>> visitor);
+        public abstract void Search(IGraph<V, E> graph, IVertex<V> root, IVisitor<IVertex<V>> vertexVisitor, IVisitor<IEdge<V, E>> edgeVisitor);
     }
 }

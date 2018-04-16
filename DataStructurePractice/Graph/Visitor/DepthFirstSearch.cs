@@ -5,19 +5,20 @@ namespace Graph
 {
     public class DepthFirstSearch<V, E> : GraphSearch<V, E>
     {
-        public override void Search(IVertex<V> root, IVisitor<IVertex<V>> visitor)
+        public override void Search(IGraph<V, E> graph, IVertex<V> root, IVisitor<IVertex<V>> vertexVisitor, IVisitor<IEdge<V, E>> edgeVisitor)
         {
             if (IsVisited(root))
                 return;
-            visitor.PreVisit(root);
+            vertexVisitor.PreVisit(root);
             SetVisited(root);
 
             foreach (var neighbor in root.Neighbours)
             {
-                Search(neighbor, visitor);
+                edgeVisitor.Visit(graph.GetEdge(root, neighbor));
+                Search(graph, neighbor, vertexVisitor, edgeVisitor);
             }
 
-            visitor.PostVisit(root);
+            vertexVisitor.PostVisit(root);
         }
     }
 }

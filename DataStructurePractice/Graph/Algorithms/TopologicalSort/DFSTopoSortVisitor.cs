@@ -13,7 +13,9 @@ namespace Graph.Algorithms
         public void PreVisit(IVertex<V> value)
         {
         }
-
+        public void Visit(IVertex<V> value)
+        {
+        }
         public void PostVisit(IVertex<V> value)
         {
             TopologicalSortedList.AddFirst(value);

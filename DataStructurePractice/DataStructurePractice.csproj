@@ -50,6 +50,7 @@
     <Folder Include="DynamicProgramming\Numbers\" />
     <Folder Include="GoogleProblems\" />
     <Folder Include="Dictionary\" />
+    <Folder Include="Graph\Algorithms\Connectedness\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tree\Node\BinaryNode %28copy%29.cs" />
