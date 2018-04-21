@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Graph
+namespace Graph.Deprecated
 {
     public class GraphLinked<V, E> : ILinkedGraph<V, E>
     {

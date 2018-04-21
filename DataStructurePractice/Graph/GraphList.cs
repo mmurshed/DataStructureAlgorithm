@@ -1,49 +1,78 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Graph
 {
-    public class GraphList<V, E> : IGraph<V, E>
+    public class GraphList2<V, E> : IGraph<V, E>
     {
-        private List<IVertex<V>> vertices;
-        public ICollection<IVertex<V>> Vertices => vertices;
-        public int Size => Vertices.Count;
+        private Dictionary<V, IVertex<V>> vertexCollection;
+        private Dictionary<VertexPair<V>, IEdge<V, E>> edgeCollection;
 
-        public GraphList()
+        public IEnumerable<IVertex<V>> Vertices => vertexCollection.Values;
+        public IEnumerable<IEdge<V, E>> Edges => edgeCollection.Values;
+
+        public int Size => vertexCollection.Count;
+
+        private uint vertexID;
+        private Dictionary<IVertex<V>, List<IVertex<V>>> adjacencyList;
+
+        public GraphList2()
         {
-            vertices = new List<IVertex<V>>();
+            vertexCollection = new Dictionary<V, IVertex<V>>();
+            edgeCollection = new Dictionary<VertexPair<V>, IEdge<V, E>>();
+
+            vertexID = 0;
+            adjacencyList = new Dictionary<IVertex<V>, List<IVertex<V>>>();
         }
 
-        public void AddVertex(IVertex<V> vertex)
+        public void AddVertex(IVertex<V> v)
         {
-            if (!Vertices.Contains(vertex))
+            if (!vertexCollection.ContainsKey(v.Value))
             {
-                Vertices.Add(vertex);
+                v.ID = vertexID;
+                vertexID++;
+
+                vertexCollection[v.Value] = v;
+                if (!adjacencyList.ContainsKey(v))
+                    adjacencyList[v] = new List<IVertex<V>>();
             }
         }
 
         public void AddEdge(IEdge<V, E> edge)
         {
-            if (!edge.Start.Neighbours.Contains(edge.End))
-            {
-                edge.Start.Neighbours.Add(edge.End);
-            }
+            edgeCollection[edge.Pair] = edge;
+            if (!adjacencyList.ContainsKey(edge.Start))
+                adjacencyList[edge.Start] = new List<IVertex<V>>();
+            
+            adjacencyList[edge.Start].Add(edge.End);
         }
 
-        public IVertex<V> GetVertex(uint ID)
+        public IEnumerable<IVertex<V>> GetNeighbours(IVertex<V> vertex)
         {
-            return vertices[(int)ID];
+            return adjacencyList[vertex];
+        }
+
+        public IVertex<V> GetVertexByID(uint id)
+        {
+            return vertexCollection.Where( kv => kv.Value.ID == id).Select(kv => kv.Value).FirstOrDefault();
+        }
+
+        public IVertex<V> GetVertex(V value)
+        {
+            return vertexCollection[value];
         }
 
         public IEdge<V, E> GetEdge(IVertex<V> start, IVertex<V> end)
         {
-            throw new NotImplementedException();
+            var index = new VertexPair<V>(start, end);
+            return edgeCollection[index];
         }
 
         public bool HasEdge(IVertex<V> start, IVertex<V> end)
         {
-            throw new NotImplementedException();
+            return GetEdge(start, end) != null;
         }
     }
 }

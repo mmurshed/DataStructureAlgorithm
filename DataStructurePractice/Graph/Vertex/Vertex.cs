@@ -3,38 +3,29 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class Vertex<V> : IVertex<V>
+    public class Vertex2<V> : IVertex<V>
     {
         public uint ID { get; set; }
         public V Value { get; }
-        public ICollection<IVertex<V>> Neighbours { get; }
-        public int NeighbourCount => Neighbours.Count;
 
-        public Vertex(V value) : this (default(uint), value)
+        public Vertex2(V value) : this(default(uint), value)
         {
         }
 
-        public Vertex(uint id, V value)
+        public Vertex2(uint ID, V value)
         {
-            ID = id;
+            this.ID = ID;
             Value = value;
-            Neighbours = new List<IVertex<V>>();
         }
 
-        public void Add(IVertex<V> vertex)
+        public bool Equals(IVertex<V> vertex)
         {
-            Neighbours.Add(vertex);
-        }
-
-        public void Remove(IVertex<V> vertex)
-        {
-            Neighbours.Remove(vertex);
+            return vertex.Value.Equals(Value);
         }
 
         public override bool Equals(object obj)
         {
-            Vertex<V> vertex = obj as Vertex<V>;
-            return Value.Equals(vertex.Value);
+            return Equals(obj as Vertex2<V>);
         }
 
         public override int GetHashCode()
@@ -44,7 +35,7 @@ namespace Graph
 
         public override string ToString()
         {
-            return Value.ToString();
+            return $"[Vertex: Value={Value}]";
         }
     }
 }

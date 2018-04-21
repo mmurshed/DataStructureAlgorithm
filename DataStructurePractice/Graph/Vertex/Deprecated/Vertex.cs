@@ -1,33 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graph
+namespace Graph.Deprecated
 {
-    public class LinkedVertex2<V, E> : ILinkedVertex2<V, E>
+    public class Vertex<V> : IVertex<V>
     {
+        public uint ID { get; set; }
         public V Value { get; }
-        public IDictionary<ILinkedVertex2<V, E>, IEdge<V, E>> Neighbours { get; }
+        public ICollection<IVertex<V>> Neighbours { get; }
         public int NeighbourCount => Neighbours.Count;
 
-        public LinkedVertex2(V value)
+        public Vertex(V value) : this (default(uint), value)
         {
+        }
+
+        public Vertex(uint id, V value)
+        {
+            ID = id;
             Value = value;
-            Neighbours = new Dictionary<ILinkedVertex2<V, E>, IEdge<V, E>>();
+            Neighbours = new List<IVertex<V>>();
         }
 
-        public void Add(ILinkedVertex2<V, E> vertex, IEdge<V, E> edge)
+        public void Add(IVertex<V> vertex)
         {
-            Neighbours.Add(vertex, edge);
+            Neighbours.Add(vertex);
         }
 
-        public void Remove(ILinkedVertex2<V, E> vertex)
+        public void Remove(IVertex<V> vertex)
         {
             Neighbours.Remove(vertex);
         }
 
         public override bool Equals(object obj)
         {
-            var vertex = obj as LinkedVertex2<V, E>;
+            Vertex<V> vertex = obj as Vertex<V>;
             return Value.Equals(vertex.Value);
         }
 

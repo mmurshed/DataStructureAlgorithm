@@ -3,35 +3,42 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class LinkedVertex<V, E> : ILinkedVertex<V, E>
+    public class LinkedVertex2<V, E> : ILinkedVertex2<V, E>
     {
-        public uint ID { get; set; }
         public V Value { get; }
-        public ICollection<IVertex<V>> Neighbours { get; }
+        public IDictionary<ILinkedVertex2<V, E>, IEdge<V, E>> Neighbours { get; }
         public int NeighbourCount => Neighbours.Count;
 
-        public ICollection<IEdge<V, E>> Edges { get; set; }
-
-        public LinkedVertex(V value) : this(default(uint), value)
+        public LinkedVertex2(V value)
         {
-        }
-
-        public LinkedVertex(uint id, V value)
-        {
-            ID = id;
             Value = value;
-            Neighbours = new List<IVertex<V>>();
-            Edges = new List<IEdge<V, E>>();
+            Neighbours = new Dictionary<ILinkedVertex2<V, E>, IEdge<V, E>>();
         }
 
-        public void Add(IVertex<V> vertex)
+        public void Add(ILinkedVertex2<V, E> vertex, IEdge<V, E> edge)
         {
-            Neighbours.Add(vertex);
+            Neighbours.Add(vertex, edge);
         }
 
-        public void Remove(IVertex<V> vertex)
+        public void Remove(ILinkedVertex2<V, E> vertex)
         {
             Neighbours.Remove(vertex);
+        }
+
+        public override bool Equals(object obj)
+        {
+            var vertex = obj as LinkedVertex2<V, E>;
+            return Value.Equals(vertex.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return Value.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
         }
     }
 }

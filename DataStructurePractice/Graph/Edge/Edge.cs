@@ -3,31 +3,36 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class Edge<V, E> : IEdge<V, E>
+    public class Edge2<V, E> : IEdge2<V, E>
     {
-        public IVertex<V> Start { get; set; }
-        public IVertex<V> End { get; set; }
+        public VertexPair<V> Pair { get; set; }
+        public IVertex2<V> Start => Pair.Start;
+        public IVertex2<V> End => Pair.End;
         public E Value { get; set; }
 
-        public Edge(IVertex<V> start, IVertex<V> end) : this(start, end, default(E))
+        public Edge2(IVertex2<V> start, IVertex2<V> end) : this(start, end, default(E))
         {
         }
 
-        public Edge(IVertex<V> start, IVertex<V> end, E value)
+        public Edge2(IVertex2<V> start, IVertex2<V> end, E value)
         {
-            Start = start;
-            End = end;
+            Pair = new VertexPair<V>(start, end);
             Value = value;
-            if (!Start.Neighbours.Contains(End))
-            {
-                Start.Neighbours.Add(End);
-            }
+        }
+
+        public IVertex2<V> GetOtherVertex(IVertex2<V> first)
+        {
+            return Pair.Start.Equals(first) ? Pair.End : Pair.Start;
+        }
+
+        public bool Equals(IEdge2<V, E> edge)
+        {
+            return Start.Equals(edge.Start) && End.Equals(edge.End);
         }
 
         public override bool Equals(object obj)
         {
-            Edge<V, E> edge = obj as Edge<V, E>;
-            return Start.Equals(edge.Start) && End.Equals(edge.End);
+            return Equals(obj as Edge2<V, E>);
         }
 
         public override int GetHashCode()

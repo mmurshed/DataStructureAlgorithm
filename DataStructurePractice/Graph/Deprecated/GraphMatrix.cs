@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Graph
+namespace Graph.Deprecated
 {
-    public class GraphListWeighted<V, E> : IGraph<V, E>
+    public class GraphMatrix<V, E> : IGraph<V, E>
     {
         private List<IVertex<V>> vertices;
         public ICollection<IVertex<V>> Vertices => vertices;
+        private IEdge<V, E>[,] Matrix;
         public int Size => Vertices.Count;
-        public IDictionary<IEdge<V, E>, IEdge<V, E>> Edges { get; }
 
-        public GraphListWeighted()
+        public GraphMatrix(int count)
         {
-            vertices = new List<IVertex<V>>();
-            Edges = new Dictionary<IEdge<V, E>, IEdge<V, E>>();
+            vertices = new List<IVertex<V>>(count);
+            Matrix = new IEdge<V, E>[count, count];
         }
 
         public void AddVertex(IVertex<V> vertex)
@@ -27,11 +28,7 @@ namespace Graph
 
         public void AddEdge(IEdge<V, E> edge)
         {
-            if (!edge.Start.Neighbours.Contains(edge.End))
-            {
-                edge.Start.Neighbours.Add(edge.End);
-            }
-            Edges.Add(edge, edge);
+            Matrix[edge.Start.ID, edge.End.ID] = edge;
         }
 
         public IVertex<V> GetVertex(uint ID)
@@ -41,14 +38,12 @@ namespace Graph
 
         public IEdge<V, E> GetEdge(IVertex<V> start, IVertex<V> end)
         {
-            var index = new Edge<V, E>(start, end);
-            return Edges[index];
+            return Matrix[start.ID, end.ID];
         }
 
         public bool HasEdge(IVertex<V> start, IVertex<V> end)
         {
-            var index = new Edge<V, E>(start, end);
-            return Edges.ContainsKey(index);
+            return Matrix[start.ID, end.ID] != null;
         }
     }
 }
