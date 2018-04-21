@@ -12,7 +12,7 @@ namespace Graph
             vertexVisitor.PreVisit(root);
             SetVisited(root);
 
-            foreach (var neighbor in root.Neighbours)
+            foreach (var neighbor in graph.GetNeighbours(root))
             {
                 edgeVisitor.Visit(graph.GetEdge(root, neighbor));
                 Search(graph, neighbor, vertexVisitor, edgeVisitor);

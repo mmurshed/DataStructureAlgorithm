@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class Vertex2<V> : IVertex<V>
+    public class Vertex<V> : IVertex<V>
     {
         public uint ID { get; set; }
         public V Value { get; }
 
-        public Vertex2(V value) : this(default(uint), value)
+        public Vertex(V value) : this(default(uint), value)
         {
         }
 
-        public Vertex2(uint ID, V value)
+        public Vertex(uint ID, V value)
         {
             this.ID = ID;
             Value = value;
@@ -25,7 +25,7 @@ namespace Graph
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as Vertex2<V>);
+            return Equals(obj as Vertex<V>);
         }
 
         public override int GetHashCode()

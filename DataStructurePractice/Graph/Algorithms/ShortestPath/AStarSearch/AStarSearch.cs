@@ -6,19 +6,19 @@ namespace Graph.Algorithms
     public class AStarSearch<V> : SingleSourceShortestPath<V>
         where V: IComparable
     {
-        public class VertexComparer : IComparer<IVertex2<V>>
+        public class VertexComparer : IComparer<IVertex<V>>
         {
-            public int Compare(IVertex2<V> x, IVertex2<V> y)
+            public int Compare(IVertex<V> x, IVertex<V> y)
             {
                 return x.Value.CompareTo(y.Value);
             }
         }
 
-        private PriorityQueue.PriorityQueue<IVertex2<V>> queue;
+        private PriorityQueue.PriorityQueue<IVertex<V>> queue;
         private IAStarHeuristic<V> heuristic;
-        private IVertex2<V> target;
+        private IVertex<V> target;
 
-        public AStarSearch(IGraph2<V, int> graph, IVertex2<V> source, IVertex2<V> target, IAStarHeuristic<V> heuristic)
+        public AStarSearch(IGraph<V, int> graph, IVertex<V> source, IVertex<V> target, IAStarHeuristic<V> heuristic)
             : base(graph, source)
         {
             this.heuristic = heuristic;
@@ -28,7 +28,7 @@ namespace Graph.Algorithms
         protected override void Init()
         {
             base.Init();
-            queue = new PriorityQueue.PriorityQueue<IVertex2<V>>(new VertexComparer());
+            queue = new PriorityQueue.PriorityQueue<IVertex<V>>(new VertexComparer());
             foreach (var vertex in graph.Vertices)
             {
                 queue.Enqueue(vertex);

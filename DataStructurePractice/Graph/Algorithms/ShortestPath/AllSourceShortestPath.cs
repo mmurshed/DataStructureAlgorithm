@@ -6,16 +6,16 @@ namespace Graph.Algorithms
     public class AllSourceShortestPath<V> : IShortestPath<V>
     {
         private const int INFINITY = 99999;
-        private readonly IGraph2<V, int> graph;
+        private readonly IGraph<V, int> graph;
 
         public int[,] Distance { get; }
-        public IVertex2<V>[,] NextVertex { get; }
+        public IVertex<V>[,] NextVertex { get; }
 
-        public AllSourceShortestPath(IGraph2<V, int> graph)
+        public AllSourceShortestPath(IGraph<V, int> graph)
         {
             this.graph = graph;
             Distance = new int[graph.Size, graph.Size];
-            NextVertex = new IVertex2<V>[graph.Size, graph.Size];
+            NextVertex = new IVertex<V>[graph.Size, graph.Size];
         }
 
         private void Init()
@@ -62,14 +62,14 @@ namespace Graph.Algorithms
             }
         }
 
-        public int GetDistance(IVertex2<V> u, IVertex2<V> v)
+        public int GetDistance(IVertex<V> u, IVertex<V> v)
         {
             return Distance[u.ID, v.ID];
         }
 
-        public LinkedList<IVertex2<V>> GetPath(IVertex2<V> u, IVertex2<V> v)
+        public LinkedList<IVertex<V>> GetPath(IVertex<V> u, IVertex<V> v)
         {
-            var path = new LinkedList<IVertex2<V>>();
+            var path = new LinkedList<IVertex<V>>();
             if (NextVertex[u.ID, v.ID] == null)
                 return path;
 

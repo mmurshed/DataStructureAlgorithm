@@ -4,16 +4,16 @@ namespace Graph
     public abstract class MinimalSpanningTree<V>
     {
         protected const int INFINITY = 99999;
-        protected readonly IGraph2<V, int> graph;
-        protected readonly IVertex2<V> source;
+        protected readonly IGraph<V, int> graph;
+        protected readonly IVertex<V> source;
 
-        public IGraph2<V, int> MST { get; }
+        public IGraph<V, int> MST { get; }
 
-        public MinimalSpanningTree(IGraph2<V, int> graph, IVertex2<V> source)
+        public MinimalSpanningTree(IGraph<V, int> graph, IVertex<V> source)
         {
             this.graph = graph;
             this.source = source;
-            MST = new GraphList2<V, int>();
+            MST = new GraphList<V, int>();
         }
 
         public abstract void GenerateMST();

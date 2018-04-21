@@ -1,29 +1,11 @@
 ﻿<Properties StartupConfiguration="{8A7F0ED7-3645-430B-A2BA-0503BBF1B343}|Default">
   <MonoDevelop.Ide.ItemProperties.DataStructurePractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePractice/Graph/Algorithms/Cycle/GraphCycle.cs">
-    <Files>
-      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearch.cs" Line="18" Column="62" />
-      <File FileName="DataStructurePractice/Graph/Visitor/BreadthFirstSearch.cs" Line="28" Column="44" />
-      <File FileName="DataStructurePractice/Graph/Visitor/GraphSearch.cs" Line="21" Column="45" />
-      <File FileName="DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" Line="28" Column="44" />
-      <File FileName="DataStructurePractice/Graph/Enumerator/DepthFirstEnumeratorStack.cs" Line="14" Column="12" />
-      <File FileName="DataStructurePractice/Graph/Algorithms/TopologicalSort/TopologicalSortBFS.cs" Line="43" Column="1" />
-      <File FileName="DataStructurePractice/Graph/Algorithms/Connectedness/ConnectednessTest.cs" Line="15" Column="48" />
-      <File FileName="DataStructurePractice/Graph/Algorithms/TopologicalSort/TopologicalSortDFS.cs" Line="13" Column="59" />
-      <File FileName="DataStructurePractice/Graph/Enumerator/BreadthFirstEnumerator.cs" Line="9" Column="9" />
-      <File FileName="DataStructurePractice/Graph/Visitor/ConsoleWriterVisitor.cs" Line="12" Column="21" />
-      <File FileName="DataStructurePractice/Graph/Visitor/DummyVertexVisitor.cs" Line="11" Column="21" />
-      <File FileName="DataStructurePractice/Graph/Visitor/DummyEdgeVisitor.cs" Line="5" Column="27" />
-      <File FileName="DataStructurePractice/Graph/Visitor/IVisitor.cs" Line="8" Column="14" />
-      <File FileName="DataStructurePractice/Graph/Algorithms/TopologicalSort/DFSTopoSortVisitor.cs" Line="14" Column="10" />
-      <File FileName="DataStructurePractice/Graph/Algorithms/Cycle/GraphCycle.cs" Line="21" Column="51" />
-      <File FileName="DataStructurePractice/Graph/Algorithms/Cycle/GraphCycleEdgeVisitor.cs" Line="21" Column="9" />
-      <File FileName="DataStructurePractice/Graph/Bipartite/BipartiteGraph.cs" Line="23" Column="44" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" relfile="DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" line="28" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

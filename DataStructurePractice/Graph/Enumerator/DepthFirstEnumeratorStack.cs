@@ -5,14 +5,14 @@ namespace Graph
 {
     public class DepthFirstEnumeratorStack<V, E> : GraphEnumerator<V, E>
     {
-        public DepthFirstEnumeratorStack(IGraph2<V, E> graph) : base(graph) { }
+        public DepthFirstEnumeratorStack(IGraph<V, E> graph) : base(graph) { }
 
-        protected override IEnumerable<IVertex2<V>> Search(IVertex2<V> root)
+        protected override IEnumerable<IVertex<V>> Search(IVertex<V> root)
         {
             if (IsVisited(root))
                 yield break;
            
-            var stack = new Stack<IVertex2<V>>();
+            var stack = new Stack<IVertex<V>>();
 
             stack.Push(root);
 

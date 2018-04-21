@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graph
+namespace Graph.Deprecated
 {
     public class LinkedEdge<V, E> : ILinkedEdge<V, E>
     {

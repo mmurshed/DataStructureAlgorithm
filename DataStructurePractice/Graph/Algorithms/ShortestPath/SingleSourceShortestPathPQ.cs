@@ -6,8 +6,8 @@ namespace Graph.Algorithms
     public class SingleSourceShortestPathPQ<V> : SingleSourceShortestPath<V>
         where V: IComparable
     {
-        PriorityQueue.PriorityQueue<IVertex2<V>> queue;
-        public SingleSourceShortestPathPQ(IGraph2<V, int> graph, IVertex2<V> source)
+        PriorityQueue.PriorityQueue<IVertex<V>> queue;
+        public SingleSourceShortestPathPQ(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
         }
@@ -15,7 +15,7 @@ namespace Graph.Algorithms
         protected override void Init()
         {
             base.Init();
-            queue = new PriorityQueue.PriorityQueue<IVertex2<V>>( (a, b) => Distance[a.ID] - Distance[b.ID] );
+            queue = new PriorityQueue.PriorityQueue<IVertex<V>>( (a, b) => Distance[a.ID] - Distance[b.ID] );
             foreach (var vertex in graph.Vertices)
             {
                 queue.Enqueue(vertex);

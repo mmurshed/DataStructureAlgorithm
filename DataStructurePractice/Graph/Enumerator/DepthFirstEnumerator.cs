@@ -6,9 +6,9 @@ namespace Graph
 {
     public class DepthFirstEnumerator<V, E> : GraphEnumerator<V, E>
     {
-        public DepthFirstEnumerator(IGraph2<V, E> graph) : base(graph) { }
+        public DepthFirstEnumerator(IGraph<V, E> graph) : base(graph) { }
 
-        protected override IEnumerable<IVertex2<V>> Search(IVertex2<V> root)
+        protected override IEnumerable<IVertex<V>> Search(IVertex<V> root)
         {
             if (IsVisited(root))
                 yield break;

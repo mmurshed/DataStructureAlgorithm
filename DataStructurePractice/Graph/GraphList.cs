@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Graph
 {
-    public class GraphList2<V, E> : IGraph<V, E>
+    public class GraphList<V, E> : IGraph<V, E>
     {
         private Dictionary<V, IVertex<V>> vertexCollection;
         private Dictionary<VertexPair<V>, IEdge<V, E>> edgeCollection;
@@ -18,7 +18,7 @@ namespace Graph
         private uint vertexID;
         private Dictionary<IVertex<V>, List<IVertex<V>>> adjacencyList;
 
-        public GraphList2()
+        public GraphList()
         {
             vertexCollection = new Dictionary<V, IVertex<V>>();
             edgeCollection = new Dictionary<VertexPair<V>, IEdge<V, E>>();
@@ -74,5 +74,17 @@ namespace Graph
         {
             return GetEdge(start, end) != null;
         }
+
+        public void RemoveVertex(V value)
+        {
+            vertexCollection.Remove(value);
+        }
+
+        public void RemoveEdge(IVertex<V> start, IVertex<V> end)
+        {
+            edgeCollection.Remove(new VertexPair<V>(start, end));
+            adjacencyList[start].Remove(end);
+        }
+
     }
 }

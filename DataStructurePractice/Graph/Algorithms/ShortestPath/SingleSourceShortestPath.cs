@@ -6,18 +6,18 @@ namespace Graph.Algorithms
     public abstract class SingleSourceShortestPath<V> : IShortestPath<V>
     {
         protected const int INFINITY = 99999;
-        protected readonly IGraph2<V, int> graph;
-        protected readonly IVertex2<V> source;
+        protected readonly IGraph<V, int> graph;
+        protected readonly IVertex<V> source;
 
         public int[] Distance { get; }
-        public IVertex2<V>[] PreviousVertex { get; }
+        public IVertex<V>[] PreviousVertex { get; }
 
-        public SingleSourceShortestPath(IGraph2<V, int> graph, IVertex2<V> source)
+        public SingleSourceShortestPath(IGraph<V, int> graph, IVertex<V> source)
         {
             this.graph = graph;
             this.source = source;
             Distance = new int[graph.Size];
-            PreviousVertex = new IVertex2<V>[graph.Size];
+            PreviousVertex = new IVertex<V>[graph.Size];
         }
 
         protected virtual void Init()
@@ -32,7 +32,7 @@ namespace Graph.Algorithms
 
         public abstract void ShortestPath();
 
-        public int GetDistance(IVertex2<V> u, IVertex2<V> v)
+        public int GetDistance(IVertex<V> u, IVertex<V> v)
         {
             if(u != source)
             {
@@ -41,9 +41,9 @@ namespace Graph.Algorithms
             return Distance[v.ID];
         }
 
-        public LinkedList<IVertex2<V>> GetPath(IVertex2<V> u, IVertex2<V> v)
+        public LinkedList<IVertex<V>> GetPath(IVertex<V> u, IVertex<V> v)
         {
-            var path = new LinkedList<IVertex2<V>>();
+            var path = new LinkedList<IVertex<V>>();
 
             var w = v;
 

@@ -5,7 +5,7 @@ namespace Graph.Algorithms
 {
     public class SingleSourceShortestPathNegativeWeight<V> : SingleSourceShortestPath<V>
     {
-        public SingleSourceShortestPathNegativeWeight(IGraph2<V, int> graph, IVertex2<V> source)
+        public SingleSourceShortestPathNegativeWeight(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
         }

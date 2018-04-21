@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public interface IEdge2<V, E> : IEquatable<IEdge2<V, E>>
+    public interface IEdge<V, E> : IEquatable<IEdge<V, E>>
     {
         VertexPair<V> Pair { get; }
-        IVertex2<V> Start { get; }
-        IVertex2<V> End { get; }
+        IVertex<V> Start { get; }
+        IVertex<V> End { get; }
 
         E Value { get; set; }
 
-        IVertex2<V> GetOtherVertex(IVertex2<V> first);
+        IVertex<V> GetOtherVertex(IVertex<V> first);
     }
 }

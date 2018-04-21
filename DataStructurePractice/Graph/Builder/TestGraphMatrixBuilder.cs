@@ -11,6 +11,16 @@ namespace Graph
             Graph = new GraphMatrix<string, int>(6);
         }
 
+/*
+     6
+ PO----LA
+ |\   5/ \
+ | \3 /   \10
+7|  SF    LV
+ | /       |
+ |/2       |5
+ SE        AU
+*/
         public void Build()
         {
             var la = new Vertex<string>(0, "Los Angeles");

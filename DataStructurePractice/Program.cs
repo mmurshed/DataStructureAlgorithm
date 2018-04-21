@@ -122,7 +122,7 @@ namespace Program
             // var lps = DynamicProgramming.LPS("forgeeksskeegfor");
             // Console.WriteLine(lps);
 
-            //var testGraph = new TestGraphMatrixBuilder();
+            //var testGraph = new Graph.TestGraphMatrixBuilder();
 
             //testGraph.Build();
             //// Check to see that all neighbors are properly set up
@@ -133,22 +133,23 @@ namespace Program
 
             //Console.WriteLine();
 
-            //ConsoleWriterVisitor<string> visitor = new ConsoleWriterVisitor<string>();
+            //var visitor = new Graph.ConsoleWriterVisitor<string>();
+            //var visitorEdge = new Graph.DummyEdgeVisitor<string, int>();
 
-            //GraphSearch<string, int> graphSearch = new DepthFirstSearch<string, int>();
+            // var graphSearch = new Graph.DepthFirstSearchStack<string, int>();
 
-            //graphSearch.Search(testGraph.Graph, visitor);
-
-            //Console.WriteLine();
-
-            //graphSearch = new BreadthFirstSearch<string, int>();
-
-            //graphSearch.Search(testGraph.Graph, visitor);
+            //graphSearch.Search(testGraph.Graph, visitor, visitorEdge);
 
             //Console.WriteLine();
+
+            //var graphSearch = new Graph.BreadthFirstSearch<string, int>();
+
+            //graphSearch.Search(testGraph.Graph, visitor, visitorEdge);
+
+            //Console.WriteLine();
             //Console.WriteLine();
 
-            //GraphEnumerator<string, int> genum = new DepthFirstEnumerator<string, int>(testGraph.Graph);
+            //var genum = new Graph.DepthFirstEnumeratorStack<string, int>(testGraph.Graph);
 
             //while(genum.MoveNext())
             //{
@@ -157,21 +158,21 @@ namespace Program
 
             //Console.WriteLine();
 
-            //genum = new BreadthFirstEnumerator<string, int>(testGraph.Graph);
+            //var genum = new Graph.BreadthFirstEnumerator<string, int>(testGraph.Graph);
 
             //while(genum.MoveNext())
             //{
             //    Console.WriteLine(genum.Current.Value);
             //}
 
-            //TopoGraphListBuilder topoGraphBuilder = new TopoGraphListBuilder();
-            //topoGraphBuilder.Build();
-            //Graph.Algorithms.TopologicalSortBFS<int, int> topS = new Algorithms.TopologicalSortBFS<int, int>();
-            //var sort = topS.Sort(topoGraphBuilder.Graph);
-            //foreach(var x in sort)
-            //{
-            //    Console.WriteLine(x.ID);
-            //}
+            var topoGraphBuilder = new Graph.TopoGraphListBuilder();
+            topoGraphBuilder.Build();
+            var topS = new Graph.Algorithms.TopologicalSortBFS<int, int>();
+            var sort = topS.Sort(topoGraphBuilder.Graph);
+            foreach(var x in sort)
+            {
+                Console.WriteLine(x.ID);
+            }
 
             //PriorityQueue.PriorityQueue<int> pq = new PriorityQueue.PriorityQueue<int>(new PriorityQueue.MaxComparer<int>());
 
@@ -444,15 +445,15 @@ namespace Program
             //foreach (var p in y)
             //Console.WriteLine(p);
 
-            int s = 64;
-            var v = new Vector.BitVector(s);
-            for (int i = 0; i < s; i++)
-            {
-                v.Update(i, true);
-            }
+            //int s = 64;
+            //var v = new Vector.BitVector(s);
+            //for (int i = 0; i < s; i++)
+            //{
+            //    v.Update(i, true);
+            //}
 
-            v.Clear();
-            Console.WriteLine(v);
+            //v.Clear();
+            //Console.WriteLine(v);
         
         }
 

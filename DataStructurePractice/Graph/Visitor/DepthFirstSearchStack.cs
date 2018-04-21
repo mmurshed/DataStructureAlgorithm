@@ -25,7 +25,7 @@ namespace Graph
                     vertexVisitor.PreVisit(vertex);
                     SetVisited(vertex);
 
-                    foreach (var neighbour in vertex.Neighbours)
+                    foreach (var neighbour in graph.GetNeighbours(vertex))
                     {
                         edgeVisitor.Visit(graph.GetEdge(vertex, neighbour));
                         stack.Push(neighbour);

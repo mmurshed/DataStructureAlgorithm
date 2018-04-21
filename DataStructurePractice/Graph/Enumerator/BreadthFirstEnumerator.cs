@@ -5,14 +5,14 @@ namespace Graph
 {
     public class BreadthFirstEnumerator<V, E> : GraphEnumerator<V, E>
     {
-        public BreadthFirstEnumerator(IGraph2<V, E> graph) : base(graph) { }
+        public BreadthFirstEnumerator(IGraph<V, E> graph) : base(graph) { }
 
-        protected override IEnumerable<IVertex2<V>> Search(IVertex2<V> root)
+        protected override IEnumerable<IVertex<V>> Search(IVertex<V> root)
         {
             if (IsVisited(root))
                 yield break;
            
-            var queue = new Queue<IVertex2<V>>();
+            var queue = new Queue<IVertex<V>>();
 
             queue.Enqueue(root);
 

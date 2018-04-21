@@ -53,6 +53,9 @@
     <Folder Include="Graph\Algorithms\Connectedness\" />
     <Folder Include="Graph\Bipartite\" />
     <Folder Include="Graph\Algorithms\Cycle\" />
+    <Folder Include="Graph\Deprecated\" />
+    <Folder Include="Graph\Vertex\Deprecated\" />
+    <Folder Include="Graph\Edge\Deprecated\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tree\Node\BinaryNode %28copy%29.cs" />

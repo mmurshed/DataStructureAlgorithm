@@ -43,7 +43,7 @@ We use a boolean array sptSet[] to represent the set of vertices included in SPT
         // shortestPath[i] will be true if vertex i is included in shortest path or shortest distance from src to i is finalized
         private bool[] componentOfPath;
 
-        public SingleSourceShortestPathSimple(IGraph2<V, int> graph, IVertex2<V> source)
+        public SingleSourceShortestPathSimple(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
             componentOfPath = new bool[graph.Size];

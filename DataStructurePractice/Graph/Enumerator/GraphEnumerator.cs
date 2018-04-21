@@ -4,30 +4,30 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public abstract class GraphEnumerator<V, E> : IEnumerator<IVertex2<V>>
+    public abstract class GraphEnumerator<V, E> : IEnumerator<IVertex<V>>
     {
-        protected readonly IGraph2<V, E> graph;
-        private readonly HashSet<IVertex2<V>> visited = new HashSet<IVertex2<V>>();
+        protected readonly IGraph<V, E> graph;
+        private readonly HashSet<IVertex<V>> visited = new HashSet<IVertex<V>>();
 
-        protected IEnumerator<IVertex2<V>> vertexEnumerator;
-        protected IEnumerator<IVertex2<V>> searchEnumerator;
+        protected IEnumerator<IVertex<V>> vertexEnumerator;
+        protected IEnumerator<IVertex<V>> searchEnumerator;
 
-        public GraphEnumerator(IGraph2<V, E> graph)
+        public GraphEnumerator(IGraph<V, E> graph)
         {
             this.graph = graph;
             vertexEnumerator = graph.Vertices.GetEnumerator();
         }
 
-        protected IVertex2<V> current;
+        protected IVertex<V> current;
         object IEnumerator.Current => current;
-        public IVertex2<V> Current => current;
+        public IVertex<V> Current => current;
 
-        protected bool IsVisited(IVertex2<V> vertex)
+        protected bool IsVisited(IVertex<V> vertex)
         {
             return visited.Contains(vertex);
         }
 
-        protected void SetVisited(IVertex2<V> vertex)
+        protected void SetVisited(IVertex<V> vertex)
         {
             visited.Add(vertex);
         }
@@ -71,6 +71,6 @@ namespace Graph
 			return succeeded;
         }
 
-        protected abstract IEnumerable<IVertex2<V>> Search(IVertex2<V> root);
+        protected abstract IEnumerable<IVertex<V>> Search(IVertex<V> root);
     }
 }

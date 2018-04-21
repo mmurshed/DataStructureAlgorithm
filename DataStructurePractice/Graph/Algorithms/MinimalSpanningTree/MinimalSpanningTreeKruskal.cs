@@ -7,7 +7,7 @@ namespace Graph
     {
         UnionFind<V, int> unionFind;
 
-        public MinimalSpanningTreeKruskal(IGraph2<V, int> graph, IVertex2<V> source)
+        public MinimalSpanningTreeKruskal(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
             unionFind = new UnionFind<V, int>(graph.Size);

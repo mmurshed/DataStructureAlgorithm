@@ -158,7 +158,7 @@ The two techniques complement each other. The time complexity of each operations
             return false;
         }
 
-        public bool IsCycle(IEnumerable<IEdge2<V,T>> edges)
+        public bool IsCycle(IEnumerable<IEdge<V,T>> edges)
         {
             foreach(var edge in edges)
             {

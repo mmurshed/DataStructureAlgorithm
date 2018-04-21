@@ -3,10 +3,10 @@ namespace Graph
 {
     public class VertexPair<V> : IEquatable<VertexPair<V>>
     {
-        public IVertex2<V> Start { get; set; }
-        public IVertex2<V> End { get; set; }
+        public IVertex<V> Start { get; set; }
+        public IVertex<V> End { get; set; }
    
-        public VertexPair(IVertex2<V> start, IVertex2<V> end)
+        public VertexPair(IVertex<V> start, IVertex<V> end)
         {
             Start = start;
             End = end;

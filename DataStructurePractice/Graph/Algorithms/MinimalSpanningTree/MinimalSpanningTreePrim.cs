@@ -45,14 +45,14 @@ We use a boolean array mstSet[] to represent the set of vertices included in MST
     {
         private bool[] componentOfMST;
         private int[] distance;
-        private IVertex2<V>[] neighbor;
+        private IVertex<V>[] neighbor;
 
-        public MinimalSpanningTreePrim(IGraph2<V, int> graph, IVertex2<V> source)
+        public MinimalSpanningTreePrim(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
             componentOfMST = new bool[graph.Size];
             distance = new int[graph.Size];
-            neighbor = new IVertex2<V>[graph.Size];
+            neighbor = new IVertex<V>[graph.Size];
         }
 
         private int FindMinimumDistance()
@@ -107,7 +107,7 @@ We use a boolean array mstSet[] to represent the set of vertices included in MST
 
                     var v1 = graph.GetVertexByID((uint)v);
                     var v2 = neighbor[v];
-                    var edge = new Edge2<V, int>(v1, v2);
+                    var edge = new Edge<V, int>(v1, v2);
                     MST.AddEdge(edge);
 
                     foreach (var w in graph.GetNeighbours(v1))

@@ -2,22 +2,22 @@
 
 namespace Graph
 {
-    public class ShortestPathGraphListBuilder : IGraphBuilder2<int, int>
+    public class ShortestPathGraphListBuilder : IGraphBuilder<int, int>
     {
-        public IGraph2<int, int> Graph { get; }
+        public IGraph<int, int> Graph { get; }
 
         public ShortestPathGraphListBuilder()
         {
-            Graph = new GraphList2<int, int>();
+            Graph = new GraphList<int, int>();
         }
 
         public void Build()
         {
-            var _0 = new Vertex2<int>(0);
-            var _1 = new Vertex2<int>(1);
-            var _2 = new Vertex2<int>(2);
-            var _3 = new Vertex2<int>(3);
-            var _4 = new Vertex2<int>(4);
+            var _0 = new Vertex<int>(0);
+            var _1 = new Vertex<int>(1);
+            var _2 = new Vertex<int>(2);
+            var _3 = new Vertex<int>(3);
+            var _4 = new Vertex<int>(4);
 
             Graph.AddVertex(_0);
             Graph.AddVertex(_1);
@@ -46,9 +46,9 @@ namespace Graph
             AddEdge(_4, _3, 4);
         }
 
-        public void AddEdge(IVertex2<int> start, IVertex2<int> end, int weight)
+        public void AddEdge(IVertex<int> start, IVertex<int> end, int weight)
         {
-            var edge = new Edge2<int, int>(start, end, weight);
+            var edge = new Edge<int, int>(start, end, weight);
             Graph.AddEdge(edge);
         }
 

@@ -11,7 +11,7 @@ namespace Graph.Algorithms
             int[] predecessorCount = new int[graph.Size];
             foreach(var vertex in graph.Vertices)
             {
-                foreach(var neighbour in vertex.Neighbours)
+                foreach(var neighbour in graph.GetNeighbours(vertex))
                 {
                     predecessorCount[neighbour.ID]++;
                 }
@@ -30,7 +30,7 @@ namespace Graph.Algorithms
                 var vertex = queue.Dequeue();
                 list.AddLast(vertex);
 
-                foreach (var neighbour in vertex.Neighbours)
+                foreach (var neighbour in graph.GetNeighbours(vertex))
                 {
                     predecessorCount[neighbour.ID]--;
                     if(predecessorCount[neighbour.ID] == 0)
