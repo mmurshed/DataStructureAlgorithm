@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     // Source: https://bitlush.com/blog/efficient-avl-tree-in-c-sharp
 

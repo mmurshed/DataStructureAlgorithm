@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SkipList
+namespace DataStructure.List
 {
     public class Node<T> where T: IComparable<T>
     {

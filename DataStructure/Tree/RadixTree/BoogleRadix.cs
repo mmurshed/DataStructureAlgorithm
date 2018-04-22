@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     // Source: https://www.geeksforgeeks.org/boggle-set-2-using-trie/
     /*

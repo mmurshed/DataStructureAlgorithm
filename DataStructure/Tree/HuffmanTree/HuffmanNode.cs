@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tree
+namespace DataStructure.Tree
 {
     public class HuffmanNode : IComparable<HuffmanNode>
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     /// <summary>
     /// Trie or PrefixTree

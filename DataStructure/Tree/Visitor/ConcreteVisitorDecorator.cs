@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     public class ConcreteVisitorDecorator<K, V> : VisitorDecorator<K, V>
         where K : IComparable<K>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     public interface IBinaryTree<K, V>
         where K: IComparable<K>

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tree
+namespace DataStructure.Tree
 {
     public interface ITreeNode<K, V>: IComparable<ITreeNode<K, V>>, IEquatable<ITreeNode<K, V>>
         where K: IComparable<K>

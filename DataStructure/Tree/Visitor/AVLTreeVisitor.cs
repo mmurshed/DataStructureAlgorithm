@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tree
+namespace DataStructure.Tree
 {
     public class AVLTreeVisitor<K, V>
         where K: IComparable<K>

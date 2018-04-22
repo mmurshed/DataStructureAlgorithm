@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MDictionary
+namespace DataStructure.Dictionary
 {
     public class KeyValuePair<K, V> : IKeyValuePair<K, V>
     {

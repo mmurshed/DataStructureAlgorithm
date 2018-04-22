@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -28,197 +28,101 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backtracking\HamiltonianCycle.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Backtracking\KnightsTour.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Backtracking\NQueen.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Backtracking\RatInMaze.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Backtracking\Sudoku.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Dictionary\ChainedDictionary.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Dictionary\IDictionary.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Dictionary\IKeyValuePair.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Dictionary\KeyValuePair.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\01Knapsack\CoinChange.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\01Knapsack\DiceThrow.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\01Knapsack\ZeroOneKnapsack.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\BuySellStocks\1BuySellStocksOnce.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\BuySellStocks\2BuySellStocksAnytime.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\BuySellStocks\3BuySellStocksTwice.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\BuySellStocks\4BuySellStocksKTimes.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LargestSum\LargestSumContiguousSubarray.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LargestSum\LargestSumRectangle.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LargestSum\MaximumProductContiguousSubarray.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\EditDistance.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestCommonSubsequence.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestPalindromicSubsequence.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestRepeatingSubsequence.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\MinInsertPalindrom.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\BoxStack.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestChainOfPairs.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingPathMatrix.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingSubsequence.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\MaxSumIncreasingSubsequence.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\BooleanParenthesization.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\BurstBalloons.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\MatrixChainMultiplication.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\PalindromePartitioning.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\PartitionProblem.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\Micellaneous\EggDropping.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\Micellaneous\JumpGame.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\Micellaneous\JumpGame2.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\Micellaneous\OptimalStrategyGame.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="DynamicProgramming\Numbers\CatalanNumber.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\BasicCalculator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\CountSmallerNumbers.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\ExpressionAddOperators.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\LongestAbsolutePath.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\LongestConsecutiveSeq.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\LongestIncreasingPathMatrix.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\MergeKLists.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\NestedListIterator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\SkylineProblem.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="GoogleProblems\ValidWordAbbreviation.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\Connectedness\ConnectednessTest.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\Cycle\GraphCycle.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\Cycle\GraphCycleEdgeVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\MinimalSpanningTree\MinimalSpanningTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\MinimalSpanningTree\MinimalSpanningTreeKruskal.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\MinimalSpanningTree\MinimalSpanningTreePrim.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\MinimalSpanningTree\UnionFind.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\AllSourceShortestPath.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\AStarSearch\AStarManhattanHeuristic.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\AStarSearch\AStarSearch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\AStarSearch\IAStarHeuristic.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\IShortestPath.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\SingleSourceShortestPath.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\SingleSourceShortestPathNegativeWeight.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\SingleSourceShortestPathPQ.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\ShortestPath\SingleSourceShortestPathSimple.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\TopologicalSort\DFSTopoSortVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\TopologicalSort\TopologicalSortBFS.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Algorithms\TopologicalSort\TopologicalSortDFS.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Bipartite\BipartiteEdgeVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Bipartite\BipartiteGraph.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Deprecated\GraphLinked.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Deprecated\GraphList.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Deprecated\GraphListWeighted.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Deprecated\GraphMatrix.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Deprecated\IGraph.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Deprecated\ILinkedGraph.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\Deprecated\Edge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\Deprecated\IEdge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\Deprecated\ILinkedEdge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\Deprecated\LinkedEdge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\Edge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\HyperEdge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\IEdge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\IHyperEdge.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Edge\VertexPair.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Enumerator\BreadthFirstEnumerator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Enumerator\DepthFirstEnumerator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Enumerator\DepthFirstEnumeratorStack.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Enumerator\GraphEnumerator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\GraphList.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\GraphMatrix.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\IGraph.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\Deprecated\ILinkedVertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\Deprecated\IVertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\Deprecated\LinkedVertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\Deprecated\Vertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\ILinkedVertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\IVertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\LinkedVertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Vertex\Vertex.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\BreadthFirstSearch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\ConsoleWriterVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\DepthFirstSearch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\DepthFirstSearchStack.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\DummyEdgeVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\DummyVertexVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\GraphSearch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\IVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Graph\Visitor\ListVertexVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="List\BitManipulator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="List\BitVector.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="List\LinkedList.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="List\SkipList.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Miscellaneous\LFUCache.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Miscellaneous\LRUCache.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Queue\MaxHeap.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Queue\MaxHeapSimple.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Queue\MinHeap.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Queue\MonotonicQueue.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Queue\PriorityQueue.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\ISort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\N\BucketSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\N\CountingSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\N\RadixSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NLogN\HeapSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NLogN\MergeSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NLogN\QuickSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NLogN\TimSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NLogSquaredN\BitonicSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\BubbleSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\BubbleSortRecursive.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\InsertionSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\InsertionSortGeneralize.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\InsertionSortRecursive.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\SelectionSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\NSquared\ShellSort.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Sorting\SortBase.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="StringMatch\BoyerMooreStringMatch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="StringMatch\IStringMatch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="StringMatch\KNPStringMatch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="StringMatch\NaiveStringMatch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="StringMatch\RabinKarpStringMatch.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\AVLTree\AVLTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\AVLTree\AVLTreeV1.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\AVLTree\Node\AVLNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\AVLTree\Node\AVLNodeV1.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\AVLTree\Node\IAVLNodeV1.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\BinarySearchTree\BinarySearchTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\BinarySearchTree\BinarySearchTreeV1.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\BinarySearchTree\IBinaryTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\BinarySearchTree\Node\BinaryNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\BinarySearchTree\Node\IBinaryNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\BinarySearchTree\Node\ITreeNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\CartesianTree\CartesianNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\CartesianTree\CartesianTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\HuffmanTree\HuffmanNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\HuffmanTree\HuffmanTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\HuffmanTree\PriorityQueue.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Problems\LevelOrderWithNext.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Problems\ZigZagTraversal.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\RadixTree\BoogleRadix.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\RadixTree\RadixTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\SgementTree\SegmentTree.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\TriePrefix\Boogle.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\TriePrefix\MahbubTrie.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\TriePrefix\SimpleTrie.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\TriePrefix\Trie.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\TriePrefix\TrieNode.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Visitor\AVLTreeVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Visitor\AVLTreeVisitorV1.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Visitor\ConcreteVisitorDecorator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Visitor\ITreeVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Visitor\TreeVisitor.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Tree\Visitor\VisitorDecorator.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="Cache\LFUCache.cs" />
+    <Compile Include="Cache\LRUCache.cs" />
+    <Compile Include="Dictionary\ChainedDictionary.cs" />
+    <Compile Include="Dictionary\IDictionary.cs" />
+    <Compile Include="Dictionary\IKeyValuePair.cs" />
+    <Compile Include="Dictionary\KeyValuePair.cs" />
+    <Compile Include="Graph\Deprecated\GraphLinked.cs" />
+    <Compile Include="Graph\Deprecated\GraphList.cs" />
+    <Compile Include="Graph\Deprecated\GraphListWeighted.cs" />
+    <Compile Include="Graph\Deprecated\GraphMatrix.cs" />
+    <Compile Include="Graph\Deprecated\IGraph.cs" />
+    <Compile Include="Graph\Deprecated\ILinkedGraph.cs" />
+    <Compile Include="Graph\Edge\Deprecated\Edge.cs" />
+    <Compile Include="Graph\Edge\Deprecated\IEdge.cs" />
+    <Compile Include="Graph\Edge\Deprecated\ILinkedEdge.cs" />
+    <Compile Include="Graph\Edge\Deprecated\LinkedEdge.cs" />
+    <Compile Include="Graph\Edge\Edge.cs" />
+    <Compile Include="Graph\Edge\HyperEdge.cs" />
+    <Compile Include="Graph\Edge\IEdge.cs" />
+    <Compile Include="Graph\Edge\IHyperEdge.cs" />
+    <Compile Include="Graph\Edge\VertexPair.cs" />
+    <Compile Include="Graph\Enumerator\BreadthFirstEnumerator.cs" />
+    <Compile Include="Graph\Enumerator\DepthFirstEnumerator.cs" />
+    <Compile Include="Graph\Enumerator\DepthFirstEnumeratorStack.cs" />
+    <Compile Include="Graph\Enumerator\GraphEnumerator.cs" />
+    <Compile Include="Graph\GraphList.cs" />
+    <Compile Include="Graph\GraphMatrix.cs" />
+    <Compile Include="Graph\IGraph.cs" />
+    <Compile Include="Graph\Vertex\Deprecated\ILinkedVertex.cs" />
+    <Compile Include="Graph\Vertex\Deprecated\IVertex.cs" />
+    <Compile Include="Graph\Vertex\Deprecated\LinkedVertex.cs" />
+    <Compile Include="Graph\Vertex\Deprecated\Vertex.cs" />
+    <Compile Include="Graph\Vertex\ILinkedVertex.cs" />
+    <Compile Include="Graph\Vertex\IVertex.cs" />
+    <Compile Include="Graph\Vertex\LinkedVertex.cs" />
+    <Compile Include="Graph\Vertex\Vertex.cs" />
+    <Compile Include="Graph\Visitor\BreadthFirstSearch.cs" />
+    <Compile Include="Graph\Visitor\ConsoleWriterVisitor.cs" />
+    <Compile Include="Graph\Visitor\DepthFirstSearch.cs" />
+    <Compile Include="Graph\Visitor\DepthFirstSearchStack.cs" />
+    <Compile Include="Graph\Visitor\DummyEdgeVisitor.cs" />
+    <Compile Include="Graph\Visitor\DummyVertexVisitor.cs" />
+    <Compile Include="Graph\Visitor\GraphSearch.cs" />
+    <Compile Include="Graph\Visitor\IVisitor.cs" />
+    <Compile Include="Graph\Visitor\ListVertexVisitor.cs" />
+    <Compile Include="Set\Set.cs" />
+    <Compile Include="Set\HashSet.cs" />
+    <Compile Include="Vector\BitManipulator.cs" />
+    <Compile Include="Vector\BitVector.cs" />
+    <Compile Include="List\LinkedList.cs" />
+    <Compile Include="List\SkipList.cs" />
+    <Compile Include="Queue\MaxHeap.cs" />
+    <Compile Include="Queue\MaxHeapSimple.cs" />
+    <Compile Include="Queue\MinHeap.cs" />
+    <Compile Include="Queue\MonotonicQueue.cs" />
+    <Compile Include="Queue\PriorityQueue.cs" />
+    <Compile Include="Set\BitSet.cs" />
+    <Compile Include="Set\ISet.cs" />
+    <Compile Include="Tree\AVLTree\AVLTree.cs" />
+    <Compile Include="Tree\AVLTree\AVLTreeV1.cs" />
+    <Compile Include="Tree\AVLTree\Node\AVLNode.cs" />
+    <Compile Include="Tree\AVLTree\Node\AVLNodeV1.cs" />
+    <Compile Include="Tree\AVLTree\Node\IAVLNodeV1.cs" />
+    <Compile Include="Tree\BinarySearchTree\BinarySearchTree.cs" />
+    <Compile Include="Tree\BinarySearchTree\BinarySearchTreeV1.cs" />
+    <Compile Include="Tree\BinarySearchTree\IBinaryTree.cs" />
+    <Compile Include="Tree\BinarySearchTree\Node\BinaryNode.cs" />
+    <Compile Include="Tree\BinarySearchTree\Node\IBinaryNode.cs" />
+    <Compile Include="Tree\BinarySearchTree\Node\ITreeNode.cs" />
+    <Compile Include="Tree\CartesianTree\CartesianNode.cs" />
+    <Compile Include="Tree\CartesianTree\CartesianTree.cs" />
+    <Compile Include="Tree\HuffmanTree\HuffmanNode.cs" />
+    <Compile Include="Tree\HuffmanTree\HuffmanTree.cs" />
+    <Compile Include="Tree\HuffmanTree\PriorityQueue.cs" />
+    <Compile Include="Tree\Problems\LevelOrderWithNext.cs" />
+    <Compile Include="Tree\Problems\ZigZagTraversal.cs" />
+    <Compile Include="Tree\RadixTree\BoogleRadix.cs" />
+    <Compile Include="Tree\RadixTree\RadixTree.cs" />
+    <Compile Include="Tree\SgementTree\SegmentTree.cs" />
+    <Compile Include="Tree\TriePrefix\Boogle.cs" />
+    <Compile Include="Tree\TriePrefix\MahbubTrie.cs" />
+    <Compile Include="Tree\TriePrefix\SimpleTrie.cs" />
+    <Compile Include="Tree\TriePrefix\Trie.cs" />
+    <Compile Include="Tree\TriePrefix\TrieNode.cs" />
+    <Compile Include="Tree\Visitor\AVLTreeVisitor.cs" />
+    <Compile Include="Tree\Visitor\AVLTreeVisitorV1.cs" />
+    <Compile Include="Tree\Visitor\ConcreteVisitorDecorator.cs" />
+    <Compile Include="Tree\Visitor\ITreeVisitor.cs" />
+    <Compile Include="Tree\Visitor\TreeVisitor.cs" />
+    <Compile Include="Tree\Visitor\VisitorDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="List\SkipList.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Backtracking\" />
-    <Folder Include="Dictionary\" />
-    <Folder Include="DynamicProgramming\" />
-    <Folder Include="GoogleProblems\" />
-    <Folder Include="Graph\" />
-    <Folder Include="List\" />
-    <Folder Include="Miscellaneous\" />
-    <Folder Include="Queue\" />
-    <Folder Include="Sorting\" />
-    <Folder Include="StringMatch\" />
-    <Folder Include="Tree\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

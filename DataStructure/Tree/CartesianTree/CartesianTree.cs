@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     public class CartesianTree<T>
     {

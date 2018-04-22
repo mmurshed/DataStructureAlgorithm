@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tree
+namespace DataStructure.Tree
 {
     public class BinaryNode<K, V> : IBinaryNode<K, V>
         where K: IComparable<K>

@@ -1,4 +1,5 @@
 ﻿using System;
+using DataStructure.Graph;
 
 namespace DataStructure.NUnit.Graph.Builder
 {

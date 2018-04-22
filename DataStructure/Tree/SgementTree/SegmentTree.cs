@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tree
+namespace DataStructure.Tree
 {
     /*
      * Source: https://www.hackerearth.com/practice/notes/segment-tree-and-lazy-propagation/

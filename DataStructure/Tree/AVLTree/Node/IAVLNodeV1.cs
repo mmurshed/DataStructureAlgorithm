@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Tree
+namespace DataStructure.Tree
 {
     public enum BalanceFactor { RIGHT_HIGHER, EQUAL_HEIGHT, LEFT_HIGHER };
 
