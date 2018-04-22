@@ -1,12 +1,36 @@
-﻿<Properties StartupConfiguration="{8A7F0ED7-3645-430B-A2BA-0503BBF1B343}|Default">
-  <MonoDevelop.Ide.ItemProperties.DataStructurePractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupConfiguration="{ED9E84CB-8A7F-492E-9D59-6F975C6B5F2D}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructurePracticeNUnit/Graph/Builder/IGraphBuilder.cs">
+    <Files>
+      <File FileName="DataStructurePractice/Graph/GraphMatrix.cs" Line="89" Column="10" />
+      <File FileName="DataStructurePractice/Graph/GraphList.cs" Line="7" Column="1" />
+      <File FileName="DataStructurePracticeNUnit/Graph/GraphSearchVisitorTestsOld.cs" Line="13" Column="10" />
+      <File FileName="DataStructurePractice/Program.cs" Line="176" Column="1" />
+      <File FileName="DataStructurePractice/Graph/Visitor/ListVertexVisitor.cs" Line="6" Column="12" />
+      <File FileName="DataStructurePracticeNUnit/Graph/Builder/TestGraphMatrixBuilder.cs" Line="6" Column="6" />
+      <File FileName="DataStructurePracticeNUnit/Graph/GraphSearchVisitorTests.cs" Line="25" Column="1" />
+      <File FileName="DataStructurePractice/DynamicProgramming/01Knapsack/CoinChange.cs" Line="6" Column="11" />
+      <File FileName="DataStructurePractice/DynamicProgramming/LongestCommonSubsequence/EditDistance.cs" Line="20" Column="58" />
+      <File FileName="DataStructurePractice/GoogleProblems/BasicCalculator.cs" Line="4" Column="11" />
+      <File FileName="DataStructurePractice/Graph/IGraph.cs" Line="4" Column="27" />
+      <File FileName="DataStructurePractice/Graph/Visitor/ConsoleWriterVisitor.cs" Line="5" Column="38" />
+      <File FileName="DataStructurePracticeNUnit/Graph/Builder/IGraphBuilder.cs" Line="10" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="DataStructurePractice" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" relfile="DataStructurePractice/Graph/Visitor/DepthFirstSearchStack.cs" line="28" column="1" />
+      <Breakpoint file="/Users/mahbub/Google Drive/DataStructurePractice/DataStructurePracticeNUnit/Graph/GraphSearchVisitorTests.cs" relfile="DataStructurePracticeNUnit/Graph/GraphSearchVisitorTests.cs" line="33" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DataStructurePractice.NUnit PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

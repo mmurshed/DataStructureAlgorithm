@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace DataStructure.Graph.Algorithms
+{
+    public class AStarSearch<V> : SingleSourceShortestPath<V>
+        where V: IComparable
+    {
+        public class VertexComparer : IComparer<IVertex<V>>
+        {
+            public int Compare(IVertex<V> x, IVertex<V> y)
+            {
+                return x.Value.CompareTo(y.Value);
+            }
+        }
+
+        private PriorityQueue.PriorityQueue<IVertex<V>> queue;
+        private IAStarHeuristic<V> heuristic;
+        private IVertex<V> target;
+
+        public AStarSearch(IGraph<V, int> graph, IVertex<V> source, IVertex<V> target, IAStarHeuristic<V> heuristic)
+            : base(graph, source)
+        {
+            this.heuristic = heuristic;
+            this.target = target;
+        }
+
+        protected override void Init()
+        {
+            base.Init();
+            queue = new PriorityQueue.PriorityQueue<IVertex<V>>(new VertexComparer());
+            foreach (var vertex in graph.Vertices)
+            {
+                queue.Enqueue(vertex);
+            }
+        }
+
+        // Dijkstra
+        public override void ShortestPath()
+        {
+            Init();
+
+            while(!queue.Empty)
+            {
+                var v = queue.Dequeue();
+
+                foreach(var w in graph.GetNeighbours(v))
+                {
+                    var edge = graph.GetEdge(v, w);
+                    int heuristicDistance = heuristic.Distance(w, target);
+                    var newDistance = Distance[(int)v.ID] + edge.Value + heuristicDistance;
+
+                    if (newDistance < Distance[(int)w.ID])
+                    {
+                        Distance[(int)w.ID] = newDistance;
+                        PreviousVertex[(int)w.ID] = v;
+                    }
+                }
+            }
+        }
+    }
+}

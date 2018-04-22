@@ -1,5 +1,4 @@
 ﻿using System;
-using Tree;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -165,14 +164,14 @@ namespace Program
             //    Console.WriteLine(genum.Current.Value);
             //}
 
-            var topoGraphBuilder = new Graph.TopoGraphListBuilder();
-            topoGraphBuilder.Build();
-            var topS = new Graph.Algorithms.TopologicalSortBFS<int, int>();
-            var sort = topS.Sort(topoGraphBuilder.Graph);
-            foreach(var x in sort)
-            {
-                Console.WriteLine(x.ID);
-            }
+            //var topoGraphBuilder = new Graph.TopoGraphListBuilder();
+            //topoGraphBuilder.Build();
+            //var topS = new Graph.Algorithms.TopologicalSortBFS<int, int>();
+            //var sort = topS.Sort(topoGraphBuilder.Graph);
+            //foreach(var x in sort)
+            //{
+            //    Console.WriteLine(x.ID);
+            //}
 
             //PriorityQueue.PriorityQueue<int> pq = new PriorityQueue.PriorityQueue<int>(new PriorityQueue.MaxComparer<int>());
 
