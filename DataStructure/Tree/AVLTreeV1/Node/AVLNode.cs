@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataStructure.Tree
+namespace DataStructure.Tree.AVLTreeV1
 {
     public class AVLNodeV1<K, V> : IAVLNodeV1<K, V>
         where K : IComparable<K>

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Tree
+namespace DataStructure.Tree.AVLTreeV1
 {
     public enum BalanceFactor { RIGHT_HIGHER, EQUAL_HEIGHT, LEFT_HIGHER };
 

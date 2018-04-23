@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructure.Tree
+namespace DataStructure.Tree.AVLTreeV1
 {
     public class AVLTreeV1<K, V> : IBinaryTree<K, V>
         where K: IComparable<K>
