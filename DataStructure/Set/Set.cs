@@ -31,7 +31,7 @@ string undetected would prove no great tragedy.
 		{
 			vector = new Vector.BitVector(capacity);
 			HashCount = hashCount;
-			hash = Hash;
+			Hash = hash;
 		}
 
 		public void Add(T item)

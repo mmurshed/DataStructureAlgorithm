@@ -30,7 +30,7 @@
   <ItemGroup>
     <Compile Include="Cache\LFUCache.cs" />
     <Compile Include="Cache\LRUCache.cs" />
-    <Compile Include="Dictionary\ChainedDictionary.cs" />
+    <Compile Include="Dictionary\OpenAddressDictionary.cs" />
     <Compile Include="Dictionary\IDictionary.cs" />
     <Compile Include="Dictionary\IKeyValuePair.cs" />
     <Compile Include="Dictionary\KeyValuePair.cs" />
@@ -118,6 +118,10 @@
     <Compile Include="Tree\Visitor\ITreeVisitor.cs" />
     <Compile Include="Tree\Visitor\TreeVisitor.cs" />
     <Compile Include="Tree\Visitor\VisitorDecorator.cs" />
+    <Compile Include="Dictionary\ChainedDictionary.cs" />
+    <Compile Include="Dictionary\IProbingAlgorithm.cs" />
+    <Compile Include="Dictionary\LinearProbing.cs" />
+    <Compile Include="Dictionary\QuadraticProbing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
