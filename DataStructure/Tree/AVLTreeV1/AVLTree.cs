@@ -4,17 +4,17 @@ using System.Text;
 
 namespace DataStructure.Tree.AVLTreeV1
 {
-    public class AVLTreeV1<K, V> : IBinaryTree<K, V>
+    public class AVLTree<K, V> : IBinaryTree<K, V>
         where K: IComparable<K>
     {
-        public AVLNodeV1<K, V> Root;
+        public AVLNode<K, V> Root;
 
         public V Get(K Key)
         {
             return Get(Root, Key).Value;
         }
 
-        public AVLNodeV1<K, V> Get(AVLNodeV1<K, V> Subroot, K Key)
+        public AVLNode<K, V> Get(AVLNode<K, V> Subroot, K Key)
         {
             if (Subroot == null)
                 return null;
@@ -37,7 +37,7 @@ namespace DataStructure.Tree.AVLTreeV1
             return true;
         }
 
-        private bool RotateLeft(ref AVLNodeV1<K, V> subroot)
+        private bool RotateLeft(ref AVLNode<K, V> subroot)
         {
             if (subroot == null || subroot.Right == null)
                 return false;
@@ -50,7 +50,7 @@ namespace DataStructure.Tree.AVLTreeV1
             return true;
         }
 
-        private bool RotateRight(ref AVLNodeV1<K, V> subroot)
+        private bool RotateRight(ref AVLNode<K, V> subroot)
         {
             if (subroot == null || subroot.Left == null)
                 return false;
@@ -63,7 +63,7 @@ namespace DataStructure.Tree.AVLTreeV1
             return true;
         }
 
-        private void RightBalance(ref AVLNodeV1<K, V> subroot)
+        private void RightBalance(ref AVLNode<K, V> subroot)
         {
             var rightTree = subroot.RightNode;
             switch(rightTree.Balance)
@@ -97,7 +97,7 @@ namespace DataStructure.Tree.AVLTreeV1
             }
         }
 
-        private void LeftBalance(ref AVLNodeV1<K, V> subroot)
+        private void LeftBalance(ref AVLNode<K, V> subroot)
         {
             var leftTree = subroot.LeftNode;
             switch (leftTree.Balance)
@@ -145,11 +145,11 @@ namespace DataStructure.Tree.AVLTreeV1
             return inserted;
 		}
 
-        protected bool Add(IAVLNodeV1<K, V> parent, ref AVLNodeV1<K, V> Subroot, K Key, V Value)
+        protected bool Add(IAVLNode<K, V> parent, ref AVLNode<K, V> Subroot, K Key, V Value)
 		{
             if(Subroot == null)
             {
-                Subroot = new AVLNodeV1<K,  V>(Key, Value);
+                Subroot = new AVLNode<K,  V>(Key, Value);
                 return true;
             }
 
@@ -293,12 +293,12 @@ namespace DataStructure.Tree.AVLTreeV1
 			return true;
 		}
 
-        public void InOrder(AVLTreeVisitorV1<K, V> v)
+        public void InOrder(AVLTreeVisitor<K, V> v)
         {
             InOrder(Root, v, 0);
         }
 
-        public void InOrder(IAVLNodeV1<K, V> Subroot, AVLTreeVisitorV1<K, V> v, int level)
+        public void InOrder(IAVLNode<K, V> Subroot, AVLTreeVisitor<K, V> v, int level)
         {
             if (Subroot == null)
                 return;

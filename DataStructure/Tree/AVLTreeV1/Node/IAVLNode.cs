@@ -3,13 +3,13 @@ namespace DataStructure.Tree.AVLTreeV1
 {
     public enum BalanceFactor { RIGHT_HIGHER, EQUAL_HEIGHT, LEFT_HIGHER };
 
-    public interface IAVLNodeV1<K, V>: ITreeNode<K, V>
+    public interface IAVLNode<K, V>: ITreeNode<K, V>
         where K : IComparable<K>
     {
         BalanceFactor Balance { get; set; }
 
-        IAVLNodeV1<K, V> Parent { get; set; }
-        IAVLNodeV1<K, V> Left { get; set; }
-        IAVLNodeV1<K, V> Right { get; set; }
+        IAVLNode<K, V> Parent { get; set; }
+        IAVLNode<K, V> Left { get; set; }
+        IAVLNode<K, V> Right { get; set; }
     }
 }

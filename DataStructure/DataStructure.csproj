@@ -87,10 +87,6 @@
     <Compile Include="Set\BitSet.cs" />
     <Compile Include="Set\ISet.cs" />
     <Compile Include="Tree\AVLTree\AVLTree.cs" />
-    <Compile Include="Tree\AVLTree\AVLTreeV1.cs" />
-    <Compile Include="Tree\AVLTree\Node\AVLNode.cs" />
-    <Compile Include="Tree\AVLTree\Node\AVLNodeV1.cs" />
-    <Compile Include="Tree\AVLTree\Node\IAVLNodeV1.cs" />
     <Compile Include="Tree\BinarySearchTree\BinarySearchTree.cs" />
     <Compile Include="Tree\BinarySearchTree\BinarySearchTreeV1.cs" />
     <Compile Include="Tree\BinarySearchTree\IBinaryTree.cs" />
@@ -122,11 +118,19 @@
     <Compile Include="Dictionary\IProbingAlgorithm.cs" />
     <Compile Include="Dictionary\LinearProbing.cs" />
     <Compile Include="Dictionary\QuadraticProbing.cs" />
+    <Compile Include="Tree\AVLTreeV1\AVLTree.cs" />
+    <Compile Include="Tree\AVLTree\AVLNode.cs" />
+    <Compile Include="Tree\AVLTreeV1\Node\IAVLNode.cs" />
+    <Compile Include="Tree\AVLTreeV1\Node\AVLNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="List\SkipList.txt" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tree\AVLTreeV1\" />
+    <Folder Include="Tree\AVLTreeV1\Node\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

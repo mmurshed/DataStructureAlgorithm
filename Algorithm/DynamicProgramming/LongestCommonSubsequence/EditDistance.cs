@@ -90,15 +90,6 @@ namespace Algorithm.DynamicProgramming
                            );
         }
 
-        // Driver program
-        public static void Test()
-        {
-            // your code goes here
-            string str1 = "sunday";
-            string str2 = "saturday";
-
-            Console.WriteLine(EditDistNaive(str1, str2, str1.Length, str2.Length));
-        }
 
         /*
          * The time complexity of above solution is exponential. In worst case,
@@ -116,7 +107,7 @@ namespace Algorithm.DynamicProgramming
          * subproblems.
         */
 
-        int editDistDP(string str1, string str2, int m, int n)
+        public static int EditDistDP(string str1, string str2, int m, int n)
         {
             // Create a table to store results of subproblems
             var dp = new int[m + 1, n + 1];

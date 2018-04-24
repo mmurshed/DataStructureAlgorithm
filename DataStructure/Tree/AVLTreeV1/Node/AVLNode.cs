@@ -2,7 +2,7 @@
 
 namespace DataStructure.Tree.AVLTreeV1
 {
-    public class AVLNodeV1<K, V> : IAVLNodeV1<K, V>
+    public class AVLNode<K, V> : IAVLNode<K, V>
         where K : IComparable<K>
     {
         public BalanceFactor Balance { get; set; }
@@ -10,11 +10,11 @@ namespace DataStructure.Tree.AVLTreeV1
         public K Key { get; set; }
         public V Value { get; set; }
 
-        public AVLNodeV1<K, V> ParentNode;
-        public AVLNodeV1<K, V> LeftNode;
-        public AVLNodeV1<K, V> RightNode;
+        public AVLNode<K, V> ParentNode;
+        public AVLNode<K, V> LeftNode;
+        public AVLNode<K, V> RightNode;
 
-        public IAVLNodeV1<K, V> Parent
+        public IAVLNode<K, V> Parent
         {
             get
             {
@@ -22,12 +22,12 @@ namespace DataStructure.Tree.AVLTreeV1
             }
             set
             {
-                ParentNode = value as AVLNodeV1<K, V>;
+                ParentNode = value as AVLNode<K, V>;
             }
         }
 
 
-        public IAVLNodeV1<K, V> Left
+        public IAVLNode<K, V> Left
         {
             get
             {
@@ -35,11 +35,11 @@ namespace DataStructure.Tree.AVLTreeV1
             }
             set
             {
-                LeftNode = value as AVLNodeV1<K, V>;
+                LeftNode = value as AVLNode<K, V>;
             }
         }
 
-        public IAVLNodeV1<K, V> Right
+        public IAVLNode<K, V> Right
         {
             get
             {
@@ -47,11 +47,11 @@ namespace DataStructure.Tree.AVLTreeV1
             }
             set
             {
-                RightNode = value as AVLNodeV1<K, V>;
+                RightNode = value as AVLNode<K, V>;
             }
         }
 
-        public AVLNodeV1(K Key, V Value)
+        public AVLNode(K Key, V Value)
         {
             this.Key = Key;
             this.Value = Value;

@@ -1,19 +1,19 @@
 ﻿using System;
-namespace DataStructure.Tree
+namespace DataStructure.Tree.AVLTreeV1
 {
-    public class AVLTreeVisitorV1<K, V>
+    public class AVLTreeVisitor<K, V>
         where K: IComparable<K>
     {
-        public void PreVisit(IAVLNodeV1<K, V> node, int level)
+        public void PreVisit(IAVLNode<K, V> node, int level)
         {
             Console.Write("(");
         }
-        public void Visit(IAVLNodeV1<K, V> node, int level)
+        public void Visit(IAVLNode<K, V> node, int level)
         {
-            var n = node as IAVLNodeV1<K, V>;
+            var n = node as IAVLNode<K, V>;
             Console.Write($"{level}:{node.Key}");
         }
-        public void PostVisit(IAVLNodeV1<K, V> node, int level)
+        public void PostVisit(IAVLNode<K, V> node, int level)
         {
             Console.Write(")");
         }
