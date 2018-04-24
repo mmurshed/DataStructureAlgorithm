@@ -104,10 +104,7 @@
     <Compile Include="Tree\RadixTree\RadixTree.cs" />
     <Compile Include="Tree\SgementTree\SegmentTree.cs" />
     <Compile Include="Tree\TriePrefix\Boogle.cs" />
-    <Compile Include="Tree\TriePrefix\MahbubTrie.cs" />
-    <Compile Include="Tree\TriePrefix\SimpleTrie.cs" />
     <Compile Include="Tree\TriePrefix\Trie.cs" />
-    <Compile Include="Tree\TriePrefix\TrieNode.cs" />
     <Compile Include="Tree\Visitor\AVLTreeVisitor.cs" />
     <Compile Include="Tree\Visitor\AVLTreeVisitorV1.cs" />
     <Compile Include="Tree\Visitor\ConcreteVisitorDecorator.cs" />
@@ -122,6 +119,9 @@
     <Compile Include="Tree\AVLTree\AVLNode.cs" />
     <Compile Include="Tree\AVLTreeV1\Node\IAVLNode.cs" />
     <Compile Include="Tree\AVLTreeV1\Node\AVLNode.cs" />
+    <Compile Include="Tree\TriePrefix\External\SimpleTrie.cs" />
+    <Compile Include="Tree\TriePrefix\External\Trie.cs" />
+    <Compile Include="Tree\TriePrefix\External\TrieNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -131,6 +131,7 @@
   <ItemGroup>
     <Folder Include="Tree\AVLTreeV1\" />
     <Folder Include="Tree\AVLTreeV1\Node\" />
+    <Folder Include="Tree\TriePrefix\External\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

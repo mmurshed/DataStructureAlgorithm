@@ -1,76 +1,102 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DataStructure.Tree
 {
+    /// <summary>
+    /// Trie or PrefixTree
+    /// </summary>
     public class Trie
     {
-        private readonly TrieNode Root;
+        public const int SIZE = 26;
+        public class Node
+        {
+            public bool IsTerminal;
+
+            public Node[] Children;
+
+            private int Map(char ch)
+            {
+                return char.ToUpper(ch) - 'A';
+            }
+
+            public char GetChar(int i)
+            {
+                return (char)(i + 'A');
+            }
+
+            public Node Get(char ch)
+            {
+                return Children[Map(ch)];
+            }
+
+            public Node Set(char ch, bool isterminal)
+            {
+                var index = Map(ch);
+                Children[index] = new Node(isterminal);
+                return Children[index];
+            }
+
+            public Node(bool isterminal)
+            {
+                Children = new Node[SIZE];
+                IsTerminal = isterminal;
+            }
+        }
+
+        public Node Root;
 
         public Trie()
         {
-            Root = new TrieNode('^', 0, null);
+            Root = new Node(false);
         }
 
-        public TrieNode Prefix(string s)
+        public void Insert(string word)
         {
-            var currentTrieNode = Root;
-            var result = currentTrieNode;
-
-            foreach (var c in s)
+            var node = Root;
+            for (int len = 0; len < word.Length; len++)
             {
-                currentTrieNode = currentTrieNode.FindChildNode(c);
-                if (currentTrieNode == null)
-                    break;
-                result = currentTrieNode;
-            }
-
-            return result;
-        }
-
-        public bool Search(string s)
-        {
-            var prefix = Prefix(s);
-            return prefix.Depth == s.Length && prefix.FindChildNode('$') != null;
-        }
-
-        public void InsertRange(List<string> items)
-        {
-            for (int i = 0; i < items.Count; i++)
-                Insert(items[i]);
-        }
-
-        public void Insert(string s)
-        {
-            var commonPrefix = Prefix(s);
-            var current = commonPrefix;
-
-            for (var i = current.Depth; i < s.Length; i++)
-            {
-                var newTrieNode = new TrieNode(s[i], current.Depth + 1, current);
-                current.Children.Add(newTrieNode);
-                current = newTrieNode;
-            }
-
-            current.Children.Add(new TrieNode('$', current.Depth + 1, current));
-        }
-
-        public void Delete(string s)
-        {
-            if (Search(s))
-            {
-                var node = Prefix(s).FindChildNode('$');
-
-                while (node.IsLeaf())
+                var letter = word[len];
+                var next = node.Get(letter);
+                if (next == null)
                 {
-                    var parent = node.Parent;
-                    parent.DeleteChildNode(node.Value);
-                    node = parent;
+                    next = node.Set(letter, len == word.Length - 1);
+                }
+                else if(next != null && len == word.Length - 1)
+                {
+                    next.IsTerminal = true;
+                }
+                node = next;
+            }            
+        }
+
+        public bool Find(string word)
+        {
+            var node = Root;
+            foreach(var letter in word)
+            {
+                node = node.Get(letter);
+                if (node == null)
+                {
+                    return false;
                 }
             }
+            if (node.IsTerminal)
+                return true;
+            return false;
         }
 
+        public bool StartsWith(string word)
+        {
+            var node = Root;
+            foreach (var letter in word)
+            {
+                node = node.Get(letter);
+                if (node == null)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
-
 }

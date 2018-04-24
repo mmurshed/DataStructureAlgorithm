@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructure.Tree
+namespace DataStructure.Tree.External
 {
     public class TrieNode
     {
