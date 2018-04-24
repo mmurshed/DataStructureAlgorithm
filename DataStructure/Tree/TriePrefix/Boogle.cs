@@ -80,7 +80,7 @@ namespace DataStructure.Tree
 
     public class Boggle
     {
-        private MahbubTrie tree;
+        private Trie tree;
         private char[,] boggle;
         private bool[,] visited;
         private List<string> results;
@@ -99,7 +99,7 @@ namespace DataStructure.Tree
 
         public Boggle(string[] dictionary)
         {
-            tree = new MahbubTrie();
+            tree = new Trie();
             Build(dictionary);
         }
 
@@ -122,7 +122,7 @@ namespace DataStructure.Tree
         }
     
         // A recursive/backtracking function to print all words present on boggle
-        private void SearchWord(MahbubTrie.Node subroot, int i, int j, StringBuilder str)
+        private void SearchWord(Trie.Node subroot, int i, int j, StringBuilder str)
         {
             // If both I and j in  range and we visited
             // that element of matrix first time
