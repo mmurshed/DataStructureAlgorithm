@@ -164,17 +164,5 @@ namespace Program
             //Console.WriteLine(v);
         
         }
-
-        //static void PrintList(LinkedList.ILinkedList<int> list)
-        //{
-        //	var en = list.GetEnumerator();
-        //	while (en.Current != null)
-        //	{
-        //		Console.WriteLine(en.Current.Value);
-        //		en.MoveNext();
-        //	}
-        //}
-       
-
     }
 }

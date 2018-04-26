@@ -119,6 +119,7 @@
     <Compile Include="String\KNPStringMatch.cs" />
     <Compile Include="String\NaiveStringMatch.cs" />
     <Compile Include="String\RabinKarpStringMatch.cs" />
+    <Compile Include="MicrosoftProblems\IntegerToWord.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -127,6 +128,7 @@
     <Folder Include="Graph\" />
     <Folder Include="Sorting\" />
     <Folder Include="String\" />
+    <Folder Include="MicrosoftProblems\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">
