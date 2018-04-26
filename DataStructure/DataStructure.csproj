@@ -119,7 +119,6 @@
     <Compile Include="Tree\AVLTree\AVLNode.cs" />
     <Compile Include="Tree\AVLTreeV1\Node\IAVLNode.cs" />
     <Compile Include="Tree\AVLTreeV1\Node\AVLNode.cs" />
-    <Compile Include="Tree\TriePrefix\External\SimpleTrie.cs" />
     <Compile Include="Tree\TriePrefix\External\Trie.cs" />
     <Compile Include="Tree\TriePrefix\External\TrieNode.cs" />
   </ItemGroup>

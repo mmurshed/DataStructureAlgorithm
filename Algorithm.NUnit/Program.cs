@@ -8,14 +8,6 @@ namespace Program
     {
         static void Main1(string[] args)
         {
-            // var res = DynamicProgramming.LCS("ABCDGH", "AEDFHR");
-            //var res = DynamicProgramming.LRS("AABB");
-            // Console.WriteLine($"{res.Item1} {res.Item2}");
-            // var arr = new int[2, 3];
-            //for (int i = 0; i < arr.GetLength(0); i++)
-            //	for (int j = 0; j < arr.GetLength(1); j++)
-            //		Console.WriteLine($"{arr[i,j]}");
-
             // var A = new int[] { 10, 22, 9, 33, 21, 50, 41, 60, 80 };
             // var lis = DynamicProgramming.LIS(A);
             // Console.WriteLine(lis);

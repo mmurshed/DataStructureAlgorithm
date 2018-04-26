@@ -29,22 +29,25 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EditDistanceTest.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="LongestCommonSequenceTest.cs" />
+    <Compile Include="LongestRepeatingSubsequence.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Algorithm\Algorithm.csproj">
-      <Project>{1941990A-BD2D-4F46-8D2D-80D56497AED7}</Project>
-      <Name>Algorithm</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">
       <Project>{4449F19A-C4B1-4EF8-83E0-6F671AB23153}</Project>
       <Name>DataStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Algorithm\Algorithm.csproj">
+      <Project>{1E161916-83EE-49A7-AC02-7E64AD69950E}</Project>
+      <Name>Algorithm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
