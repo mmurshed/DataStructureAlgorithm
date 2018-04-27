@@ -15,7 +15,7 @@ namespace Algorithm.NUnit
         [TestCase(23, "Twenty Three")]
         [TestCase(70, "Seventy")]
         [TestCase(73, "Seventy Three")]
-        [TestCase(99, "Ninty Nine")]
+        [TestCase(99, "Ninety Nine")]
         [TestCase(100, "One Hundred")]
         [TestCase(101, "One Hundred One")]
         [TestCase(111, "One Hundred Eleven")]

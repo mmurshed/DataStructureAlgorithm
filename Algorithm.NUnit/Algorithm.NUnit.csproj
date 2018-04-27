@@ -37,6 +37,7 @@
     <Compile Include="LongestCommonSequenceTest.cs" />
     <Compile Include="LongestRepeatingSubsequence.cs" />
     <Compile Include="IntergerToWordTest.cs" />
+    <Compile Include="MedianTwoSortedArrayTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -120,6 +120,7 @@
     <Compile Include="String\NaiveStringMatch.cs" />
     <Compile Include="String\RabinKarpStringMatch.cs" />
     <Compile Include="MicrosoftProblems\IntegerToWord.cs" />
+    <Compile Include="MicrosoftProblems\MedianTwoSortedArray.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
