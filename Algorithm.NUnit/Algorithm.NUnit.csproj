@@ -38,6 +38,8 @@
     <Compile Include="LongestRepeatingSubsequence.cs" />
     <Compile Include="IntergerToWordTest.cs" />
     <Compile Include="MedianTwoSortedArrayTest.cs" />
+    <Compile Include="MaxSumPathTest.cs" />
+    <Compile Include="ArrayToTreeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

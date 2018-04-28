@@ -121,6 +121,11 @@
     <Compile Include="String\RabinKarpStringMatch.cs" />
     <Compile Include="MicrosoftProblems\IntegerToWord.cs" />
     <Compile Include="MicrosoftProblems\MedianTwoSortedArray.cs" />
+    <Compile Include="Tree\Problems\LevelOrderWithNext.cs" />
+    <Compile Include="Tree\Problems\ZigZagTraversal.cs" />
+    <Compile Include="Tree\Problems\MaxSumPath.cs" />
+    <Compile Include="Tree\Problems\TreeNode.cs" />
+    <Compile Include="Tree\Problems\ArrayToTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -130,6 +135,8 @@
     <Folder Include="Sorting\" />
     <Folder Include="String\" />
     <Folder Include="MicrosoftProblems\" />
+    <Folder Include="Tree\" />
+    <Folder Include="Tree\Problems\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

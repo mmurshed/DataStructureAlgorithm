@@ -98,8 +98,6 @@
     <Compile Include="Tree\HuffmanTree\HuffmanNode.cs" />
     <Compile Include="Tree\HuffmanTree\HuffmanTree.cs" />
     <Compile Include="Tree\HuffmanTree\PriorityQueue.cs" />
-    <Compile Include="Tree\Problems\LevelOrderWithNext.cs" />
-    <Compile Include="Tree\Problems\ZigZagTraversal.cs" />
     <Compile Include="Tree\RadixTree\BoogleRadix.cs" />
     <Compile Include="Tree\RadixTree\RadixTree.cs" />
     <Compile Include="Tree\SgementTree\SegmentTree.cs" />
