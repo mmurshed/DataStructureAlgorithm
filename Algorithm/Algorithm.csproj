@@ -126,6 +126,7 @@
     <Compile Include="Tree\Problems\MaxSumPath.cs" />
     <Compile Include="Tree\Problems\TreeNode.cs" />
     <Compile Include="Tree\Problems\ArrayToTree.cs" />
+    <Compile Include="MicrosoftProblems\ReverseKGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

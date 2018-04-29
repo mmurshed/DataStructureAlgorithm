@@ -11,20 +11,20 @@ namespace DataStructure.String
             var longestProperPrefix = new int[pattern.Length];
             longestProperPrefix[0] = 0;
 
-            int l = 0;
+            int j = 0;
             int i = 1;
 
             while(i < pattern.Length)
             {
-                if(pattern[i] == pattern[l])
+                if(pattern[i] == pattern[j])
                 {
-                    longestProperPrefix[i] = ++l;
+                    longestProperPrefix[i] = ++j;
                     i++;
                 }
                 else
                 {
-                    if (l != 0)
-                        l = longestProperPrefix[l - 1];
+                    if (j != 0)
+                        j = longestProperPrefix[j - 1];
                     else
                         longestProperPrefix[i++] = 0;
                 }
