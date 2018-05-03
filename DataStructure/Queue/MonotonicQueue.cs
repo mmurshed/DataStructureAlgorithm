@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructure
+namespace DataStructure.Queue
 {
     /*
      * Data Structure: Sliding Window Minimum / Monotonic Queue

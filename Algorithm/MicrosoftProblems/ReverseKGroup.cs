@@ -94,5 +94,75 @@ namespace Algorithm.MicrosoftProblems
             head = prev;
             return new Tuple<ListNode, ListNode, int>(prev, next, k);
         }
+
+
+        public ListNode ReverseKGroup2(ListNode head, int k)
+        {
+            if (k <= 1)
+                return head;
+
+            int length = GetLength(head);
+            if (k > length)
+                return head;
+            
+            int count = 0;
+            int maxRev = k * (length / k);
+
+            ListNode cur = head;
+            ListNode prev = null;
+            ListNode next = null;
+            ListNode lastTail = null;
+            ListNode curHead = head;
+            ListNode newhead = null;
+
+            bool process = false;
+
+            while (true)
+            {
+                if ( process && count % k == 0 )
+                {
+                    if (newhead == null)
+                        newhead = prev;
+
+                    if(lastTail != null)
+                        lastTail.next = prev;
+
+                    lastTail = curHead;
+                    curHead.next = cur;
+                    curHead = cur;
+                    prev = lastTail;
+                    process = false;
+                    continue;
+                }
+
+                if (count >= maxRev || cur == null)
+                    break;
+                
+                next = cur.next;
+
+                cur.next = prev;
+                prev = cur;
+                cur = next;
+
+                count++;
+                process = true;
+            }
+            if (newhead == null)
+                newhead = prev;
+            return newhead;
+        }
+
+        public int GetLength(ListNode head)
+        {
+            int length = 0;
+            ListNode cur = head;
+            while(cur != null)
+            {
+                length++;
+                cur = cur.next;
+            }
+            return length;
+        }
+
     }
 }

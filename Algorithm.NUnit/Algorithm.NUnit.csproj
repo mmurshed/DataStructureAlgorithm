@@ -40,7 +40,7 @@
     <Compile Include="MedianTwoSortedArrayTest.cs" />
     <Compile Include="MaxSumPathTest.cs" />
     <Compile Include="ArrayToTreeTest.cs" />
-    <Compile Include="MaxSumPathTest %28copy%29.cs" />
+    <Compile Include="ReverseKGroupTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PriorityQueue
+namespace DataStructure.Queue
 {
 	public class MinHeap<T> where T : IComparable
 	{
