@@ -128,6 +128,8 @@
     <Compile Include="Tree\Problems\ArrayToTree.cs" />
     <Compile Include="MicrosoftProblems\ReverseKGroup.cs" />
     <Compile Include="GoogleProblems\MergeKListsPQClass.cs" />
+    <Compile Include="MicrosoftProblems\ExcelSum.cs" />
+    <Compile Include="FacebookProblems\RegularExpression.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -139,6 +141,7 @@
     <Folder Include="MicrosoftProblems\" />
     <Folder Include="Tree\" />
     <Folder Include="Tree\Problems\" />
+    <Folder Include="FacebookProblems\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

@@ -41,6 +41,7 @@
     <Compile Include="MaxSumPathTest.cs" />
     <Compile Include="ArrayToTreeTest.cs" />
     <Compile Include="ReverseKGroupTest.cs" />
+    <Compile Include="RegularExpressionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
