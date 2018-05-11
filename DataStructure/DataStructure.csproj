@@ -119,6 +119,7 @@
     <Compile Include="Tree\AVLTreeV1\Node\AVLNode.cs" />
     <Compile Include="Tree\TriePrefix\External\Trie.cs" />
     <Compile Include="Tree\TriePrefix\External\TrieNode.cs" />
+    <Compile Include="List\DoublyLinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

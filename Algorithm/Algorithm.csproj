@@ -130,6 +130,9 @@
     <Compile Include="GoogleProblems\MergeKListsPQClass.cs" />
     <Compile Include="MicrosoftProblems\ExcelSum.cs" />
     <Compile Include="FacebookProblems\RegularExpression.cs" />
+    <Compile Include="List\DetectCycle.cs" />
+    <Compile Include="List\ListFlatenning.cs" />
+    <Compile Include="List\CopyListRandom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -142,6 +145,7 @@
     <Folder Include="Tree\" />
     <Folder Include="Tree\Problems\" />
     <Folder Include="FacebookProblems\" />
+    <Folder Include="List\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

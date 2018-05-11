@@ -5,95 +5,200 @@ using System.Text;
 
 namespace DataStructure.List
 {
-	public interface ILinkedListNode<T>
+	public interface INode<T>
 	{
 		T Value { get; set; }
-		ILinkedListNode<T> NextNode { get; set; }
+		INode<T> NextNode { get; set; }
 	}
 
-	public class LinkedListNode<T> : ILinkedListNode<T>
+	public class Node<T> : INode<T>
 	{
 		public T Value { get; set; }
-		public ILinkedListNode<T> NextNode { get; set; }
-		public LinkedListNode(T Value)
+		public INode<T> NextNode { get; set; }
+		public Node(T Value)
 		{
 			this.Value = Value;
 		}
 	}
 
-
-	public interface ILinkedList<T> : IEnumerable<ILinkedListNode<T>>
+	public interface ILinkedList<T> : IEnumerable<INode<T>>
 	{
-		ILinkedListNode<T> Head { get; }
-		ILinkedListNode<T> Get(int n);
-		ILinkedListNode<T> Find(T Value);
-		ILinkedListNode<T> Add(T Value);
-		ILinkedListNode<T> Remove(T Value);
+		INode<T> Head { get; }
+		INode<T> Get(int n);
+		INode<T> Find(T Value);
+		INode<T> Add(T Value);
+		INode<T> Remove(T Value);
 	}
 
 	public class LinkedList<T> : ILinkedList<T>
 	{
-		private ILinkedListNode<T> _head;
-		public ILinkedListNode<T> Head { get { return _head; } }
+		public INode<T> Head { get; private set; }
 
 		public LinkedList() : this(null) { }
 
-		public LinkedList(ILinkedListNode<T> Head)
+		public LinkedList(INode<T> head)
 		{
-			_head = Head;
+			Head = head;
 		}
 
-		public ILinkedListNode<T> Get(int n)
+		public void Clear()
 		{
-			return null;
+			Head = null;       
 		}
-		public ILinkedListNode<T> Find(T Value)
+
+		public int Length
 		{
-			return null;
-		}
-		public ILinkedListNode<T> Add(T Value)
-		{
-			if (_head == null)
+			get
 			{
-				_head = new LinkedListNode<T>(Value);
-				return _head;
+				if (Head == null)
+					return 0;
+
+				int length = 0;
+
+				var head = Head;
+				while (head != null)
+				{
+					head = head.NextNode;
+					length++;
+				}
+				return length;
 			}
-			ILinkedListNode<T> head = _head;
+		}
+
+		public INode<T> Get(int n)
+		{
+			if (Head == null)
+                return null;
+
+            INode<T> head = Head;
+            while (head != null && n >= 0)
+            {
+                head = head.NextNode;
+				--n;
+            }
+            return head;
+		}
+
+		public INode<T> GetFromLast(int n)
+        {
+            if (Head == null)
+                return null;
+            // Find the mth element first
+			var desired = Head;
+			var head = Head;
+            while (head != null && n >= 0)
+            {
+                head = head.NextNode;
+                --n;
+            }
+
+			if (head == null)
+				return null;
+
+            // Advance both point until we reach the end
+			while (head != null)
+			{
+				head = head.NextNode;
+				desired = head.NextNode;
+			}
+
+			return desired;
+        }
+        
+		private INode<T> FindPrevious(T Value)
+        {
+			// Empty list
+			if (Head == null)
+				return null;
+
+            // Found the value at head
+			if (Head.Value.Equals(Value))
+				return null;
+
+            // Find the element in the Next Node
+            INode<T> head = Head;
+			while (head.NextNode != null && !head.NextNode.Value.Equals(Value))
+            {
+                head = head.NextNode;
+            }
+            // If the next node is empty, we didn't find it
+			if (head.NextNode == null)
+				return null;
+			// Found the node in NextNode, return the head which points to the previous node
+			return head;
+        }
+
+		public INode<T> Find(T Value)
+		{
+			if (Head == null)
+                return null;
+        
+			INode<T> head = Head;
+            while (head != null && !head.Value.Equals(Value))
+            {
+                head = head.NextNode;
+            }
+            return head;
+        }
+
+		public INode<T> Add(T Value)
+		{
+			if (Head == null)
+			{
+				Head = new Node<T>(Value);
+				return Head;
+			}
+			INode<T> head = Head;
 			while (head.NextNode != null)
 			{
 				head = head.NextNode;
 			}
-			head.NextNode = new LinkedListNode<T>(Value);
+			head.NextNode = new Node<T>(Value);
 			return head;
 		}
 
-		public ILinkedListNode<T> Remove(T Value)
+		public INode<T> Remove(T Value)
 		{
-			return null;
+			if (Head == null)
+                return null;
+
+			if (Head.Value.Equals(Value))
+			{
+				var oldHead = Head;
+				Head = Head.NextNode;
+				return oldHead;
+			}
+
+			var previousNode = FindPrevious(Value);
+			if (previousNode == null)
+				return null;
+			var nodeToRemove = previousNode.NextNode;
+			previousNode.NextNode = previousNode.NextNode.NextNode;
+			return nodeToRemove;
 		}
 
 		public ILinkedList<T> Reverse()
 		{
-			ILinkedListNode<T> cur = _head;
-			ILinkedListNode<T> prev = null;
+			INode<T> cur = Head;
+			INode<T> prev = null;
 			while (cur != null)
 			{
-				ILinkedListNode<T> next = cur.NextNode;
+				INode<T> next = cur.NextNode;
 
 				cur.NextNode = prev;
 				prev = cur;
 				cur = next;
 			}
-			_head = prev;
-			return new LinkedList<T>(_head);
+			Head = prev;
+			return new LinkedList<T>(Head);
 		}
 
 		public ILinkedList<T> RecursiveReverse()
 		{
-			return new LinkedList<T>(RecursiveReverse(_head));
+			return new LinkedList<T>(RecursiveReverse(Head));
 		}
 
-		public ILinkedListNode<T> RecursiveReverse(ILinkedListNode<T> node)
+		public INode<T> RecursiveReverse(INode<T> node)
 		{
 			if (node == null)
 				return null;
@@ -105,9 +210,9 @@ namespace DataStructure.List
 			return newHead;
 		}
 
-		public IEnumerator<ILinkedListNode<T>> GetEnumerator()
+		public IEnumerator<INode<T>> GetEnumerator()
 		{
-			return new LinkedListEnumerator<T>(_head);
+			return new LinkedListEnumerator<T>(Head);
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
@@ -117,12 +222,12 @@ namespace DataStructure.List
 
 	}
 
-	public class LinkedListEnumerator<T> : IEnumerator<ILinkedListNode<T>>
+	public class LinkedListEnumerator<T> : IEnumerator<INode<T>>
 	{
-		private ILinkedListNode<T> _head;
-		private ILinkedListNode<T> _cursor;
+		private INode<T> _head;
+		private INode<T> _cursor;
 
-		public LinkedListEnumerator(ILinkedListNode<T> Cursor)
+		public LinkedListEnumerator(INode<T> Cursor)
 		{
 			_cursor = _head = Cursor;
 		}
@@ -134,7 +239,7 @@ namespace DataStructure.List
 		}
 
 		object IEnumerator.Current => Current;
-		public ILinkedListNode<T> Current
+		public INode<T> Current
 		{
 			get
 			{

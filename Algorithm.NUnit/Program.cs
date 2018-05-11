@@ -136,19 +136,7 @@ namespace Program
             //int p = lip.LongestIncreasingPath(mat);
             //Console.WriteLine(p);
 
-            //var sp = new DataStructurePractice.GoogleProblems.SkylineProblem();
-            //// var sk = sp.GetSkyline(new int[,] { { 2, 9, 10 }, { 3, 7, 15 }, { 5, 12, 12 }, { 15, 20, 10 }, { 19, 24, 8 } });
-            //var sk = sp.GetSkyline(new int[,] { { 0, 2, 3 }, { 2, 5, 3 } });
-            //foreach(var i in sk)
-            //{
-            //    foreach(var j in i)
-            //    {
-            //        Console.Write($"{j},");
-            //    }
-            //    Console.WriteLine();
-            //}
-
-            //var x = new DataStructurePractice.GoogleProblems.ExpressionAddOperators();
+//var x = new DataStructurePractice.GoogleProblems.ExpressionAddOperators();
             //var y = x.AddOperators("1234", 24);
             //foreach (var p in y)
             //Console.WriteLine(p);

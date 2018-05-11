@@ -56,7 +56,7 @@ namespace DataStructure.Graph
 
         public IVertex<V> GetVertexByID(uint id)
         {
-            return vertexCollection.Where( kv => kv.Value.ID == id).Select(kv => kv.Value).FirstOrDefault();
+            return vertexCollection.Where(kv => kv.Value.ID == id).Select(kv => kv.Value).FirstOrDefault();
         }
 
         public IVertex<V> GetVertex(V value)

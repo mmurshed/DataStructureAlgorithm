@@ -49,51 +49,63 @@ namespace Algorithm.FacebookProblems
                 return true;
             var dp = new bool[s.Length + 1, p.Length + 1];
 
-            // Empty string and empty pattern
+            // 1. Empty string and empty pattern
             dp[0, 0] = true;
 
-            // Empty string and a pattern such as "***"
-            for (int i = 1; i <= p.Length; i++)
-                if (p[i - 1] == '*')
-                    dp[0, i] = dp[0, i - 2];
+            // 2. Empty string and a pattern such as "***"
+            for (int i = 0; i < p.Length; i++)
+                if (p[i] == '*')
+                    dp[0, i + 1] = dp[0, i - 1];
 
-            // Non empty string and empty pattern
-            // dp[i,0] remains false
+            // 3. Non empty string and empty pattern.
+            // dp[i, 0] remains false.
+            // Nothing to do.
 
-            for (int i = 1; i <= s.Length; i++)
+            // 4. Build the table
+            for (int i = 0; i < s.Length; i++)
             {
-                for (int j = 1; j <= p.Length; j++)
+                for (int j = 0; j < p.Length; j++)
                 {
-                    char pch = p[j - 1];
-                    char sch = s[i - 1];
+                    char pch = p[j];
+                    char sch = s[i];
+                    bool match = false;
 
-                    // Two cases if we see a '*'
-                    // a) We ignore ‘*’ character and move to next  character
-                    //    in the pattern, i.e., ‘*’ indicates an empty sequence.
-                    // b) '*' character matches with ith character in input
+                    // Thee cases if we see a '*'
+                    // 1. p[j] matches zero preceding element
+                    // dp[i + 1, j + 1] = dp[i + 1, j – 1]
+                    //
+                    // 2. p[j] matches one preceding element
+                    // dp[i + 1, j + 1] = (p[j – 1] == ‘.’ || p[j – 1] == s[j]) && dp[i + 1, j]
+                    // The preceding element has to be ‘.’ or the same as B[j].
+                    //
+                    // 3. p[j] matches multiple preceding element
+                    // dp[i + 1, j + 1] = (p[j – 1] == ‘.’ || p[j – 1] == s[j]) && dp[i, j + 1]
+                    // When matching with multiple elements, preceding element has to be ‘.’ or the same as p[j].
                     if (pch == '*')
                     {
-                        char prev = p[j - 2];
+                        char prev = p[j - 1];
+                        // a. Zero match: preceeding character don't match
                         if (prev != '.' && prev != sch)
                         {
-                            dp[i, j] = dp[i, j - 2];
+                            match = dp[i + 1, j - 1];
                         }
                         else
                         {
-                            dp[i, j] = dp[i, j - 1] || dp[i - 1, j] || dp[i, j - 2];
+                            // b. dp[i + 1, j]     - match one character
+                            // c. dp[i, j + 1]     - match multiple character
+                            // d. dp[i + 1, j - 1] - match empty character
+                            match = dp[i + 1, j] || dp[i, j + 1] || dp[i + 1, j - 1];
                         }
                     }
                     // Current characters are considered as matching in two cases
-                    // (a) current character of pattern is '.'
-                    // (b) characters actually match
+                    // a. current character of pattern is '.'
+                    // b. characters actually match
                     else if (pch == '.' || pch == sch)
                     {
-                        dp[i, j] = dp[i - 1, j - 1];
+                        match = dp[i, j];
                     }
-                    else
-                    {
-                        dp[i, j] = false;
-                    }
+
+                    dp[i + 1, j + 1] = match;
                 }
             }
 

@@ -42,6 +42,7 @@
     <Compile Include="ArrayToTreeTest.cs" />
     <Compile Include="ReverseKGroupTest.cs" />
     <Compile Include="RegularExpressionTest.cs" />
+    <Compile Include="SkylineProblemTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

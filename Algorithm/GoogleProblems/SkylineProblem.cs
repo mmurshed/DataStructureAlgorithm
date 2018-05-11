@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataStructure.GoogleProblems
+namespace Algorithm.GoogleProblems
 {
     /*
      * https://briangordon.github.io/2014/08/the-skyline-problem.html
@@ -167,19 +167,23 @@ There must be no consecutive horizontal lines of equal height in the output skyl
             }
 
             Array.Sort(cp);
-            // cp.GroupBy()
 
             List<int[]> skyline = new List<int[]>();
             var pq = new PriorityQueue<Rectangle>((x, y) => y.height - x.height);
             for (int i = 0; i < cp.Length; i++)
             {
-                cp[i].rectangle.active = cp[i].start;
+                do
+                {
+                    cp[i].rectangle.active = cp[i].start;
 
-                if(cp[i].start)
-                {                    
-                    pq.Enqueue(cp[i].rectangle);
-                }
+                    if (cp[i].start)
+                    {
+                        pq.Enqueue(cp[i].rectangle);
+                    }
 
+                    if (i < cp.Length - 1 && cp[i].point == cp[i + 1].point)
+                        i++;
+                } while (i < cp.Length - 1 && cp[i].point == cp[i + 1].point);
 
                 while (pq.Count > 0 && !pq.Top.active)
                     pq.Dequeue();

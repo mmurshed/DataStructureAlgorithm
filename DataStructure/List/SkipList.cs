@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace DataStructure.List
+namespace DataStructure.List.Skip
 {
-    public class Node<T> where T: IComparable<T>
+    public class SkipNode<T> where T: IComparable<T>
     {
         public T Data;
 
-        public Node<T>[] Forward;
+        public SkipNode<T>[] Forward;
 
-        public Node(T d, int level)
+        public SkipNode(T d, int level)
         {
             Data = d;
-            Forward = new Node<T>[level];
+            Forward = new SkipNode<T>[level];
         }
 
     }
@@ -27,7 +27,7 @@ namespace DataStructure.List
         // Current level of skip list
         private int level;
 
-        private Node<T> head;
+        private SkipNode<T> head;
 
         private static Random rand  = new Random();
 
@@ -38,7 +38,7 @@ namespace DataStructure.List
 
             level = 0;
 
-            head = new Node<T>(default(T), Size);
+            head = new SkipNode<T>(default(T), Size);
         }
 
         // create random level for node
@@ -63,7 +63,7 @@ namespace DataStructure.List
             // if current is NULL that means we have reached to end of the level
             // or current's key is not equal to key to insert
             // that means we have to insert node between update[0] and current node
-            if (current == null || current.Data.CompareTo(data) != 0)
+			if (current == null || !current.Data.Equals(data))
             {
                 // Generate a random level for node
                 int rlevel = RandomLevel();
@@ -82,7 +82,7 @@ namespace DataStructure.List
                 }
 
                 // create new node with random level generated
-                var n = new Node<T>(data, rlevel);
+                var n = new SkipNode<T>(data, rlevel);
 
                 // insert node by rearranging pointers 
                 for (int i = 0; i <= rlevel; i++)
@@ -101,7 +101,7 @@ namespace DataStructure.List
             var update = searchResult.Item2;
 
             // If current node is target node
-            if (current != null && current.Data.CompareTo(data) == 0)
+			if (current != null && current.Data.Equals(data))
             {
                 // Start from lowest level and rearrange pointers just like we
                 // do in singly linked list to remove target node
@@ -126,19 +126,19 @@ namespace DataStructure.List
             var current = SearchNode(data).Item1;
             // If current node have key equal to
             // search key, we have found our target node
-            if (current != null && current.Data.CompareTo(data) == 0)
+			if (current != null && current.Data.Equals(data))
                 return true;
 
             return false;
         }
 
         // Search for element in skip list
-        private Tuple<Node<T>, Node<T>[]> SearchNode(T data)
+        private Tuple<SkipNode<T>, SkipNode<T>[]> SearchNode(T data)
         {
             var current = head;
 
             // create update array and initialize it
-            var update = new Node<T>[Size + 1];
+            var update = new SkipNode<T>[Size + 1];
 
             // start from highest level of skip list
             for (int i = level; i >= 0; i--)
@@ -154,7 +154,7 @@ namespace DataStructure.List
             // which is desired position to insert key.
             current = current.Forward[0];
 
-            return new Tuple<Node<T>, Node<T>[]>(current, update);
+            return new Tuple<SkipNode<T>, SkipNode<T>[]>(current, update);
         }
     }
 }
