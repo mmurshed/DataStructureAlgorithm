@@ -43,6 +43,9 @@
     <Compile Include="ReverseKGroupTest.cs" />
     <Compile Include="RegularExpressionTest.cs" />
     <Compile Include="SkylineProblemTest.cs" />
+    <Compile Include="PermutationTest.cs" />
+    <Compile Include="CombinationTest.cs" />
+    <Compile Include="TelephoneWordTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
