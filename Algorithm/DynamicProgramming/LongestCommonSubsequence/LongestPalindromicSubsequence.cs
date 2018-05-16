@@ -82,7 +82,7 @@ namespace Algorithm.DynamicProgramming
             return Math.Max(GenerateNaive(seq, i, j - 1), GenerateNaive(seq, i + 1, j));
         }
 
-
+		// O(n^2)
         public static string Generate(string S)
         {
             int n = S.Length;

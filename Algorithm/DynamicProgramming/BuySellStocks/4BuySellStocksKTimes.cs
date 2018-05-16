@@ -59,7 +59,7 @@ Maximum profit gained by selling on ith day. In order to sell shares on ith day,
         public static int BuySellStocks(int[] price, int k)
         {
             int n = price.Length;
-            // table to store results of subproblems profit[t][i] stores maximum
+            // table to store results of subproblems profit[t, i] stores maximum
             // profit using atmost t transactions up to day i (including day i)
             int[,] profit = new int[k + 1, n + 1];
 

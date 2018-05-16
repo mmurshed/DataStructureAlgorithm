@@ -120,6 +120,9 @@
     <Compile Include="Tree\TriePrefix\External\Trie.cs" />
     <Compile Include="Tree\TriePrefix\External\TrieNode.cs" />
     <Compile Include="List\DoublyLinkedList.cs" />
+    <Compile Include="Dictionary\IConcurrentDictionary.cs" />
+    <Compile Include="Dictionary\ChainedConcurrentDictionary.cs" />
+    <Compile Include="Dictionary\ChainedStrippedConcurrentDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

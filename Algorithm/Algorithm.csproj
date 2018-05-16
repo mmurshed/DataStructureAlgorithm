@@ -136,6 +136,10 @@
     <Compile Include="Recursion\Permutation.cs" />
     <Compile Include="Recursion\Combination.cs" />
     <Compile Include="Recursion\TelephoneWords.cs" />
+    <Compile Include="DynamicProgramming\UniquePath\UniquePathObstacle.cs" />
+    <Compile Include="DynamicProgramming\UniquePath\UniquePathNoObstacle.cs" />
+    <Compile Include="DynamicProgramming\UniquePath\DungeonGame.cs" />
+    <Compile Include="List\SwapNodePair.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -150,6 +154,7 @@
     <Folder Include="FacebookProblems\" />
     <Folder Include="List\" />
     <Folder Include="Recursion\" />
+    <Folder Include="DynamicProgramming\UniquePath\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

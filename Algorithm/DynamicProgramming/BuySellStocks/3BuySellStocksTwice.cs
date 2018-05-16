@@ -94,9 +94,9 @@ To do step 1, we need to keep track of maximum price from right to left side and
             for (int i = 0; i < n; i++)
                 profit[i] = 0;
 
-            /* Get the maximum profit with only one transaction
-               allowed. After this loop, profit[i] contains maximum
-               profit from price[i..n-1] using at most one trans. */
+            //Get the maximum profit with only one transaction
+            //allowed. After this loop, profit[i] contains maximum
+            //profit from price[i..n-1] using at most one trans.
             int max_price = price[n - 1];
             for (int i = n - 2; i >= 0; i--)
             {
@@ -110,8 +110,8 @@ To do step 1, we need to keep track of maximum price from right to left side and
                 profit[i] = Math.Max(profit[i + 1], max_price - price[i]);
             }
 
-            /* Get the maximum profit with two transactions allowed
-               After this loop, profit[n-1] contains the result */
+            //Get the maximum profit with two transactions allowed
+            //After this loop, profit[n-1] contains the result
             int min_price = price[0];
             for (int i = 1; i < n; i++)
             {
