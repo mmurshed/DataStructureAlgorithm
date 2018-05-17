@@ -142,6 +142,7 @@
     <Compile Include="List\SwapNodePair.cs" />
     <Compile Include="MicrosoftProblems\HashTableWTime.cs" />
     <Compile Include="MicrosoftProblems\HashTableWTime2.cs" />
+    <Compile Include="MicrosoftProblems\SpiralMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
