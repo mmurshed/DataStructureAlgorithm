@@ -140,6 +140,8 @@
     <Compile Include="DynamicProgramming\UniquePath\UniquePathNoObstacle.cs" />
     <Compile Include="DynamicProgramming\UniquePath\DungeonGame.cs" />
     <Compile Include="List\SwapNodePair.cs" />
+    <Compile Include="MicrosoftProblems\HashTableWTime.cs" />
+    <Compile Include="MicrosoftProblems\HashTableWTime2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
