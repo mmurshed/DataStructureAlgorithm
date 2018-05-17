@@ -125,7 +125,7 @@
     <Compile Include="Tree\Problems\ZigZagTraversal.cs" />
     <Compile Include="Tree\Problems\MaxSumPath.cs" />
     <Compile Include="Tree\Problems\TreeNode.cs" />
-    <Compile Include="Tree\Problems\ArrayToTree.cs" />
+    <Compile Include="Tree\Problems\TreeCodec.cs" />
     <Compile Include="MicrosoftProblems\ReverseKGroup.cs" />
     <Compile Include="GoogleProblems\MergeKListsPQClass.cs" />
     <Compile Include="MicrosoftProblems\ExcelSum.cs" />

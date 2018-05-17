@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Algorithm.Tree;
+using System.Linq;
 
 namespace Algorithm.NUnit
 {
@@ -12,8 +13,8 @@ namespace Algorithm.NUnit
         public void Test(int?[] tree, int expected)
         {
             // Arrange
-            var at = new Algorithm.Tree.Problems.ArrayToTree();
-            var treeNode = at.Construct(tree);
+            var at = new Algorithm.Tree.Problems.TreeCodec();
+			var treeNode = at.Deserialize(tree.ToList());
             var prob = new Algorithm.Tree.Problems.MaxSumPath();
 
                                   
