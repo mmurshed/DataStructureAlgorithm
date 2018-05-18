@@ -5,122 +5,168 @@ using System.Linq;
 
 namespace Algorithm.DynamicProgramming
 {
-    public class LargestSumContiguousSubarray
+    public class LargestSumRectangle
     {
-        // Source: https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+        // Source: https://www.geeksforgeeks.org/dynamic-programming-set-27-max-sum-rectangle-in-a-2d-matrix/
 
         /*
-         * Write an efficient C program to find the sum of contiguous subarray 
-         * within a one-dimensional array of numbers which has the largest sum.
+         * Given a 2D array, find the maximum sum subarray in it. For example, 
+         * in the following 2D array, the maximum sum subarray is highlighted 
+         * with blue rectangle and sum of this subarray is 29.
          * 
-         * _________________________
-         * |-2|-3| 4|-1|-2| 1| 5|-3|
-         * -------------------------
-         *   0  1  2  3  4  5  6  7
+         * _____________________
+         * | 1 | 2 |-1 |-4 |-20|
+         * ----▄▄▄▄▄▄▄▄▄▄▄▄▄----
+         * |-8 █-3 | 4 | 2 █ 1 |
+         * ----█-----------█----
+         * | 3 █ 8 |10 | 1 █ 3 |
+         * ----█-----------█----
+         * |-4 █-1 | 1 | 7 █-6 |
+         * ----█▄▄▄▄▄▄▄▄▄▄▄█----
          * 
-         * Max contiguous subarray: 4, -1, -2, 1, 5 (From 2 to 6)
-         * Sum: 7
+         * This problem is mainly an extension of Largest Sum Contiguous
+         * Subarray for 1D array.
          * 
+         * The naive solution for this problem is to check every possible 
+         * rectangle in given 2D array. This solution requires 4 nested 
+         * loops and time complexity of this solution would be O(n^4).
          * 
-         * Kadane’s Algorithm:
-         * Initialize:
-         * max_so_far = 0
-         * max_ending_here = 0
-         * 
-         * Loop for each element of the array
-         * (a) max_ending_here = max_ending_here + a[i]
-         * (b) if(max_ending_here < 0)
-         *      max_ending_here = 0
-         * (c) if(max_so_far < max_ending_here)
-         *      max_so_far = max_ending_here
-         * 
-         * return max_so_far
-         * 
-         * Explanation:
-         * Simple idea of the Kadane's algorithm is to look for all positive 
-         * contiguous segments of the array (max_ending_here is used for this). 
-         * And keep track of maximum sum contiguous segment among all positive 
-         * segments (max_so_far is used for this). Each time we get a positive 
-         * sum compare it with max_so_far and update max_so_far if it is greater
-         * than max_so_far
-         * 
-         * Lets take the example:
-         * {-2, -3, 4, -1, -2, 1, 5, -3}
-         * 
-         * max_so_far = max_ending_here = 0
-         * 
-         * for i=0,  a[0] =  -2
-         *      max_ending_here = max_ending_here + (-2)
-         *      Set max_ending_here = 0 because max_ending_here < 0
-         * 
-         * for i=1,  a[1] =  -3
-         *      max_ending_here = max_ending_here + (-3)
-         *      Set max_ending_here = 0 because max_ending_here < 0
-         * 
-         * for i=2,  a[2] =  4
-         *      max_ending_here = max_ending_here + (4)
-         *      max_ending_here = 4
-         *      max_so_far is updated to 4 because max_ending_here greater 
-         *      than max_so_far which was 0 till now
-         * 
-         * for i=3,  a[3] =  -1
-         *      max_ending_here = max_ending_here + (-1)
-         *      max_ending_here = 3
-         * 
-         * for i=4,  a[4] =  -2
-         *      max_ending_here = max_ending_here + (-2)
-         *      max_ending_here = 1
-         * 
-         * for i=5,  a[5] =  1
-         *      max_ending_here = max_ending_here + (1)
-         *      max_ending_here = 2
-         * 
-         * for i=6,  a[6] =  5
-         *      max_ending_here = max_ending_here + (5)
-         *      max_ending_here = 7
-         *      max_so_far is updated to 7 because max_ending_here is 
-         *      greater than max_so_far
-         * 
-         * for i=7,  a[7] =  -3
-         *      max_ending_here = max_ending_here + (-3)
-         *      max_ending_here = 4
+         * Kadane’s algorithm for 1D array can be used to reduce the time 
+         * complexity to O(n^3). The idea is to fix the left and right columns 
+         * one by one and find the maximum sum contiguous rows for every left 
+         * and right column pair. We basically find top and bottom row numbers 
+         * (which have maximum sum) for every fixed left and right column pair. 
+         * To find the top and bottom row numbers, calculate sun of elements in 
+         * every row from left to right and store these sums in an array say 
+         * temp[]. So temp[i] indicates sum of elements from left to right in 
+         * row i. If we apply Kadane’s 1D algorithm on temp[], and get the 
+         * maximum sum subarray of temp, this maximum sum would be the maximum 
+         * possible sum with left and right as boundary columns. To get the 
+         * overall maximum sum, we compare this sum with the maximum sum so far.
         */
 
-        public static int MaxSubArraySum(int[] a)
+        // Implementation of Kadane's algorithm for 1D array. The function 
+        // returns the maximum sum and stores starting and ending indexes of the 
+        // maximum sum subarray at addresses pointed by start and finish pointers 
+        // respectively.
+        public static Tuple<int, int, int> kadane(int[] arr)
         {
-            int max_so_far = Int32.MinValue, max_ending_here = 0;
+            // initialize sum, maxSum and
+            int sum = 0, maxSum = Int32.MinValue, i;
 
-            for (int i = 0; i < a.Length; i++)
+            // Just some initial value to check for all negative values case
+            int start = -1, finish = -1;
+            // local variable
+            int local_start = 0;
+
+            for (i = 0; i < arr.Length; ++i)
             {
-                max_ending_here = max_ending_here + a[i];
-                if (max_so_far < max_ending_here)
-                    max_so_far = max_ending_here;
-
-                if (max_ending_here < 0)
-                    max_ending_here = 0;
+                sum += arr[i];
+                if (sum < 0)
+                {
+                    sum = 0;
+                    local_start = i + 1;
+                }
+                else if (sum > maxSum)
+                {
+                    maxSum = sum;
+                    start = local_start;
+                    finish = i;
+                }
             }
-            return max_so_far;
+
+            // There is at-least one non-negative number
+            if (finish != -1)
+                return new Tuple<int, int, int>(maxSum, start, finish);
+
+            // Special Case: When all numbers in arr[] are negative
+            maxSum = arr[0];
+            start = finish = 0;
+
+            // Find the maximum element in array
+            for (i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] > maxSum)
+                {
+                    maxSum = arr[i];
+                    start = finish = i;
+                }
+            }
+            return new Tuple<int, int, int>(maxSum, start, finish);
         }
 
+        // The main function that finds maximum sum rectangle in M[,]
+        public static Tuple<int, int, int, int, int> findMaxSum(int[,] M)
+        {
+            // Variables to store the final output
+            int maxSum = Int32.MinValue;
+            int finalLeft = -1, finalRight = -1, finalTop = -1, finalBottom = -1;
+
+            int left, right, i;
+
+            int row = M.GetLength(0);
+            int col = M.GetLength(1);
+            var temp = new int[row];
+                
+
+            // Set the left column
+            for (left = 0; left < col; ++left)
+            {
+                // Initialize all elements of temp as 0
+                for (i = 0; i < row; ++i)
+                    temp[i] = 0;
+
+                // Set the right column for the left column set by outer loop
+                for (right = left; right < col; ++right)
+                {
+                    // Calculate sum between current left and right for every row 'i'
+                    for (i = 0; i < row; ++i)
+                    {
+                        temp[i] += M[i, right];
+                    }
+
+                    // Find the maximum sum subarray in temp[]. The kadane() 
+                    // function also sets values of start and finish.  So 'sum' is 
+                    // sum of rectangle between (start, left) and (finish, right) 
+                    //  which is the maximum sum with boundary columns strictly as
+                    //  left and right.
+                    var ret = kadane(temp);
+                    int sum = ret.Item1;
+                    int start = ret.Item2;
+                    int finish = ret.Item3;
+
+                    // Compare sum with maximum sum so far. If sum is more, then 
+                    // update maxSum and other output values
+                    if (sum > maxSum)
+                    {
+                        maxSum = sum;
+                        finalLeft = left;
+                        finalRight = right;
+                        finalTop = start;
+                        finalBottom = finish;
+                    }
+                }
+            }
+
+            // Print final values
+            // printf("(Top, Left) (%d, %d)n", finalTop, finalLeft);
+            // printf("(Bottom, Right) (%d, %d)n", finalBottom, finalRight);
+            // printf("Max sum is: %dn", maxSum);
+            return new Tuple<int, int, int, int, int>(maxSum, finalTop, finalLeft, finalBottom, finalRight);
+        }
+
+        // Driver program to test above functions
         public static void Test()
         {
-            var a = new int[]{ -2, -3, 4, -1, -2, 1, 5, -3 };
-            Console.WriteLine($"Maximum contiguous sum is {MaxSubArraySum(a)}");
-        }
-
-        // The following implementation handles the case when all numbers in
-        // array are negative.
-        public static int MaxSubArraySumAllNegative(int[] a)
-        {
-            int max_so_far = a[0];
-            int curr_max = a[0];
-
-            for (int i = 1; i < a.Length; i++)
+            var M = new int[,]
             {
-                curr_max = Math.Max(a[i], curr_max + a[i]);
-                max_so_far = Math.Max(max_so_far, curr_max);
-            }
-            return max_so_far;
+                {1, 2, -1, -4, -20},
+                {-8, -3, 4, 2, 1},
+                {3, 8, 10, 1, 3},
+                {-4, -1, 1, 7, -6}
+            };
+            var result = findMaxSum(M);
+            Console.WriteLine($"Max: {result.Item1} Top: {result.Item2} Left: {result.Item3} Bottom: {result.Item4} Right: {result.Item5}.");
         }
     }
 }

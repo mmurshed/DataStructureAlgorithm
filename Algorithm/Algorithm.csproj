@@ -43,8 +43,8 @@
     <Compile Include="DynamicProgramming\BuySellStocks\2BuySellStocksAnytime.cs" />
     <Compile Include="DynamicProgramming\BuySellStocks\3BuySellStocksTwice.cs" />
     <Compile Include="DynamicProgramming\BuySellStocks\4BuySellStocksKTimes.cs" />
-    <Compile Include="DynamicProgramming\LargestSum\LargestSumContiguousSubarray.cs" />
     <Compile Include="DynamicProgramming\LargestSum\LargestSumRectangle.cs" />
+    <Compile Include="DynamicProgramming\LargestSum\LargestSumContiguousSubarray.cs" />
     <Compile Include="DynamicProgramming\LargestSum\MaximumProductContiguousSubarray.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequence\EditDistance.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestCommonSubsequence.cs" />
@@ -143,6 +143,8 @@
     <Compile Include="MicrosoftProblems\HashTableWTime.cs" />
     <Compile Include="MicrosoftProblems\HashTableWTime2.cs" />
     <Compile Include="MicrosoftProblems\SpiralMatrix.cs" />
+    <Compile Include="DynamicProgramming\Micellaneous\StringInterleaving.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\SubsetSum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
