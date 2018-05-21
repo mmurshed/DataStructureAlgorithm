@@ -123,6 +123,10 @@
     <Compile Include="Dictionary\IConcurrentDictionary.cs" />
     <Compile Include="Dictionary\ChainedConcurrentDictionary.cs" />
     <Compile Include="Dictionary\ChainedStrippedConcurrentDictionary.cs" />
+    <Compile Include="Tree\QuadTree\IQuadTree.cs" />
+    <Compile Include="Tree\QuadTree\QuadNode.cs" />
+    <Compile Include="Tree\QuadTree\QuadTree.cs" />
+    <Compile Include="Tree\QuadTree\Point.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -133,6 +137,7 @@
     <Folder Include="Tree\AVLTreeV1\" />
     <Folder Include="Tree\AVLTreeV1\Node\" />
     <Folder Include="Tree\TriePrefix\External\" />
+    <Folder Include="Tree\QuadTree\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
