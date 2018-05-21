@@ -69,6 +69,23 @@ namespace DataStructure.Tree
             }            
         }
 
+        public bool FindSubstring(string word, int start, int len)
+        {
+            var node = Root;
+            while(start < len)
+            {
+                node = node.Get(word[start]);
+                if (node == null)
+                {
+                    return false;
+                }
+                start++;
+            }
+            if (node.IsTerminal)
+                return true;
+            return false;
+        }
+
         public bool Find(string word)
         {
             var node = Root;
