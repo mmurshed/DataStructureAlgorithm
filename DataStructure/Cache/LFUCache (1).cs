@@ -69,7 +69,7 @@ namespace DataStructure.Cache
             // Get the linked list node
             var node = Values[key];
 
-            // Move item from one frequency list to another
+            // Mover item from one frequency list to another
             int frequency = Counts[key];
 
             // Get the frequency list
