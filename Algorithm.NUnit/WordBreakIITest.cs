@@ -32,6 +32,11 @@ namespace Algorithm.NUnit
                 "pineapplepenapple",
                 new List<string> {"apple", "pen", "applepen", "pine", "pineapple"},
                 new List<string> {"pine apple pen apple", "pineapple pen apple", "pine applepen apple"}
+            },
+            new object[] {
+                "banana",
+                new List<string> {"ba", "na", "fe"},
+                new List<string> {"ba na na"}
             }
         };
 
