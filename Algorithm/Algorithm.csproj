@@ -147,6 +147,7 @@
     <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\SubsetSum.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\CuttingRod.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\WordBreakProblem.cs" />
+    <Compile Include="DynamicProgramming\Micellaneous\WordBreakII.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

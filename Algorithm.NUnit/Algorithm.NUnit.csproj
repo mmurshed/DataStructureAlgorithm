@@ -47,6 +47,7 @@
     <Compile Include="CombinationTest.cs" />
     <Compile Include="TelephoneWordTest.cs" />
     <Compile Include="SpiralMatrixTest.cs" />
+    <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

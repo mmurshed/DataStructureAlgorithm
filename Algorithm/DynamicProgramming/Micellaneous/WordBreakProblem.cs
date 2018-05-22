@@ -53,7 +53,7 @@ Output: No
                 // recursively check for remaining string
                 // str.substr(i, size-i) which is suffix of  
                 // length size-i
-                if (dictionary.Contains(str.Substring(0, i)) && WordBreakNaive(str, i + 1, dictionary) )
+                if (dictionary.Contains(str.Substring(0, i)) && WordBreakNaive(str, i + 1, dictionary))
                     return true;
             }
 
@@ -205,6 +205,95 @@ Output: No
             // of them worked
             return false;
         }
-    
+
+        public bool WordBreak(string s, IList<string> wordDict)
+        {
+            Trie trie = new Trie();
+            foreach (var word in wordDict)
+                trie.Insert(word);
+            var memo = new bool[s.Length];
+            return WordBreak(s, 0, trie, memo);
+        }
+
+        private bool WordBreak(string str, int start, Trie trie, bool[] memo)
+        {
+            // Base case
+            if (start == str.Length)
+                return true;
+            if (memo[start])
+                return false;
+
+            Trie.Node cur = trie.Root;
+
+            // Try all prefixes of lengths from 1 to size
+            for (int i = start; i < str.Length; i++)
+            {
+                cur = cur.Get(str[i]);
+                if (cur == null)
+                {
+                    memo[start] = true;
+                    return false;
+                }
+                if (cur.IsTerminal == true && WordBreak(str, i + 1, trie, memo))
+                    return true;
+            }
+
+            memo[start] = true;
+            // If we have tried all prefixes and none
+            // of them worked
+            return false;
+        }
+
+        public bool WordBreakNR(string s, IList<string> wordDict)
+        {
+            Trie trie = new Trie();
+            foreach (var word in wordDict)
+                trie.Insert(word);
+            return WordBreakNR(s, trie);
+        }
+
+        private bool WordBreakNR(string str, Trie trie)
+        {
+            if (str.Length == 0)
+                return false;
+
+            var memo = new bool[str.Length];
+            var stack = new Stack<Tuple<Trie.Node, int>>();
+
+            stack.Push(new Tuple<Trie.Node, int>(trie.Root, 0));
+
+            while (stack.Count > 0)
+            {
+                var val = stack.Pop();
+
+                var cur = val.Item1;
+                int start = val.Item2;
+
+                if (!memo[start])
+                {
+                    int lastStart = start;
+                    for (int i = start; i < str.Length; i++)
+                    {
+                        cur = cur.Get(str[i]);
+
+                        if (cur == null)
+                            break;
+
+                        if (cur.IsTerminal && i == str.Length - 1)
+                            return true;
+
+                        if (cur.IsTerminal)
+                        {
+                            lastStart = i + 1;
+                            stack.Push(new Tuple<Trie.Node, int>(cur, lastStart));
+                            cur = trie.Root;
+                        }
+                    }
+                    memo[lastStart] = true;
+                }
+            }
+
+            return false;
+        }
     }
 }
