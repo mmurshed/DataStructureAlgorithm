@@ -54,6 +54,11 @@ namespace DataStructure.Graph
             return adjacencyList[vertex];
         }
 
+        public bool AreNeighbours(IVertex<V> v, IVertex<V> w)
+        {
+            return adjacencyList[v].Contains(w);
+        }
+
         public IVertex<V> GetVertexByID(uint id)
         {
             return vertexCollection.Where(kv => kv.Value.ID == id).Select(kv => kv.Value).FirstOrDefault();

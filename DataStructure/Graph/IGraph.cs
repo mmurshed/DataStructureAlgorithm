@@ -18,6 +18,7 @@ namespace DataStructure.Graph
         IVertex<V> GetVertexByID(uint id);
         IVertex<V> GetVertex(V value);
         IEnumerable<IVertex<V>> GetNeighbours(IVertex<V> vertex);
+        bool AreNeighbours(IVertex<V> v, IVertex<V> w);
 
         bool HasEdge(IVertex<V> start, IVertex<V> end);
         IEdge<V, E> GetEdge(IVertex<V> start, IVertex<V> end);

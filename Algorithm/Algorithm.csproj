@@ -149,6 +149,7 @@
     <Compile Include="DynamicProgramming\Micellaneous\WordBreakII.cs" />
     <Compile Include="MicrosoftProblems\MajorityProblem.cs" />
     <Compile Include="MicrosoftProblems\MaxRectangle.cs" />
+    <Compile Include="Graph\Cycle\HamiltonianCycleAlgorithm.cs" />
     <Compile Include="Graph\Cycle\HamiltonianCycle.cs" />
   </ItemGroup>
   <ItemGroup>

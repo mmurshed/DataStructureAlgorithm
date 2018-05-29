@@ -63,6 +63,11 @@ namespace DataStructure.Graph
             }
         }
 
+        public bool AreNeighbours(IVertex<V> v, IVertex<V> w)
+        {
+            return adjacencyMatrix[v.ID, w.ID] != null;
+        }
+
         public IVertex<V> GetVertexByID(uint id)
         {
             return vertexCollection.Where(kv => kv.Value.ID == id).Select(kv => kv.Value).FirstOrDefault();
