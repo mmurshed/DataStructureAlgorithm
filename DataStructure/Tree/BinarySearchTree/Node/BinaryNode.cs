@@ -56,7 +56,7 @@ namespace DataStructure.Tree
         // IEquatable
         public bool Equals(ITreeNode<K, V> other)
         {
-            return CompareTo(other) == 0;
+            return Key.Equals(other);
         }
 
         // Object override

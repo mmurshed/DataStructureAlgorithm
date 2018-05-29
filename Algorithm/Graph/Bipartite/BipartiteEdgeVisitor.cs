@@ -34,7 +34,7 @@ namespace Algorithm.Graph
         public void Visit(IEdge<V, E> value)
         {
             if(color.ContainsKey(value.Start) && color.ContainsKey(value.End)
-               && color[value.Start] == color[value.End])
+               && color[value.Start].Equals(color[value.End]))
             {
                 IsBipartite = false;
             }
@@ -43,9 +43,9 @@ namespace Algorithm.Graph
 
         private Color Complement(IVertex<V> vertex)
         {
-            if (color.ContainsKey(vertex) && color[vertex] == Color.White)
+            if (color.ContainsKey(vertex) && color[vertex].Equals(Color.White))
                 return Color.Black;
-            if (color.ContainsKey(vertex) && color[vertex] == Color.Black)
+            if (color.ContainsKey(vertex) && color[vertex].Equals(Color.Black))
                 return Color.White;
             return Color.Uncolored;
         }

@@ -95,10 +95,10 @@ namespace DataStructure.Tree
             if (compare == 0)
 				return Subroot;
 			
-            if (Subroot.Left != null && Key.CompareTo(Subroot.Left.Key) == 0)
+            if (Subroot.Left != null && Key.Equals(Subroot.Left.Key))
 				return Subroot;
 			
-            else if (Subroot.Right != null && Key.CompareTo(Subroot.Right.Key) == 0)
+            else if (Subroot.Right != null && Key.Equals(Subroot.Right.Key))
 				return Subroot;
 			
             if (compare < 0)
@@ -115,7 +115,7 @@ namespace DataStructure.Tree
 
             // 2. find the node to remove
 			IBinaryNode<K, V> nodeToRemove;
-            if (parent.Left != null && parent.Left.Key.CompareTo(Key) == 0)
+            if (parent.Left != null && parent.Left.Key.Equals(Key))
 				nodeToRemove = parent.Left;
 			else
 				nodeToRemove = parent.Right;
@@ -127,7 +127,7 @@ namespace DataStructure.Tree
 			{
                 // a. Node to remove was on the left of the parent.
                 // Attach the right subtree to parents left.
-                if (parent.Left != null && parent.Left.Key.CompareTo(Key) == 0)
+                if (parent.Left != null && parent.Left.Key.Equals(Key))
 					parent.Left = nodeToRemove.Right;
                 else
                     // b. Otherwise attach to the parent's right.
@@ -139,7 +139,7 @@ namespace DataStructure.Tree
 			{
                 // a. Node to remove was on the left of the parent.
                 // Attach the left subtree to parent's left
-                if (parent.Left != null && parent.Left.Key.CompareTo(Key) == 0)
+                if (parent.Left != null && parent.Left.Key.Equals(Key))
 					parent.Left = nodeToRemove.Left;
 				else
                     // b. Otherwise attach to parent's right
@@ -181,7 +181,7 @@ namespace DataStructure.Tree
 				toReplace.Right = nodeToRemove.Right;
 
                 // f. Set the correct parent
-                if (parent.Left != null && parent.Left.Key.CompareTo(Key) == 0)
+                if (parent.Left != null && parent.Left.Key.Equals(Key))
 					parent.Left = toReplace;
 				else
 					parent.Right = toReplace;

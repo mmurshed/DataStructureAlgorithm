@@ -11,7 +11,7 @@ namespace Algorithm.Graph
     */
     public class GraphCycle<V, E>
     {
-        public bool TwoColor(IGraph<V, E> graph)
+        public bool GraphCycleDetect(IGraph<V, E> graph)
         {
             var search = new BreadthFirstSearch<V, E>();
             var vertexVisitor = new DummyVertexVisitor<V>();

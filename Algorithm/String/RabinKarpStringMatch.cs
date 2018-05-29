@@ -32,21 +32,24 @@ namespace DataStructure.String
             int textHash = hashes.Item2;
             int h = hashes.Item3;
 
-            for (int i = 0; i <= text.Length - pattern.Length; i++)
+            int m = pattern.Length;
+            int n = text.Length;
+
+            for (int i = 0; i <= n - m; i++)
             {
                 if (patternHash == textHash)
                 {
                     int j = 0;
-                    while (j < pattern.Length && pattern[j] == text[i + j])
+                    while (j < m && pattern[j] == text[i + j])
                         j++;
                     if (j == pattern.Length)
                         yield return i;
                 }
 
                 // Recalculate hash by pushing the first char out and inserting the new char in the back
-                if( i < text.Length - pattern.Length)
+                if( i < n - m)
                 {
-                    textHash = (SIZE * (textHash - text[i] * h) + text[i + pattern.Length]) % PRIME;
+                    textHash = (SIZE * (textHash - text[i] * h) + text[i + m]) % PRIME;
                     textHash = textHash < 0 ? textHash + PRIME : textHash; // Avoid negative hash
                 }
             }

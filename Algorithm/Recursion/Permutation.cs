@@ -9,7 +9,7 @@ namespace Algorithm.Recursion
 		public List<string> Permutate(string str)
 		{
 			var strs = new List<string>();
-			Permutate(new StringBuilder(str), 0, str.Length - 1, strs);
+			Permutate(new StringBuilder(str), 0, strs);
 			return strs;
 		}
 
@@ -22,18 +22,18 @@ namespace Algorithm.Recursion
 			str[j] = temp;
 		}
 
-		public void Permutate(StringBuilder str, int s, int e, List<string> list)
+		public void Permutate(StringBuilder str, int s, List<string> list)
         {
-			if(s == e)
+            if(s >= str.Length)
 			{
 				list.Add(str.ToString());
 				return;
 			}
 
-			for (int i = s; i <= e; i++)
+            for (int i = s; i < str.Length; i++)
 			{
 				Swap(str, s, i);
-				Permutate(str, s + 1, e, list);
+				Permutate(str, s + 1, list);
                 // Backtrack
 				Swap(str, s, i);
 			}

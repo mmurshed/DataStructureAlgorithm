@@ -22,7 +22,13 @@ namespace Algorithm.Graph
         }
 
 
-        // Prim's MST
+        // Kruskal's MST
+        /*
+         * 1. Sort edges by decresing weight
+         * 2. Pick the first edge with lowest weight
+         * 3. Detect cycle
+         * 4. Add to graph if not cycle
+        */
         public override void GenerateMST()
         {
             var edgeEnum = graph.Edges.OrderBy(e => e.Value);

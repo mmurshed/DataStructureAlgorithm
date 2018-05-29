@@ -44,7 +44,7 @@ namespace DataStructure.Vector
 
             int mask = 1 << bit; // 0001000
 
-            return ( (num & mask) != 0);
+            return (num & mask) != 0;
         }
 
 

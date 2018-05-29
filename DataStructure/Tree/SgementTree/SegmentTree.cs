@@ -141,8 +141,8 @@ namespace DataStructure.Tree
         private Func<T, T, T> Union;
 
         private int Parent(int i) => (i - 1) / 2; // (i + 1) / 2 - 1
-        private int Left(int i) => 2 * i + 1; //2 * (i + 1) - 1;
-        private int Right(int i) => 2 * i + 2; // 2 * (i + 1)
+        private int Left(int i) => 2 * i + 1;     // 2 * (i + 1) - 1;
+        private int Right(int i) => 2 * i + 2;    // 2 * (i + 1)
 
         public SegmentTree(T[] data, Func<T, T, T> union)
         {

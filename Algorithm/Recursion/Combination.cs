@@ -9,11 +9,11 @@ namespace Algorithm.Recursion
 		public List<string> ProduceCombination(string str)
 		{
 			var strs = new List<string>();
-			ProduceCombination(new StringBuilder(str), 0, new StringBuilder(), strs);
+			ProduceCombination(str, 0, new StringBuilder(), strs);
 			return strs;
 		}
             
-		public void ProduceCombination(StringBuilder str, int s, StringBuilder newstr, List<string> list)
+		public void ProduceCombination(string str, int s, StringBuilder newstr, List<string> list)
         {
 			if(s >= str.Length)
 			{

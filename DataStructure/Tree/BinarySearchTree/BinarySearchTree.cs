@@ -7,7 +7,7 @@ namespace DataStructure.Tree
     public class BinarySearchTree<K, V> : IBinaryTree<K, V>
         where K : IComparable<K>
     {
-        private BinaryNode<K, V> NULL_NODE = new BinaryNode<K, V>();
+        public BinaryNode<K, V> Empty = new BinaryNode<K, V>();
 		public BinaryNode<K, V> Root;
 
 		public V Get(K Key)
@@ -18,7 +18,7 @@ namespace DataStructure.Tree
         public ref BinaryNode<K, V> Get(ref BinaryNode<K, V> Subroot, K Key)
 		{
 			if (Subroot == null)
-                return ref NULL_NODE;
+                return ref Empty;
 
             int compare = Key.CompareTo(Subroot.Key);
             if (compare == 0)
@@ -58,7 +58,7 @@ namespace DataStructure.Tree
         public bool Update(K Key, V Value)
         {
             var node = Get(ref Root, Key);
-            if (node == null)
+            if (node == null || node == Empty)
                 return false;
             node.Value = Value;
             return true;
@@ -68,7 +68,7 @@ namespace DataStructure.Tree
 		{
             // 1. find the node to remove
             ref var nodeToRemove = ref Get(ref Root, Key);
-            if (nodeToRemove == null)
+            if (nodeToRemove == null || nodeToRemove == Empty)
                 return false;
 						
             // 2. Left tree is empty. Replace with right tree.
@@ -102,7 +102,7 @@ namespace DataStructure.Tree
 				}
 
                 // c. Fix the pointers
-                if (parentOfReplace.Key.CompareTo(nodeToRemove.Key) == 0)
+                if (parentOfReplace.Key.Equals(nodeToRemove.Key))
                     nodeToRemove.LeftNode = toReplace.LeftNode;
                 else
                     parentOfReplace.RightNode = toReplace.LeftNode;

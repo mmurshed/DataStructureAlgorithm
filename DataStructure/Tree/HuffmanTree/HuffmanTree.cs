@@ -45,8 +45,9 @@ namespace DataStructure.Tree
         {
             if(line.Length != freq.Length)
             {
-                throw new ArgumentException("The input lenght must match.");
+                throw new ArgumentException("The input length must match.");
             }
+
             // 2. Build PiorityQueue
             var priorityQueue = new PriorityQueue<HuffmanNode>(line.Length);
 

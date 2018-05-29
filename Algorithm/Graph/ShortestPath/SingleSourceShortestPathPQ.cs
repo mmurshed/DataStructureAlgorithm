@@ -41,6 +41,7 @@ namespace Algorithm.Graph.ShortestPath
                     {
                         Distance[(int)w.ID] = newDistance;
                         PreviousVertex[(int)w.ID] = v;
+                        queue.Enqueue(w);
                     }
                 }
             }

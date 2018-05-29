@@ -19,5 +19,16 @@ namespace DataStructure.Tree
         {
             return Value - other.Value;
         }
+
+        public override bool Equals(object obj)
+        {
+            var objn = obj as HuffmanNode;
+            return Value.Equals(objn.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return Value.GetHashCode();
+        }
     }
 }

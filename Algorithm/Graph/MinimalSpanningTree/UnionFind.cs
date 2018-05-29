@@ -4,25 +4,31 @@ using DataStructure.Graph;
 namespace Algorithm.Graph
 {
     /*
-In the previous post, we introduced union find algorithm and used it to detect cycle in a graph. We used following union() and find() operations for subsets.
+In the previous post, we introduced union find algorithm and used it to detect 
+cycle in a graph. We used following union() and find() operations for subsets.
 
-// Naive implementation of find
-int find(int parent[], int i)
+class UnionFindNaive
 {
-    if (parent[i] == -1)
-        return i;
-    return find(parent, parent[i]);
-}
-  
-// Naive implementation of union()
-void Union(int parent[], int x, int y)
-{
-    int xset = find(parent, x);
-    int yset = find(parent, y);
-    parent[xset] = yset;
+    int parent[];
+
+    public int Find(int i)
+    {
+        if (parent[i] == -1)
+            return i;
+        return Find(parent, parent[i]);
+    }
+      
+    public void Union(int x, int y)
+    {
+        int xset = find(parent, x);
+        int yset = find(parent, y);
+        parent[xset] = yset;
+    }
 }
 
-The above union() and find() are naive and the worst case time complexity is linear. The trees created to represent subsets can be skewed and can become like a linked list. Following is an example worst case scenario.
+The above union() and find() are naive and the worst case time complexity is 
+linear. The trees created to represent subsets can be skewed and can become 
+like a linked list. Following is an example worst case scenario.
 
 Let there be 4 elements 0, 1, 2, 3
 

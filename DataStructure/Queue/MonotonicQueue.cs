@@ -5,8 +5,8 @@ namespace DataStructure.Queue
 {
     /*
      * Data Structure: Sliding Window Minimum / Monotonic Queue
-     * Given an array of elements a0,a1,a2,…,an, and queries Q(i,i+L) which 
-     * means "find the minimum element in ai,ai+1,…,ai+L". How can we answer 
+     * Given an array of elements a0, a1, a2, ..., an, and queries Q(i,i+L) which 
+     * means "find the minimum element in ai, ai+1, ..., ai+L". How can we answer 
      * such queries efficiently?
      * 
      * We can have an O(nlgn) complexity by using a minimum priority queue, 
