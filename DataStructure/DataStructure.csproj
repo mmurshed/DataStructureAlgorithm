@@ -100,7 +100,7 @@
     <Compile Include="Tree\HuffmanTree\PriorityQueue.cs" />
     <Compile Include="Tree\RadixTree\BoogleRadix.cs" />
     <Compile Include="Tree\RadixTree\RadixTree.cs" />
-    <Compile Include="Tree\SgementTree\SegmentTree.cs" />
+    <Compile Include="Tree\SegmentTree\SegmentTree.cs" />
     <Compile Include="Tree\TriePrefix\Boogle.cs" />
     <Compile Include="Tree\TriePrefix\Trie.cs" />
     <Compile Include="Tree\Visitor\AVLTreeVisitor.cs" />
@@ -127,6 +127,7 @@
     <Compile Include="Tree\QuadTree\QuadNode.cs" />
     <Compile Include="Tree\QuadTree\QuadTree.cs" />
     <Compile Include="Tree\QuadTree\Point.cs" />
+    <Compile Include="Tree\Visitor\StringVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

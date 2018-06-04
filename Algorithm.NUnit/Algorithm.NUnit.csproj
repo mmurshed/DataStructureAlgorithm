@@ -48,6 +48,7 @@
     <Compile Include="TelephoneWordTest.cs" />
     <Compile Include="SpiralMatrixTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
+    <Compile Include="LargestAreaUnderHistogramTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

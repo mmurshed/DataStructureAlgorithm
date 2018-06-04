@@ -151,6 +151,9 @@
     <Compile Include="MicrosoftProblems\MaxRectangle.cs" />
     <Compile Include="Graph\Cycle\HamiltonianCycleAlgorithm.cs" />
     <Compile Include="Graph\Cycle\HamiltonianCycle.cs" />
+    <Compile Include="MicrosoftProblems\LargestAreaUnderHistogram.cs" />
+    <Compile Include="MicrosoftProblems\LargestSquareWith1s.cs" />
+    <Compile Include="MicrosoftProblems\LargestRectangleWith1s.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

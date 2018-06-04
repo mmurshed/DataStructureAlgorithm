@@ -143,24 +143,14 @@ namespace DataStructure.Tree
         private int Parent(int i) => (i - 1) / 2; // (i + 1) / 2 - 1
         private int Left(int i) => 2 * i + 1;     // 2 * (i + 1) - 1;
         private int Right(int i) => 2 * i + 2;    // 2 * (i + 1)
+        private int Mid(int i, int j) => (i + j) / 2;
 
         public SegmentTree(T[] data, Func<T, T, T> union)
         {
-            Build(data, union);
-        }
-
-        private void Init(T[] data, Func<T, T, T> union)
-        {
             Data = data;
-            int n = Data.Length;
-            int length = (int)(n * 3);
-            Tree = new T[length];
+            Tree = new T[Data.Length * 3];
             Union = union;
-        }
 
-        public void Build(T[] data, Func<T, T, T> union)
-        {
-            Init(data, union);
             Build(0, 0, data.Length - 1);
         }
 
@@ -188,16 +178,18 @@ namespace DataStructure.Tree
             if(start == end)
             {
                 Tree[node] = Data[start];
+                return;
             }
-            else
-            {
-                int mid = (start + end) / 2;
-                int leftN = Left(node);
-                int rightN = Right(node);
-                Build(leftN, start, mid);
-                Build(rightN, mid+1, end);
-                Tree[node] = Union(Tree[leftN], Tree[rightN]);
-            }
+
+            int mid = Mid(start, end);
+
+            int left = Left(node);
+            int right = Right(node);
+
+            Build(left, start, mid);
+            Build(right, mid+1, end);
+
+            Tree[node] = Union(Tree[left], Tree[right]);
         }
 
         public void Update(int idx, T val)
@@ -212,27 +204,29 @@ namespace DataStructure.Tree
         */
         private void Update(int node, int start, int end, int idx, T val)
         {
+            
             if (start == end)
             {
                 Data[idx] = Union(Data[idx], val);
                 Tree[node] = Union(Tree[node], val);
+                return;
+            }
+
+            int mid = Mid(start, end);
+
+            int left = Left(node);
+            int right = Right(node);
+
+            if (start <= idx && idx <= mid)
+            {
+                Update(left, start, mid, idx, val);
             }
             else
             {
-                int mid = (start + end) / 2;
-                int leftN = Left(node);
-                int rightN = Right(node);
-
-                if (start <= idx && idx <= mid)
-                {
-                    Update(leftN, start, mid, idx, val);
-                }
-                else
-                {
-                    Update(rightN, mid + 1, end, idx, val);
-                }
-                Tree[node] = Union(Tree[leftN], Tree[rightN]);
+                Update(right, mid + 1, end, idx, val);
             }
+
+            Tree[node] = Union(Tree[left], Tree[right]);
         }
 
         public T Find(int l, int r)
@@ -256,28 +250,31 @@ namespace DataStructure.Tree
          * of the left child and the right child. Complexity of query 
          * will be O(logN).
         */
-        private T Find(int node, int start, int end, int l, int r)
+        private T Find(int node, int start, int end, int left, int right)
         {
-            if (r < start || end < l)
+            if (right < start || end < left)
             {
                 // range represented by a node is completely outside the given range
                 return default(T);
             }
-            if (l <= start && end <= r)
+            if (left <= start && end <= right)
             {
                 // range represented by a node is completely inside the given range
                 return Tree[node];
             }
+
             // range represented by a node is partially inside and partially outside the given range
-            int mid = (start + end) / 2;
-            T p1 = Find(Left(node), start, mid, l, r);
-            T p2 = Find(Right(node), mid + 1, end, l, r);
+            int mid = Mid(start, end);
+
+            var p1 = Find(Left(node), start, mid, left, right);
+            var p2 = Find(Right(node), mid + 1, end, left, right);
+
             return Union(p1, p2);
         }
 
-        public void UpdateRange(int l, int r, T val)
+        public void UpdateRange(int left, int right, T val)
         {
-            UpdateRange(0, 0, Data.Length - 1, l, r, val);
+            UpdateRange(0, 0, Data.Length - 1, left, right, val);
         }
         /*
          * Updating an interval ( Lazy Propagation ):
@@ -305,7 +302,7 @@ namespace DataStructure.Tree
             }
 
             // If not a leaf node, recur for children.
-            int mid = (start + end) / 2;
+            int mid = Mid(start, end);
             int lNode = Left(node);
             int rNode = Right(node);
             UpdateRange(lNode, start, mid, l, r, val);
