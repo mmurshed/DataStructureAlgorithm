@@ -22,12 +22,11 @@ namespace Algorithm.MicrosoftProblems
             return Math.Min(Math.Min(i, j), k);
         }
 
-        public void printMaxSubSquare(bool[,] M)
+        public Tuple<int, int, int> MaxSubSquare(bool[,] M)
         {
             int R = M.GetLength(0);
             int C = M.GetLength(1);
             var S = new int[R, C];
-            int max_of_s, max_i, max_j;
 
             // Set first column of S[,]
             for (int i = 0; i < R; i++)
@@ -50,9 +49,9 @@ namespace Algorithm.MicrosoftProblems
             }
 
             // Find the maximum entry, and indexes of maximum entry in S[,]
-            max_of_s = S[0, 0];
-            max_i = 0;
-            max_j = 0;
+            int max_of_s = S[0, 0];
+            int max_i = 0;
+            int max_j = 0;
             for (int i = 0; i < R; i++)
             {
                 for (int j = 0; j < C; j++)
@@ -65,6 +64,8 @@ namespace Algorithm.MicrosoftProblems
                     }
                 }
             }
+
+            return new Tuple<int, int, int>(max_of_s, max_i, max_j);
         }
     }
 }
