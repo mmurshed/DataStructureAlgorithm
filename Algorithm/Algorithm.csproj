@@ -154,6 +154,7 @@
     <Compile Include="MicrosoftProblems\LargestAreaUnderHistogram.cs" />
     <Compile Include="MicrosoftProblems\LargestSquareWith1s.cs" />
     <Compile Include="MicrosoftProblems\LargestRectangleWith1s.cs" />
+    <Compile Include="Recursion\ParenthesisGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
