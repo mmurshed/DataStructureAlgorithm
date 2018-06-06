@@ -59,7 +59,6 @@
     <Compile Include="DynamicProgramming\MatrixChainMultiplication\BurstBalloons.cs" />
     <Compile Include="DynamicProgramming\MatrixChainMultiplication\MatrixChainMultiplication.cs" />
     <Compile Include="DynamicProgramming\MatrixChainMultiplication\PalindromePartitioning.cs" />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\PartitionProblem.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\EggDropping.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\JumpGame.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\JumpGame2.cs" />
@@ -155,6 +154,7 @@
     <Compile Include="MicrosoftProblems\LargestRectangleWith1s.cs" />
     <Compile Include="Recursion\ParenthesisGenerator.cs" />
     <Compile Include="List\ReverseKGroup.cs" />
+    <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

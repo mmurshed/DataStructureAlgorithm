@@ -89,12 +89,11 @@ namespace Algorithm.DynamicProgramming
             // return the minimum count
             for (int k = i; k < j; k++)
             {
-                int count = GenerateNaive(p, i, k) +
+                int cost = GenerateNaive(p, i, k) +
                         GenerateNaive(p, k + 1, j) +
                         p[i - 1] * p[k] * p[j];
 
-                if (count < min)
-                    min = count;
+                min = Math.Min(min, cost);
             }
 
             // Return minimum count
@@ -137,7 +136,7 @@ namespace Algorithm.DynamicProgramming
             // For simplicity of the program, one extra row and one
             // extra column are allocated in m[][].  0th row and 0th
             // column of m[][] are not used
-            var m = new int[n, n];
+            var dp = new int[n, n];
 
             // m[i,j] = Minimum number of scalar multiplications needed
             // to compute the matrix A[i]A[i+1]...A[j] = A[i..j] where
@@ -145,7 +144,7 @@ namespace Algorithm.DynamicProgramming
 
             // cost is zero when multiplying one matrix.
             for (int i = 1; i < n; i++)
-                m[i, i] = 0;
+                dp[i, i] = 0;
 
             // L is chain length.
             for (int L = 2; L < n; L++)
@@ -153,19 +152,17 @@ namespace Algorithm.DynamicProgramming
                 for (int i = 1; i < n - L + 1; i++)
                 {
                     int j = i + L - 1;
-                    m[i, j] = Int32.MaxValue;
+                    dp[i, j] = Int32.MaxValue;
                     for (int k = i; k < j; k++)
                     {
                         // cost = cost/scalar multiplications
-                        int cost = m[i, k] + m[k + 1, j] + p[i - 1] * p[k] * p[j];
-                        if (cost < m[i, j])
-                            m[i, j] = cost;
-                        PrintMatrix(m);
+                        int cost = dp[i, k] + dp[k + 1, j] + p[i - 1] * p[k] * p[j];
+                        dp[i, j] = Math.Min(dp[i, j], cost);
                     }
                 }
             }
  
-            return m[1, n - 1];
+            return dp[1, n - 1];
         }
 
         private static void PrintMatrix(int[,] m)

@@ -26,16 +26,18 @@ Return 167
     {
         public int MaxCoins(int[] nums)
         {
-            var numse = new int[nums.Length + 2];
-            numse[0] = numse[numse.Length - 1] = 1;
-            int n = numse.Length;
+            var p = new int[nums.Length + 2];
+            p[0] = p[p.Length - 1] = 1;
+            int n = p.Length;
             var m = new int[n, n];
+
+            // Copy
+            for (int i = 1; i < n - 1; i++)
+                p[i] = nums[i - 1];
 
             for (int i = 1; i < n; i++)
             {
                 m[i, i] = 0;
-                if (i <= nums.Length)
-                    numse[i] = nums[i - 1];
             }
 
             for (int gap = 2; gap < n; gap++)
@@ -46,9 +48,8 @@ Return 167
                     for (int k = i + 1; k < j; k++)
                     {
                         // cost = cost/scalar multiplications
-                        int cost = m[i, k] + m[k, j] + numse[i] * numse[k] * numse[j];
-                        if (cost > m[i, j])
-                            m[i, j] = cost;
+                        int cost = m[i, k] + m[k, j] + p[i] * p[k] * p[j];
+                        m[i, j] = Math.Min(m[i, j], cost);
                     }
                 }
             }

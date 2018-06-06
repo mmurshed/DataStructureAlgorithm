@@ -47,6 +47,54 @@ namespace Algorithm.DynamicProgramming
          * values.
          */
 
+        public int GenerateNaive(string str)
+        {
+            return GenerateNaive(str, 0, str.Length - 1);
+        }
+
+        private bool IsPalindrom(string str, int i, int j)
+        {
+            while(i < j)
+            {
+                if (str[i] != str[j])
+                    return false;
+                i++;
+                j--;
+            }
+            return true;
+        }
+
+        /*
+        i is the starting index and j is the ending index.
+        i must be passed as 0 and j as n-1
+
+        minPalPartion(str, i, j) = 0 if i == j. When string is of length 1.
+        
+        minPalPartion(str, i, j) = 0 if str[i..j] is palindrome.
+
+        If none of the above conditions is true, then minPalPartion(str, i, j)
+        can be calculated recursively using the following formula.
+
+        minPalPartion(str, i, j) = Min { minPalPartion(str, i, k) + 1 +
+                                 minPalPartion(str, k+1, j) }
+            where k varies from i to j-1
+        */
+        private int GenerateNaive(string str, int i, int j)
+        {
+            if (i == j)
+                return 0; // Zero cut needed
+
+            if (IsPalindrom(str, i, j))
+                return 0; // Zero cut needed
+            int min = Int32.MaxValue;
+            for (int k = i; k < j; k++)
+            {
+                int cut = GenerateNaive(str, i, k) + GenerateNaive(str, k + 1, j) + 1;
+                min = Math.Min(min, cut);
+            }
+            return min;
+        }
+
         // Returns the minimum number of cuts needed to partition a string
         // such that every part is a palindrome
         // O(n^3)
@@ -98,7 +146,10 @@ namespace Algorithm.DynamicProgramming
                         // and get the minimum cost cut.
                         C[i, j] = Int32.MaxValue;
                         for (int k = i; k < j; k++)
-                            C[i, j] = Math.Min(C[i, j], C[i, k] + C[k + 1, j] + 1);
+                        {
+                            int cost = C[i, k] + C[k + 1, j] + 1;
+                            C[i, j] = Math.Min(C[i, j], cost);
+                        }
                     }
                 }
             }
@@ -123,7 +174,7 @@ namespace Algorithm.DynamicProgramming
 
         // Returns the minimum number of cuts needed to partition a string
         // such that every part is a palindrome
-        int GenerateOptimized(string str)
+        public int GenerateOptimized(string str)
         {
             // Get the length of the string
             int n = str.Length;
@@ -162,16 +213,17 @@ namespace Algorithm.DynamicProgramming
 
             for (int i = 0; i < n; i++)
             {
-                if (P[0, i] == true)
-                    C[i] = 0;
-                else
+                if (P[0, i])
                 {
-                    C[i] = Int32.MaxValue;
-                    for(int j = 0; j < i; j++)
-                    {
-                        if(P[j + 1, i] == true && 1 + C[j] < C[i])
-                            C[i] = 1 + C[j];
-                    }
+                    C[i] = 0;
+                    continue;
+                }
+
+                C[i] = Int32.MaxValue;
+                for(int j = 0; j < i; j++)
+                {
+                    if(P[j + 1, i])
+                        C[i] = Math.Min(C[i], 1 + C[j]);
                 }
             }
   

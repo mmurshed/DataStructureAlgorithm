@@ -51,8 +51,8 @@ namespace Algorithm.DynamicProgramming
        */
 
         // A utility function that returns true if there is 
-        // a subset of arr[] with sun equal to given sum
-        public static bool isSubsetSum(int[] arr, int n, int sum)
+        // a subset of arr[] with sum equal to given sum
+        public static bool IsSubsetSum(int[] arr, int n, int sum)
         {
             // Base Cases
             if (sum == 0)
@@ -63,21 +63,21 @@ namespace Algorithm.DynamicProgramming
             // If last element is greater than sum, then 
             // ignore it
             if (arr[n - 1] > sum)
-                return isSubsetSum(arr, n - 1, sum);
+                return IsSubsetSum(arr, n - 1, sum);
 
             /* else, check if sum can be obtained by any of 
                the following
                (a) including the last element
                (b) excluding the last element
             */
-            return isSubsetSum(arr, n - 1, sum) ||
-                   isSubsetSum(arr, n - 1, sum - arr[n - 1]);
+            return IsSubsetSum(arr, n - 1, sum) ||
+                   IsSubsetSum(arr, n - 1, sum - arr[n - 1]);
         }
 
         // Returns true if arr[] can be partitioned in two
         //  subsets of equal sum, otherwise false
         // O(2^n)
-        public static bool findPartiionNaive(int[] arr, int n)
+        public static bool FindPartitionNaive(int[] arr, int n)
         {
             // Calculate sum of the elements in array
             int sum = 0;
@@ -91,7 +91,7 @@ namespace Algorithm.DynamicProgramming
 
             // Find if there is subset with sum equal to
             // half of total sum
-            return isSubsetSum(arr, n, sum / 2);
+            return IsSubsetSum(arr, n, sum / 2);
         }
 
         // Driver program to test above function
@@ -99,7 +99,7 @@ namespace Algorithm.DynamicProgramming
         {
             var arr = new int[] { 3, 1, 5, 9, 12 };
             int n = arr.Length;
-            if (findPartiionNaive(arr, n) == true)
+            if (FindPartitionNaive(arr, n) == true)
                 Console.WriteLine("Can be divided into two subsets of equal sum");
             else
                 Console.WriteLine("Can not be divided into two subsets of equal sum");
@@ -119,7 +119,7 @@ namespace Algorithm.DynamicProgramming
         // Returns true if arr[] can be partitioned in two subsets of
         // equal sum, otherwise false
         // O(sum*n)
-        public static bool findPartiion(int[] arr)
+        public static bool FindPartition(int[] arr)
         {
             int n = arr.Length;
             int sum = 0;
@@ -139,7 +139,7 @@ namespace Algorithm.DynamicProgramming
             for (int i = 0; i <= n; i++)
               part[0, i] = true;
 
-            // initialize leftmost column, except part[0][0], as false
+            // initialize leftmost column, except part[0, 0], as false
             for (int i = 1; i <= halfSum; i++)
               part[i, 0] = false;
 
@@ -162,7 +162,7 @@ namespace Algorithm.DynamicProgramming
         public static void TestDynamic()
         {
             var arr = new int[]{ 3, 1, 1, 2, 2, 1 };
-            if (findPartiion(arr) == true)
+            if (FindPartition(arr) == true)
                 Console.WriteLine("Can be divided into two subsets of equal sum");
             else
                 Console.WriteLine("Can not be divided into two subsets of equal sum");
