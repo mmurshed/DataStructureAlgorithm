@@ -97,7 +97,7 @@ C({1,2,3}, -1)  C({1,2}, 2)        C({1,2}, 3)    C({1}, 5)
         }
 
         // Dynamic: O(n^2)
-        int CoinChangeCountDynamic(int[] S, int m, int n)
+        int CoinChangeCountDynamic(int[] coins, int m, int n)
         {
             // We need n+1 rows as the table is constructed in bottom up 
             // manner using the base case 0 value case (n = 0)
@@ -112,8 +112,8 @@ C({1,2,3}, -1)  C({1,2}, 2)        C({1,2}, 3)    C({1}, 5)
             {
                 for (int j = 0; j < m; j++)
                 {
-                    // Count of solutions including S[j]
-                    int x = (i - S[j] >= 0) ? table[i - S[j], j] : 0;
+                    // Count of solutions including coins[j]
+                    int x = (i - coins[j] >= 0) ? table[i - coins[j], j] : 0;
                     // Count of solutions excluding S[j]
                     int y = (j >= 1) ? table[i, j - 1] : 0;
                     // total count

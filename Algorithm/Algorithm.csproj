@@ -125,7 +125,6 @@
     <Compile Include="Tree\Problems\MaxSumPath.cs" />
     <Compile Include="Tree\Problems\TreeNode.cs" />
     <Compile Include="Tree\Problems\TreeCodec.cs" />
-    <Compile Include="MicrosoftProblems\ReverseKGroup.cs" />
     <Compile Include="GoogleProblems\MergeKListsPQClass.cs" />
     <Compile Include="MicrosoftProblems\ExcelSum.cs" />
     <Compile Include="FacebookProblems\RegularExpression.cs" />
@@ -155,6 +154,7 @@
     <Compile Include="MicrosoftProblems\LargestSquareWith1s.cs" />
     <Compile Include="MicrosoftProblems\LargestRectangleWith1s.cs" />
     <Compile Include="Recursion\ParenthesisGenerator.cs" />
+    <Compile Include="List\ReverseKGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
