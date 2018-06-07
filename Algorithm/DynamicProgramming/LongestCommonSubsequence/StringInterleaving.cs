@@ -1,6 +1,38 @@
 ﻿using System;
-namespace Algorithm.DynamicProgramming.Micellaneous
+namespace Algorithm.DynamicProgramming
 {
+    //https://www.geeksforgeeks.org/check-whether-a-given-string-is-an-interleaving-of-two-other-given-strings-set-2/
+
+    /*
+Given three strings A, B and C. Write a function that checks whether C is an 
+interleaving of A and B. C is said to be interleaving A and B, if it contains 
+all characters of A and B and order of all characters in individual strings is 
+preserved.
+
+We have discussed a simple solution of this problem here. The simple solution 
+doesn’t work if strings A and B have some common characters. For example 
+A = “XXY”, string B = “XXZ” and string C = “XXZXXXY”. To handle all cases, 
+two possibilities need to be considered.
+
+a) If first character of C matches with first character of A, we move one 
+character ahead in A and C and recursively check.
+
+b) If first character of C matches with first character of B, we move one 
+character ahead in B and C and recursively check.
+
+If any of the above two cases is true, we return true, else false. Following is 
+simple recursive implementation of this approach
+
+Dynamic Programming
+The worst case time complexity of recursive solution is O(2^n). The above 
+recursive solution certainly has many overlapping subproblems. For example, 
+if wee consider A = “XXX”, B = “XXX” and C = “XXXXXX” and draw recursion tree,
+there will be many overlapping subproblems.
+
+Therefore, like other typical Dynamic Programming problems, we can solve it by
+creating a table and store results of subproblems in bottom up manner.
+
+    */
     public class StringInterleaving
     {
         public bool IsInterLeaving(string a, string b, string c)

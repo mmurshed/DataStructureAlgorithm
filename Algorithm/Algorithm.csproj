@@ -60,8 +60,6 @@
     <Compile Include="DynamicProgramming\MatrixChainMultiplication\MatrixChainMultiplication.cs" />
     <Compile Include="DynamicProgramming\MatrixChainMultiplication\PalindromePartitioning.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\EggDropping.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\JumpGame.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\JumpGame2.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\OptimalStrategyGame.cs" />
     <Compile Include="DynamicProgramming\Numbers\CatalanNumber.cs" />
     <Compile Include="GoogleProblems\BasicCalculator.cs" />
@@ -140,11 +138,7 @@
     <Compile Include="MicrosoftProblems\HashTableWTime.cs" />
     <Compile Include="MicrosoftProblems\HashTableWTime2.cs" />
     <Compile Include="MicrosoftProblems\SpiralMatrix.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\StringInterleaving.cs" />
     <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\SubsetSum.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\CuttingRod.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\WordBreakProblem.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\WordBreakII.cs" />
     <Compile Include="MicrosoftProblems\MajorityProblem.cs" />
     <Compile Include="MicrosoftProblems\MaxRectangle.cs" />
     <Compile Include="Graph\Cycle\HamiltonianCycleAlgorithm.cs" />
@@ -154,7 +148,19 @@
     <Compile Include="MicrosoftProblems\LargestRectangleWith1s.cs" />
     <Compile Include="Recursion\ParenthesisGenerator.cs" />
     <Compile Include="List\ReverseKGroup.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem.cs" />
+    <Compile Include="DynamicProgramming\LongestCommonSubsequence\StringInterleaving.cs" />
+    <Compile Include="DynamicProgramming\JumpGame\JumpGame.cs" />
+    <Compile Include="DynamicProgramming\JumpGame\JumpGame2.cs" />
+    <Compile Include="DynamicProgramming\WordBreak\WordBreakII.cs" />
+    <Compile Include="DynamicProgramming\WordBreak\WordBreakProblem.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestArithmeticProgression.cs" />
+    <Compile Include="DynamicProgramming\01Knapsack\CuttingRod\CuttingRod.cs" />
+    <Compile Include="DynamicProgramming\01Knapsack\CuttingRod\MaximumProductCutting.cs" />
+    <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem\PartitionProblem.cs" />
+    <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem\MinimumPartition.cs" />
+    <Compile Include="DynamicProgramming\Micellaneous\WaysToCover.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestPathInMatrix.cs" />
+    <Compile Include="DynamicProgramming\LongestCommonSubsequence\ShortestCommonSupersequence.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -170,6 +176,10 @@
     <Folder Include="List\" />
     <Folder Include="Recursion\" />
     <Folder Include="DynamicProgramming\UniquePath\" />
+    <Folder Include="DynamicProgramming\JumpGame\" />
+    <Folder Include="DynamicProgramming\WordBreak\" />
+    <Folder Include="DynamicProgramming\01Knapsack\CuttingRod\" />
+    <Folder Include="DynamicProgramming\01Knapsack\PartitionProblem\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">
