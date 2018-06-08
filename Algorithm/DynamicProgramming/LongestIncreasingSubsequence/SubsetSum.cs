@@ -36,7 +36,7 @@ NP-Complete (There is no known polynomial time solution for this problem).
 We can solve the problem in Pseudo-polynomial time using Dynamic programming.
 We create a boolean 2D table subset[][] and fill it in bottom up manner. The 
 value of subset[i][j] will be true if there is a subset of set[0..j-1] with 
-sum equal to i., otherwise false. Finally, we return subset[sum][n]
+sum equal to i., otherwise false. Finally, we return subset[sum, n]
         */
         public bool IsSubsetSum(int[] array, int i, int x)
         {

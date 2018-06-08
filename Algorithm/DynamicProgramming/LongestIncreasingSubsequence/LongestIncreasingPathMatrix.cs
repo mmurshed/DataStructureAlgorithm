@@ -61,7 +61,7 @@ namespace Algorithm.DynamicProgramming
         // Return the length of LIP in 2D matrix
         private int Generate(int i, int j)
         {
-            // If value not calculated yet.
+            // If value is already calculated.
             if (dp[i, j] >= 0)
                 return dp[i, j];
 
@@ -73,10 +73,6 @@ namespace Algorithm.DynamicProgramming
                 dp[i, j] = 1;
                 return dp[i, j];
             }
-
-            // If reach the corner of the matrix.
-            if (i == n - 1 || j == m - 1)
-                result = 1;
 
             // If value greater than the cell below.
             if (matrix[i, j] < matrix[i + 1, j])

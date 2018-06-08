@@ -41,25 +41,25 @@ Therefore this problem can be optimally solved using Dynamic Programming.
 
             // Since all numbers are unique and in range from 1 to n*n,
             // there is atmost one possible direction from any cell
-            if (j < n - 1 && ((mat[i, j] + 1) == mat[i, j + 1]))
+            if (j < n - 1 && mat[i, j] + 1 == mat[i, j + 1])
             {
                 dp[i, j] = 1 + FindLongestFromACell(i, j + 1, mat, dp);
                 return dp[i, j];
             }
 
-            if (j > 0 && (mat[i, j] + 1 == mat[i, j - 1]))
+            if (j > 0 && mat[i, j] + 1 == mat[i, j - 1])
             {
                 dp[i, j] = 1 + FindLongestFromACell(i, j - 1, mat, dp);
                 return dp[i, j];
             }
 
-            if (i > 0 && (mat[i, j] + 1 == mat[i - 1, j]))
+            if (i > 0 && mat[i, j] + 1 == mat[i - 1, j])
             {
                 dp[i, j] = 1 + FindLongestFromACell(i - 1, j, mat, dp);
                 return dp[i, j];
             }
 
-            if (i < n - 1 && (mat[i, j] + 1 == mat[i + 1, j]))
+            if (i < n - 1 && mat[i, j] + 1 == mat[i + 1, j])
             {
                 dp[i, j] = 1 + FindLongestFromACell(i + 1, j, mat, dp);
                 return dp[i, j];

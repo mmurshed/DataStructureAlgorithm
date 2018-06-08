@@ -53,9 +53,9 @@ namespace Algorithm.DynamicProgramming
             {
                 for (int j = 0; j < i; j++)
                 {
-                    if (arr[i].a > arr[j].b && mcl[i] < mcl[j] + 1)
+                    if (arr[i].a > arr[j].b)
                     {
-                        mcl[i] = mcl[j] + 1;
+                        mcl[i] = Math.Max(mcl[i], mcl[j] + 1);
                     }
                 }
             }

@@ -120,11 +120,9 @@ namespace Algorithm.DynamicProgramming
                 for (int j = 0; j < i; j++)
                 {
                     if (rotations[i].w < rotations[j].w &&
-                         rotations[i].d < rotations[j].d &&
-                         msh[i] < msh[j] + rotations[i].h
-                       )
+                         rotations[i].d < rotations[j].d)
                     {
-                        msh[i] = msh[j] + rotations[i].h;
+                        msh[i] = Math.Max(msh[i], msh[j] + rotations[i].h);
                     }
                 }
             }
