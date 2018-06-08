@@ -27,7 +27,7 @@ namespace Algorithm.DynamicProgramming
          * LIS ending at index i such that arr[i] is the last element of the LIS.
          * 
          * Then, L(i) can be recursively written as:
-         * L(i) = 1 + max( L(j) ) where 0 < j < i and arr[j] < arr[i]; or
+         * L(i) = 1 + LongestSubseq( L(j) ) where 0 < j < i and arr[j] < arr[i]; or
          * 
          * L(i) = 1, if no such j exists.
          * 
@@ -38,15 +38,15 @@ namespace Algorithm.DynamicProgramming
          * to subproblems.
         */
 
-        public static int RecursiveNaiveGenerate(int[] A, int n, ref int max)
+        public static int LongestSubseqNaive(int[] A, int n, ref int max)
 		{
 			if (n == 1) return 1;
 			int max_ending_here = 1;
 			for (int i = 1; i < n; i++)
 			{
-				int res = RecursiveNaiveGenerate(A, i, ref max);
-				if (A[i - 1] < A[n - 1] && res + 1 > max_ending_here)
-					max_ending_here = res + 1;
+				int res = LongestSubseqNaive(A, i, ref max);
+				if (A[i - 1] < A[n - 1])
+                    max_ending_here = Math.Max(max_ending_here, res + 1);
 				max = Math.Max(max, max_ending_here);
 			}
 			return max_ending_here;
@@ -55,7 +55,7 @@ namespace Algorithm.DynamicProgramming
 		public static int GenerateNaive(int[] A)
 		{
 			int max = 1;
-			RecursiveNaiveGenerate(A, A.Length, ref max);
+			LongestSubseqNaive(A, A.Length, ref max);
 			return max;
 		}
 
