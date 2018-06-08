@@ -152,7 +152,6 @@
     <Compile Include="DynamicProgramming\JumpGame\JumpGame2.cs" />
     <Compile Include="DynamicProgramming\WordBreak\WordBreakII.cs" />
     <Compile Include="DynamicProgramming\WordBreak\WordBreakProblem.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestArithmeticProgression.cs" />
     <Compile Include="DynamicProgramming\01Knapsack\CuttingRod\CuttingRod.cs" />
     <Compile Include="DynamicProgramming\01Knapsack\CuttingRod\MaximumProductCutting.cs" />
     <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem\PartitionProblem.cs" />
@@ -161,6 +160,7 @@
     <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestPathInMatrix.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequence\ShortestCommonSupersequence.cs" />
     <Compile Include="DynamicProgramming\01Knapsack\SubsetSum.cs" />
+    <Compile Include="DynamicProgramming\Micellaneous\LongestArithmeticProgression.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
