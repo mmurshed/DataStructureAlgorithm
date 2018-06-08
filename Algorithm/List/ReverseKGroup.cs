@@ -40,6 +40,7 @@ namespace Algorithm.MicrosoftProblems
             return list.ToArray();
         }
 
+        // Deprecated
         public ListNode ReverseKGroup(ListNode head, int k)
         {
             if (k == 0)
@@ -77,6 +78,56 @@ namespace Algorithm.MicrosoftProblems
             return newhead;
         }
 
+        // Use this
+        public ListNode ReverseKGroup3(ListNode head, int k)
+        {
+            if (k == 0)
+                return head;
+            int len = GetLength(head);
+            if (k > len)
+                return head;
+            int count = k * (len / k);
+
+            ListNode cur = head;
+            ListNode prev = new ListNode(-1); // Dummy
+            prev.next = head;
+
+            while (count >= 0)
+            {
+                var res = ReverseKGroupOnce2(cur, k);
+
+                var reversedHead = res.Item1;
+                var next = res.Item2;
+
+                prev.next = reversedHead;
+                cur.next = next;
+
+                prev = cur;
+                cur = next;
+
+                count--;
+            }
+            return prev.next;
+        }
+        private Tuple<ListNode, ListNode> ReverseKGroupOnce2(ListNode head, int k)
+        {
+            ListNode prev = null;
+            ListNode cur = head;
+            ListNode next = null;
+
+            while (cur != null && k > 0)
+            {
+                next = cur.next;
+                cur.next = prev;
+                prev = cur;
+                cur = next;
+                k--;
+            }
+            head = prev;
+            return new Tuple<ListNode, ListNode>(prev, next);
+        }
+
+
         private Tuple<ListNode, ListNode, int> ReverseKGroupOnce(ListNode head, int k)
         {
             ListNode prev = null;
@@ -95,7 +146,7 @@ namespace Algorithm.MicrosoftProblems
             return new Tuple<ListNode, ListNode, int>(prev, next, k);
         }
 
-
+        // Deprecated
         public ListNode ReverseKGroup2(ListNode head, int k)
         {
             if (k <= 1)
@@ -150,6 +201,58 @@ namespace Algorithm.MicrosoftProblems
             if (newhead == null)
                 newhead = prev;
             return newhead;
+        }
+
+        // Deprecated
+        public ListNode ReverseKGroup4(ListNode head, int k)
+        {
+            if (k <= 1)
+                return head;
+
+            int length = GetLength(head);
+            if (k > length)
+                return head;
+
+            int count = 0;
+            int maxRev = k * (length / k);
+
+            ListNode cur = head;
+            ListNode prev = new ListNode(-1);
+            prev.next = head;
+            ListNode next = null;
+            ListNode lastTail = null;
+            ListNode curHead = head;
+
+            bool process = false;
+
+            while (true)
+            {
+                if (process && count % k == 0)
+                {
+                    if (lastTail != null)
+                        lastTail.next = prev;
+
+                    lastTail = curHead;
+                    curHead.next = cur;
+                    curHead = cur;
+                    prev = lastTail;
+                    process = false;
+                    continue;
+                }
+
+                if (count >= maxRev || cur == null)
+                    break;
+
+                next = cur.next;
+
+                cur.next = prev;
+                prev = cur;
+                cur = next;
+
+                count++;
+                process = true;
+            }
+            return prev.next;
         }
 
         public int GetLength(ListNode head)

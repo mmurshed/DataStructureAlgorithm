@@ -28,17 +28,18 @@ namespace Algorithm.List
 
 		public Node SwapPairs(Node head)
         {
-			Node ans = new Node(0);
-			var pre = ans;
-            ans.next = head;
+            var cur = head;
+            var prev = new Node(0);
+            prev.next = head;
             
-			while (head != null && head.next != null)
+			while (cur != null && cur.next != null)
             {
-                Swap(pre, head, head.next);
-                pre = pre.next.next;
-                head = head.next;
+                var next = cur.next;
+                Swap(prev, cur, next);
+                prev = prev.next.next;
+                cur = cur.next;
             }
-            return ans.next;
+            return prev.next;
         }
 
         private void Swap(Node pre, Node a, Node b)
