@@ -46,11 +46,13 @@ namespace Algorithm.DynamicProgramming
         public static int MaxChainLength(Pair[] arr)
         {
             // Initialize MCL (max chain length) values for all indexes
-            var mcl = Enumerable.Repeat(1, arr.Length).ToArray(); 
+            var mcl = new int[arr.Length];
 
+            int max = 0;
             // Compute optimized chain length values in bottom up manner
             for (int i = 1; i < arr.Length; i++)
             {
+                mcl[i] = 1;
                 for (int j = 0; j < i; j++)
                 {
                     if (arr[i].a > arr[j].b)
@@ -58,10 +60,10 @@ namespace Algorithm.DynamicProgramming
                         mcl[i] = Math.Max(mcl[i], mcl[j] + 1);
                     }
                 }
+                max = Math.Max(max, mcl[i]);
             }
 
-            // mcl now stores the maximum chain length ending with pair i
-            return mcl.Max();
+            return max;
         }
 
 

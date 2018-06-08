@@ -68,6 +68,9 @@ namespace Algorithm.DynamicProgramming
                 this.d = d;
                 this.w = w;
             }
+
+            // Assuming d, w is always placed as the bottom
+            public int Area => d * w;
         }
 
         // Returns the height of the tallest stack that can be
@@ -102,34 +105,31 @@ namespace Algorithm.DynamicProgramming
 
             // Assuming d, w is always placed as the bottom,
             // sort the array 'rot[]' in decreasing order of are d * w
-            Array.Sort(rotations, (x, y) => y.d * y.w - x.d * x.w);
+            Array.Sort(rotations, (x, y) => y.Area - x.Area);
 
             // Initialize msh values for all indexes 
             // msh[i] --> Maximum possible Stack Height with box i on top
             var msh = new int[rotations.Length];
-            for (int i = 0; i < rotations.Length; i++)
-            {
-                msh[i] = rotations[i].h;
-            }
 
+            int max = 0;
             // Compute optimized msh values in bottom up manner
             // Standard Longest increasing subsequence
             // (Max Sum Increasing Subsequence)
             for (int i = 1; i < rotations.Length; i++)
             {
+                msh[i] = rotations[i].h;
                 for (int j = 0; j < i; j++)
                 {
-                    if (rotations[i].w < rotations[j].w &&
-                         rotations[i].d < rotations[j].d)
+                    // If bottom of i is smaller than bottom of j
+                    if (rotations[i].w < rotations[j].w && rotations[i].d < rotations[j].d)
                     {
                         msh[i] = Math.Max(msh[i], msh[j] + rotations[i].h);
                     }
                 }
+                max = Math.Max(max, msh[i]);
             }
 
-            // Return maximum of all msh values
-
-            return msh.Max();
+            return max;
         }
 
         // Driver program to test above function

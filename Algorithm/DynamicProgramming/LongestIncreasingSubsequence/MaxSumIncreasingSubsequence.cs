@@ -29,13 +29,11 @@ namespace Algorithm.DynamicProgramming
         {
             var msis = new int[arr.Length];
 
-
-            // Initialize msis values for all indexes
-            arr.CopyTo(msis, 0);
-
+            int max = 0;
             // Compute maximum sum values in bottom up manner
             for (int i = 1; i < arr.Length; i++)
             {
+                msis[i] = arr[i];
                 for (int j = 0; j < i; j++)
                 {
                     if (arr[i] > arr[j])
@@ -43,10 +41,10 @@ namespace Algorithm.DynamicProgramming
                         msis[i] = Math.Max(msis[i], msis[j] + arr[i]);
                     }
                 }
+                max = Math.Max(max, msis[i]);
             }
 
-            // Pick maximum of all msis values
-            return msis.Max();
+            return max;
         }
 	}
 }

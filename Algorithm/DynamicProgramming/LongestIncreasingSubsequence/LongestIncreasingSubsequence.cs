@@ -71,15 +71,15 @@ namespace Algorithm.DynamicProgramming
             int maxans = 1;
             for (int i = 1; i < nums.Length; i++)
             {
-                int maxval = 0;
+                int max = 0;
                 for (int j = 0; j < i; j++)
                 {
                     if (nums[i] > nums[j])
                     {
-                        maxval = Math.Max(maxval, dp[j]);
+                        max = Math.Max(max, dp[j]);
                     }
                 }
-                dp[i] = maxval + 1;
+                dp[i] = max + 1;
                 maxans = Math.Max(maxans, dp[i]);
             }
             return maxans;
