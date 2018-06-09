@@ -38,30 +38,30 @@ namespace DataStructure.Cache
     */
     public class LFUCache
     {
-        public class LFUNode
+        public class Node
         {
             public int Key;
             public int Value;
-            public LFUNode(int key, int value)
+            public Node(int key, int value)
             {
                 Key = key;
                 Value = value;
             }
         }
-        private Dictionary<int, LinkedListNode<LFUNode>> Values; // Key = item key, Value = Linked list node of item value
+        private Dictionary<int, LinkedListNode<Node>> Values; // Key = item key, Value = Linked list node of item value
         private Dictionary<int, int> Counts; // Key = item key, Value = Frequency count
-        private SortedDictionary<int, LinkedList<LFUNode>> Frequencies; // Key = Frequency count, Value = Frequency list
+        private SortedDictionary<int, LinkedList<Node>> Frequencies; // Key = Frequency count, Value = Frequency list
 
         private readonly int size;
         public LFUCache(int n)
         {
             size = n;
-            Frequencies = new SortedDictionary<int, LinkedList<LFUNode>>();
-            Values = new Dictionary<int, LinkedListNode<LFUNode>>();
+            Frequencies = new SortedDictionary<int, LinkedList<Node>>();
+            Values = new Dictionary<int, LinkedListNode<Node>>();
             Counts = new Dictionary<int, int>();
         }
 
-        private LFUNode GetNode(int key)
+        private Node GetNode(int key)
         {
             if (!Values.ContainsKey(key))
                 return null;
@@ -85,7 +85,7 @@ namespace DataStructure.Cache
             int newFrequency = frequency + 1;
             // Create new node for the new frequency value, if it does not exist
             if (!Frequencies.ContainsKey(newFrequency))
-                Frequencies.Add(newFrequency, new LinkedList<LFUNode>());
+                Frequencies.Add(newFrequency, new LinkedList<Node>());
             // Insert the node to the new frequency list
             Frequencies[newFrequency].AddLast(node);
             // Update the frequency
@@ -127,14 +127,14 @@ namespace DataStructure.Cache
             if (Values.Count == size)
                 return; // size zero or eviction didn't succeed
 
-            var newkv = new LFUNode(key, value);
-            var node = new LinkedListNode<LFUNode>(newkv);
+            var newkv = new Node(key, value);
+            var node = new LinkedListNode<Node>(newkv);
 
             var newFreq = 1;
             Values.Add(key, node);
             Counts.Add(key, newFreq);
             if (!Frequencies.ContainsKey(newFreq))
-                Frequencies.Add(newFreq, new LinkedList<LFUNode>());
+                Frequencies.Add(newFreq, new LinkedList<Node>());
             // Insert the node to the new frequency list
             Frequencies[newFreq].AddLast(node);            
         }

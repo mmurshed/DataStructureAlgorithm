@@ -77,16 +77,15 @@ namespace Algorithm.Backtracking
             {
                 for (int i = 0; i < cols.Length; i++)
                     results[row, i] = cols[i];
+                return;
             }
-            else
+
+            for (int col = 0; col < cols.Length; col++)
             {
-                for (int col = 0; col < cols.Length; col++)
+                if(CheckValid(cols, row, col))
                 {
-                    if(CheckValid(cols, row, col))
-                    {
-                        cols[row] = col;
-                        PlaceQueens(row + 1, cols);
-                    }
+                    cols[row] = col;
+                    PlaceQueens(row + 1, cols);
                 }
             }
         }

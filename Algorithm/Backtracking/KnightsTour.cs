@@ -156,8 +156,8 @@ namespace Algorithm.Backtracking
          * It is optimized moves/values sequence otherwise it will take more 
          * than an half hour (based on the computer speed) to solve this puzzle.
         */
-        private readonly int[] xMove = new int[] { 2, 1, -1, -2, -2, -1, 1, 2 };
-        private readonly int[] yMove = new int[] { 1, 2, 2, 1, -1, -2, -2, -1 };
+        private readonly int[] xMove = new int[] { 2, 1, -1, -2, -2, -1,  1,  2 };
+        private readonly int[] yMove = new int[] { 1, 2,  2,  1, -1, -2, -2, -1 };
 
 
         /// <summary>
