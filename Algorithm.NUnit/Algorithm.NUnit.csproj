@@ -49,6 +49,7 @@
     <Compile Include="SpiralMatrixTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
     <Compile Include="LargestAreaUnderHistogramTest.cs" />
+    <Compile Include="StringMatchTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

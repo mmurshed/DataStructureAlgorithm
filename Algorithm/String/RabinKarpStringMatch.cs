@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructure.String
+namespace Algorithm.String
 {
     public class RabinKarpStringMatch : IStringMatch
     {
@@ -19,7 +19,7 @@ namespace DataStructure.String
                 if (i > 0)
                     h = (h * SIZE) % PRIME;
                 patternHash = (patternHash * SIZE + pattern[i]) % PRIME;
-                textHash = (textHash * SIZE + pattern[i]) % PRIME;
+                textHash    = (textHash    * SIZE + text[i])    % PRIME;
             }
             return new Tuple<int, int, int>(textHash, patternHash, h);
         }
@@ -28,8 +28,8 @@ namespace DataStructure.String
         {
             var hashes = CalculateHash(text, pattern);
 
-            int patternHash = hashes.Item1;
-            int textHash = hashes.Item2;
+            int textHash = hashes.Item1;
+            int patternHash = hashes.Item2;
             int h = hashes.Item3;
 
             int m = pattern.Length;
@@ -42,7 +42,7 @@ namespace DataStructure.String
                     int j = 0;
                     while (j < m && pattern[j] == text[i + j])
                         j++;
-                    if (j == pattern.Length)
+                    if (j == m)
                         yield return i;
                 }
 

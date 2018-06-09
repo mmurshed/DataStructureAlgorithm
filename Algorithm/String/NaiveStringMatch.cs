@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructure.String
+namespace Algorithm.String
 {
     public class NaiveStringMatch : IStringMatch
     {
