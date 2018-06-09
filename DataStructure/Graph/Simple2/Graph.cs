@@ -13,15 +13,15 @@ namespace DataStructure.Graph.Simple2
             Edges = new List<Edge>();
         }
 
-        public void AddVertex(Vertex v)
+        public void Add(Vertex v)
         {
             Vertices.Add(v);
         }
 
-        public void AddEdge(Edge e)
+        public void Add(Edge e)
         {
             Edges.Add(e);
-            Vertices[e.First].Neighbours.Add(e.Second);
+            Vertices[e.First].Neighbours.Add(Vertices[e.Second]);
         }
     }
 }

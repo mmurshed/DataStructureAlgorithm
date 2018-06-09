@@ -21,12 +21,12 @@ namespace DataStructure.Graph.Simple
             adjacencyList = new Dictionary<int, List<int>>();
         }
 
-        public void AddVertex(int v)
+        public void Add(int v)
         {
             Vertices.Add(v);
         }
 
-        public void AddEdge(Edge e)
+        public void Add(Edge e)
         {
             Edges.Add(e);
 

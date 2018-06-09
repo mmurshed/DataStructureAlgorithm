@@ -163,6 +163,11 @@
     <Compile Include="DynamicProgramming\Micellaneous\LongestArithmeticProgression.cs" />
     <Compile Include="Graph\MinimalSpanningTree\MinimalSpanningTreePrim2.cs" />
     <Compile Include="Graph\MinimalSpanningTree\MinimalSpanningTreePrim3.cs" />
+    <Compile Include="Graph\Connectedness\StronglyConnectedComponent.cs" />
+    <Compile Include="Graph\ReverseGraph.cs" />
+    <Compile Include="Graph\ShortestPath\LongestPath.cs" />
+    <Compile Include="Graph\ShortestPath\ParallelJobScheduling.cs" />
+    <Compile Include="Graph\TransitiveClosure\TransitiveColsure.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -182,6 +187,7 @@
     <Folder Include="DynamicProgramming\WordBreak\" />
     <Folder Include="DynamicProgramming\01Knapsack\CuttingRod\" />
     <Folder Include="DynamicProgramming\01Knapsack\PartitionProblem\" />
+    <Folder Include="Graph\TransitiveClosure\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

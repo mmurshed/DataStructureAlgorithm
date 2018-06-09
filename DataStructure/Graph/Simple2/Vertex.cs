@@ -5,12 +5,12 @@ namespace DataStructure.Graph.Simple2
     public class Vertex
     {
         public readonly int Value;
-        public List<int> Neighbours;
+        public List<Vertex> Neighbours;
 
         public Vertex(int v)
         {
             Value = v;
-            Neighbours = new List<int>();
+            Neighbours = new List<Vertex>();
         }
     }
 }
