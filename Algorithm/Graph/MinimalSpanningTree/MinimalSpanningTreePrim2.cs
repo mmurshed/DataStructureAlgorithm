@@ -43,7 +43,7 @@ of Prim’s algorithm would remove such edges from the priority queue; we first 
 
         private void Init()
         {
-            queue = new PriorityQueue<IEdge<V, int>>();
+            queue = new PriorityQueue<IEdge<V, int>>( (a, b) => a.Value - b.Value);
 
             for (int i = 0; i < graph.Size; i++)
             {

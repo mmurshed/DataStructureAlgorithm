@@ -75,12 +75,14 @@ namespace Algorithm.Graph.ShortestPath
 
             path.AddLast(u);
 
-            while(u != v)
+            var next = u;
+
+            while(next != v)
             {
-                u = NextVertex[u.ID, v.ID];
-                if (u == null)
+                next = NextVertex[next.ID, v.ID];
+                if (next == null)
                     break;
-                path.AddLast(u);
+                path.AddLast(next);
             }
 
             return path;

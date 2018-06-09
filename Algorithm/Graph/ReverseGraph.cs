@@ -9,8 +9,9 @@ namespace Algorithm.Graph
         {
             var r = new DataStructure.Graph.Simple2.Graph();
             r.Vertices.AddRange(g.Vertices);
-            foreach(var e in g.Edges)
+            foreach(var kv in g.Edges)
             {
+                var e = kv.Key;
                 r.Add(new Edge(e.Second, e.First, e.Weight));
             }
 

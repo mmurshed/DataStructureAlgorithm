@@ -5,12 +5,12 @@ namespace DataStructure.Graph.Simple2
     public class Graph
     {
         public readonly List<Vertex> Vertices;
-        public readonly List<Edge> Edges;
+        public readonly Dictionary<Edge, int> Edges;
 
         public Graph()
         {
             Vertices = new List<Vertex>();
-            Edges = new List<Edge>();
+            Edges = new Dictionary<Edge, int>();
         }
 
         public void Add(Vertex v)
@@ -20,7 +20,7 @@ namespace DataStructure.Graph.Simple2
 
         public void Add(Edge e)
         {
-            Edges.Add(e);
+            Edges.Add(e, e.Weight);
             Vertices[e.First].Neighbours.Add(Vertices[e.Second]);
         }
     }

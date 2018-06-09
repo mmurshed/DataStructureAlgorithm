@@ -168,6 +168,7 @@
     <Compile Include="Graph\ShortestPath\LongestPath.cs" />
     <Compile Include="Graph\ShortestPath\ParallelJobScheduling.cs" />
     <Compile Include="Graph\TransitiveClosure\TransitiveColsure.cs" />
+    <Compile Include="Graph\MinimalSpanningTree\UnionFindGeneric.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
