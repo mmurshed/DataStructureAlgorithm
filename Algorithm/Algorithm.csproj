@@ -161,6 +161,8 @@
     <Compile Include="DynamicProgramming\LongestCommonSubsequence\ShortestCommonSupersequence.cs" />
     <Compile Include="DynamicProgramming\01Knapsack\SubsetSum.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\LongestArithmeticProgression.cs" />
+    <Compile Include="Graph\MinimalSpanningTree\MinimalSpanningTreePrim2.cs" />
+    <Compile Include="Graph\MinimalSpanningTree\MinimalSpanningTreePrim3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

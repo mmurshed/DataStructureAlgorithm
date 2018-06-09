@@ -128,6 +128,11 @@
     <Compile Include="Tree\QuadTree\QuadTree.cs" />
     <Compile Include="Tree\QuadTree\Point.cs" />
     <Compile Include="Tree\Visitor\StringVisitor.cs" />
+    <Compile Include="Graph\Simple\Graph.cs" />
+    <Compile Include="Graph\Simple\Edge.cs" />
+    <Compile Include="Graph\Simple2\Edge.cs" />
+    <Compile Include="Graph\Simple2\Graph.cs" />
+    <Compile Include="Graph\Simple2\Vertex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -139,6 +144,8 @@
     <Folder Include="Tree\AVLTreeV1\Node\" />
     <Folder Include="Tree\TriePrefix\External\" />
     <Folder Include="Tree\QuadTree\" />
+    <Folder Include="Graph\Simple\" />
+    <Folder Include="Graph\Simple2\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
