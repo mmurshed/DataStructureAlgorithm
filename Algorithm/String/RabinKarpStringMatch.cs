@@ -8,7 +8,7 @@ namespace Algorithm.String
         private const int PRIME = 101;
         private const int SIZE = 256;
 
-        private Tuple<int, int, int> CalculateHash(char[] text, char[] pattern)
+        private Tuple<int, int, int> CalculateHash(string text, string pattern)
         {
             int h = 1;
             int patternHash = 0;
@@ -24,7 +24,7 @@ namespace Algorithm.String
             return new Tuple<int, int, int>(textHash, patternHash, h);
         }
 
-        public IEnumerable<int> Search(char[] text, char[] pattern)
+        public IEnumerable<int> Search(string text, string pattern)
         {
             var hashes = CalculateHash(text, pattern);
 

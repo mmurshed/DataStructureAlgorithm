@@ -12,7 +12,7 @@ namespace Algorithm.NUnit
             var obj = new Algorithm.String.BoyerMooreStringMatch();
 
             // Act
-            var result = obj.Search(str1.ToCharArray(), str2.ToCharArray());
+            var result = obj.Search(str1, str2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -25,7 +25,7 @@ namespace Algorithm.NUnit
             var obj = new Algorithm.String.KNPStringMatch();
 
             // Act
-            var result = obj.Search(str1.ToCharArray(), str2.ToCharArray());
+            var result = obj.Search(str1, str2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -38,7 +38,7 @@ namespace Algorithm.NUnit
             var obj = new Algorithm.String.RabinKarpStringMatch();
 
             // Act
-            var result = obj.Search(str1.ToCharArray(), str2.ToCharArray());
+            var result = obj.Search(str1, str2);
 
             // Assert
             Assert.AreEqual(expected, result);

@@ -71,7 +71,7 @@ time in the best case.
     {
         private const int SIZE = 256;
 
-        private int[] ComputerLastOccurrences(char[] text)
+        private int[] ComputeLastOccurrences(string text)
         {
             var lastOccurrences = new int[SIZE];
             for (int i = 0; i < SIZE; i++)
@@ -81,9 +81,9 @@ time in the best case.
             return lastOccurrences;
         }
 
-        public IEnumerable<int> Search(char[] text, char[] pattern)
+        public IEnumerable<int> Search(string text, string pattern)
         {
-            var lastOccurences = ComputerLastOccurrences(text);
+            var lastOccurences = ComputeLastOccurrences(text);
 
             int i = 0;
             int n = text.Length;

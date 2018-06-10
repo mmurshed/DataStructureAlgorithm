@@ -5,7 +5,7 @@ namespace Algorithm.String
 {
     public class NaiveStringMatch : IStringMatch
     {
-        public IEnumerable<int> Search(char[] text, char[] pattern)
+        public IEnumerable<int> Search(string text, string pattern)
         {
             for (int i = 0; i <= text.Length - pattern.Length; i++)
             {

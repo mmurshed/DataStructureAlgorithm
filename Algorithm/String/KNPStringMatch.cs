@@ -21,7 +21,7 @@ namespace Algorithm.String
          * proper suffix. We need to use proper at one place to make sure that
          * the whole substring is not considered.
         */
-        private int[] ComputerLongestProperPrefix(char[] pattern)
+        private int[] ComputeLongestProperPrefix(string pattern)
         {
             var longestProperPrefix = new int[pattern.Length];
             longestProperPrefix[0] = 0;
@@ -48,9 +48,9 @@ namespace Algorithm.String
             return longestProperPrefix;
         }
 
-        public IEnumerable<int> Search(char[] text, char[] pattern)
+        public IEnumerable<int> Search(string text, string pattern)
         {
-            var longestProperPrefix = ComputerLongestProperPrefix(pattern);
+            var longestProperPrefix = ComputeLongestProperPrefix(pattern);
             int i = 0;
             int j = 0;
 

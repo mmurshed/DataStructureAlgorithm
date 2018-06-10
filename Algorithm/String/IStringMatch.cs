@@ -5,6 +5,6 @@ namespace Algorithm.String
 {
     public interface IStringMatch
     {
-        IEnumerable<int> Search(char[] text, char[] pattern);
+        IEnumerable<int> Search(string text, string pattern);
     }
 }
