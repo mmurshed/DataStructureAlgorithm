@@ -124,7 +124,6 @@
     <Compile Include="Tree\Problems\TreeCodec.cs" />
     <Compile Include="GoogleProblems\MergeKListsPQClass.cs" />
     <Compile Include="MicrosoftProblems\ExcelSum.cs" />
-    <Compile Include="FacebookProblems\RegularExpression.cs" />
     <Compile Include="List\DetectCycle.cs" />
     <Compile Include="List\ListFlatenning.cs" />
     <Compile Include="List\CopyListRandom.cs" />
@@ -169,6 +168,8 @@
     <Compile Include="Graph\ShortestPath\ParallelJobScheduling.cs" />
     <Compile Include="Graph\TransitiveClosure\TransitiveColsure.cs" />
     <Compile Include="Graph\MinimalSpanningTree\UnionFindGeneric.cs" />
+    <Compile Include="DynamicProgramming\Micellaneous\RegularExpression.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingDecreasingSubsequence.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

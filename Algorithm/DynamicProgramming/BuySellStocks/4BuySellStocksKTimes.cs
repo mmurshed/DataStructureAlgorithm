@@ -76,7 +76,7 @@ Maximum profit gained by selling on ith day. In order to sell shares on ith day,
             for (int t = 1; t <= k; t++)
             {
                 // For each day
-                for (int d = 1; d < n; d++)
+                for (int d = 1; d <= n; d++)
                 {
                     int max_so_far = Int32.MinValue;
 

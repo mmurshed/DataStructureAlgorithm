@@ -42,6 +42,29 @@ namespace Algorithm.FacebookProblems
             return false;
         }
 
+        private bool IsMatchNaive2(string s, int si, string p, int pi)
+        {
+            if (pi >= p.Length && si >= s.Length)
+                return true;
+            if (pi >= p.Length)
+                return false;
+
+            if (p[pi] == '.' || (si < s.Length && p[pi] == s[si]))
+                return IsMatchNaive(s, ++si, p, ++pi);
+            else if (p[pi] == '*')
+            {
+                char prev = p[pi - 1];
+                if(prev != '.' || prev != s[si])
+                    return IsMatchNaive(s, si + 1, p, pi - 1); // Zero match
+                
+                return
+                    IsMatchNaive(s, si + 1, p, pi) || // One match
+                    IsMatchNaive(s, si, p, pi + 1) || // multiple match
+                    IsMatchNaive(s, si + 1, p, pi - 1); // Zero match
+            }
+
+            return false;
+        }
         // https://xiaokangstudynotes.com/2017/01/21/dynamic-programming-regular-expression-matching/
         public bool IsMatchDP(string s, string p)
         {
@@ -70,7 +93,7 @@ namespace Algorithm.FacebookProblems
                     char sch = s[i];
                     bool match = false;
 
-                    // Thee cases if we see a '*'
+                    // Three cases if we see a '*'
                     // 1. p[j] matches zero preceding element
                     // dp[i + 1, j + 1] = dp[i + 1, j – 1]
                     //

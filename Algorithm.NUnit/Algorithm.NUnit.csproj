@@ -32,24 +32,25 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditDistanceTest.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="LongestCommonSequenceTest.cs" />
-    <Compile Include="LongestRepeatingSubsequence.cs" />
     <Compile Include="IntergerToWordTest.cs" />
     <Compile Include="MedianTwoSortedArrayTest.cs" />
-    <Compile Include="MaxSumPathTest.cs" />
     <Compile Include="TreeCodecTest.cs" />
     <Compile Include="ReverseKGroupTest.cs" />
-    <Compile Include="RegularExpressionTest.cs" />
     <Compile Include="SkylineProblemTest.cs" />
     <Compile Include="PermutationTest.cs" />
     <Compile Include="CombinationTest.cs" />
     <Compile Include="TelephoneWordTest.cs" />
     <Compile Include="SpiralMatrixTest.cs" />
-    <Compile Include="WordBreakIITest.cs" />
     <Compile Include="LargestAreaUnderHistogramTest.cs" />
     <Compile Include="StringMatchTest.cs" />
+    <Compile Include="DynamicProgramming\RegularExpressionTest.cs" />
+    <Compile Include="DynamicProgramming\WordBreakIITest.cs" />
+    <Compile Include="DynamicProgramming\EditDistanceTest.cs" />
+    <Compile Include="DynamicProgramming\LongestCommonSequenceTest.cs" />
+    <Compile Include="DynamicProgramming\LongestRepeatingSubsequence.cs" />
+    <Compile Include="DynamicProgramming\MaxSumPathTest.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingDecreasingSubsequenceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -63,6 +64,9 @@
       <Project>{1E161916-83EE-49A7-AC02-7E64AD69950E}</Project>
       <Name>Algorithm</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DynamicProgramming\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
