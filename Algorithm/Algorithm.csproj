@@ -170,6 +170,11 @@
     <Compile Include="Graph\MinimalSpanningTree\UnionFindGeneric.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\RegularExpression.cs" />
     <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingDecreasingSubsequence.cs" />
+    <Compile Include="Backtracking\CombinationSum.cs" />
+    <Compile Include="Backtracking\CombinationSum2.cs" />
+    <Compile Include="UberProblems\GroupAnagrams.cs" />
+    <Compile Include="UberProblems\Subsets.cs" />
+    <Compile Include="UberProblems\Subsets2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -190,6 +195,7 @@
     <Folder Include="DynamicProgramming\01Knapsack\CuttingRod\" />
     <Folder Include="DynamicProgramming\01Knapsack\PartitionProblem\" />
     <Folder Include="Graph\TransitiveClosure\" />
+    <Folder Include="UberProblems\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">
