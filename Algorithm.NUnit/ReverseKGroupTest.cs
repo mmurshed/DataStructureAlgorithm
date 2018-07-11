@@ -24,14 +24,14 @@ namespace Algorithm.NUnit
         }
 
         [TestCaseSource(nameof(TestCases))]
-        public void Test2(int[] list, int k, int[] expected)
+        public void Test3(int[] list, int k, int[] expected)
         {
             // Arrange
             var rk = new Algorithm.MicrosoftProblems.ReverseKGroupClass();
             var ln = rk.CreateList(list);
 
             // Act
-            var result = rk.ReverseKGroup2(ln, k);
+            var result = rk.ReverseKGroup3(ln, k);
 
             // Assert
             var ra = rk.GetArray(result);
@@ -40,12 +40,12 @@ namespace Algorithm.NUnit
 
         static object[] TestCases =
         {
-            // new object[] { new int[] {1}, 2, new int[] {1} },
-            // new object[] { new int[] {1, 2}, 3, new int[] {1, 2} },
+            new object[] { new int[] {1}, 2, new int[] {1} },
+            new object[] { new int[] {1, 2}, 3, new int[] {1, 2} },
             new object[] { new int[] {1, 2, 3, 4}, 2, new int[] {2, 1, 4, 3} },
             new object[] { new int[] {1, 2, 3, 4, 5}, 0, new int[] {1, 2, 3, 4, 5} },
             new object[] { new int[] {1, 2, 3, 4, 5}, 1, new int[] {1, 2, 3, 4, 5} },
-            // new object[] { new int[] {1, 2, 3, 4, 5}, 2, new int[] {2, 1, 4, 3, 5} },
+            new object[] { new int[] {1, 2, 3, 4, 5}, 2, new int[] {2, 1, 4, 3, 5} },
             new object[] { new int[] {1, 2, 3, 4, 5}, 3, new int[] {3, 2, 1, 4, 5} },
             new object[] { new int[] {1, 2, 3, 4, 5}, 4, new int[] {4, 3, 2, 1, 5} },
             new object[] { new int[] {1, 2, 3, 4, 5}, 5, new int[] {5, 4, 3, 2, 1} },

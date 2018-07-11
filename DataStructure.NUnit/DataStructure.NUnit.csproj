@@ -45,6 +45,7 @@
     <Compile Include="Tree\BinarySearchTreeTest.cs" />
     <Compile Include="Tree\AVLTreeTest.cs" />
     <Compile Include="Tree\SegmentTreeTest.cs" />
+    <Compile Include="Tree\TrieTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

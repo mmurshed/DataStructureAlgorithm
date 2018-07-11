@@ -81,18 +81,18 @@ namespace Algorithm.MicrosoftProblems
         // Use this
         public ListNode ReverseKGroup3(ListNode head, int k)
         {
-            if (k == 0)
+            if (k < 2)
                 return head;
             int len = GetLength(head);
             if (k > len)
                 return head;
-            int count = k * (len / k);
 
+            ListNode finalHead = null;
             ListNode cur = head;
             ListNode prev = new ListNode(-1); // Dummy
             prev.next = head;
 
-            while (count >= 0)
+            while (len >= k)
             {
                 var res = ReverseKGroupOnce2(cur, k);
 
@@ -102,13 +102,17 @@ namespace Algorithm.MicrosoftProblems
                 prev.next = reversedHead;
                 cur.next = next;
 
+                len -= k;
+
+                if (finalHead == null)
+                    finalHead = prev.next;
+
                 prev = cur;
                 cur = next;
-
-                count--;
             }
-            return prev.next;
+            return finalHead;
         }
+
         private Tuple<ListNode, ListNode> ReverseKGroupOnce2(ListNode head, int k)
         {
             ListNode prev = null;

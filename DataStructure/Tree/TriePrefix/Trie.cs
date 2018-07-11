@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace DataStructure.Tree
 {
@@ -31,9 +32,15 @@ namespace DataStructure.Tree
 
             public Node Set(char ch, bool isterminal)
             {
+                Node node = new Node(isterminal);
+                Set(ch, node);
+                return node;
+            }
+
+            public void Set(char ch, Node node)
+            {
                 var index = Map(ch);
-                Children[index] = new Node(isterminal);
-                return Children[index];
+                Children[index] = node;
             }
 
             public Node(bool isterminal)
@@ -48,6 +55,30 @@ namespace DataStructure.Tree
         public Trie()
         {
             Root = new Node(false);
+        }
+
+        public string[] GetAll()
+        {
+            List<string> strings = new List<string>();
+            GetAll(strings, new StringBuilder(), Root);
+            return strings.ToArray();
+        }
+
+        public void GetAll(List<string> strings, StringBuilder stringBuilder, Node node)
+        {
+            if(node.IsTerminal)
+            {
+                strings.Add(stringBuilder.ToString());
+            }
+            for (int i = 0; i < SIZE; i++)
+            {
+                if(node.Children[i] != null)
+                {
+                    stringBuilder.Append(node.GetChar(i));
+                    GetAll(strings, stringBuilder, node.Children[i]);
+                    stringBuilder.Length--;
+                }
+            }
         }
 
         public void Insert(string word)
@@ -67,6 +98,48 @@ namespace DataStructure.Tree
                 }
                 node = next;
             }            
+        }
+
+        public bool Remove(string str)
+        {
+            return Remove(str, 0, Root);
+        }
+
+        private bool Remove(string str, int i, Node node)
+        {
+            if(i == str.Length)
+            {
+                bool end = node.IsTerminal;
+                node.IsTerminal = false;
+                return end;
+            }
+
+            var letter = str[i];
+            var next = node.Get(letter);
+            if (next == null)
+                return false;
+            bool removed = Remove(str, i + 1, next);
+            if(removed)
+            {
+                bool removeNode = !next.IsTerminal;
+
+                if (removeNode)
+                {
+                    foreach (var child in next.Children)
+                    {
+                        if (child != null)
+                        {
+                            removeNode = false;
+                            break;
+                        }
+                    }
+                }
+                if (removeNode)
+                {
+                    node.Set(letter, null);
+                }
+            }
+            return removed;
         }
 
         public bool FindSubstring(string word, int start, int len)

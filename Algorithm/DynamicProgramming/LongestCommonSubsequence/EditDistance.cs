@@ -112,26 +112,28 @@ namespace Algorithm.DynamicProgramming
             // Create a table to store results of subproblems
             var dp = new int[m + 1, n + 1];
 
-            // Fill d[][] in bottom up manner
+            // If first string is empty, only option is to
+            // isnert all characters of second string
+            for (int j = 0; j <= n; j++)
+            {
+                dp[0, j] = j;  // Min. operations = j
+            }
+
+            // If second string is empty, only option is to
+            // remove all characters of second string
             for (int i = 0; i <= m; i++)
             {
-                for (int j = 0; j <= n; j++)
-                {
-					// If first string is empty, only option is to
-					// isnert all characters of second string
-					if (i == 0)
-						dp[i, j] = j;  // Min. operations = j
+                dp[i, 0] = i; // Min. operations = i
+            }
 
-					// If second string is empty, only option is to
-					// remove all characters of second string
-					else if (j == 0)
-                        dp[i, j] = i; // Min. operations = i
-         
-                    // If last characters are same, ignore last char
-                    // and recur for remaining string
-                    else if (str1[i - 1] == str2[j - 1])
-                        dp[i, j] = dp[i - 1, j - 1];
-         
+            // Fill dp[,] in bottom up manner
+            for (int i = 1; i <= m; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    // If last characters are same, use the last edit distance
+                    if (str1[i - 1] == str2[j - 1])
+                        dp[i, j] = dp[i - 1, j - 1];         
                     // If last character are different, consider all
                     // possibilities and find minimum
                     else
