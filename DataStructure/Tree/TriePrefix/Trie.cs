@@ -134,6 +134,7 @@ namespace DataStructure.Tree
                         }
                     }
                 }
+
                 if (removeNode)
                 {
                     node.Set(letter, null);

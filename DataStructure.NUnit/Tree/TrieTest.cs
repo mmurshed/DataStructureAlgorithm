@@ -9,7 +9,7 @@ namespace DataStructure.NUnit.Tree
     public class TrieTest
     {
         [TestCaseSource(nameof(RemoveTestCases))]
-        public void RemoveTest(string[] data, string rem, string[] expected)
+        public void RemoveTest(string[] data, string[] rems, string[] expected)
         {
             // Arrange
             var tree = new Trie();
@@ -19,7 +19,12 @@ namespace DataStructure.NUnit.Tree
                 tree.Insert(str);
             }
 
-            tree.Remove(rem);
+            // Act
+            foreach (string rem in rems)
+            {
+                tree.Remove(rem);
+            }
+
             var result = tree.GetAll();
 
             // Assert
@@ -30,8 +35,38 @@ namespace DataStructure.NUnit.Tree
         {
             new object[] {
                 new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"},
-                "SAN",
+                new string[] {"SAN"},
                 new string[] {"SANFRANCISCO", "SANTAMONICA"}
+            },
+            new object[] {
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"},
+                new string[] {"SAP"},
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"}
+            },
+            new object[] {
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"},
+                new string[] {"SANF"},
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"}
+            },
+            new object[] {
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"},
+                new string[] {"SANFRANCISCO"},
+                new string[] {"SAN", "SANTAMONICA"}
+            },
+            new object[] {
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"},
+                new string[] {"SANTAMONICA", "SANFRANCISCO", "SAN"},
+                new string[] {}
+            },
+            new object[] {
+                new string[] {"SAN", "SANFRANCISCO", "SANTAMONICA"},
+                new string[] {"SANTAMONICA", "SANFRANCISCO", "SAP"},
+                new string[] {"SAN"}
+            },
+            new object[] {
+                new string[] {},
+                new string[] {"SANTAMONICA", "SANFRANCISCO", "SAN"},
+                new string[] {}
             }
         };
 
