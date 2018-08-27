@@ -175,6 +175,9 @@
     <Compile Include="UberProblems\GroupAnagrams.cs" />
     <Compile Include="UberProblems\Subsets.cs" />
     <Compile Include="UberProblems\Subsets2.cs" />
+    <Compile Include="Apple\WordFromChar.cs" />
+    <Compile Include="FacebookProblems\ThreeSum.cs" />
+    <Compile Include="FacebookProblems\TelWordsPermutation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
@@ -196,6 +199,7 @@
     <Folder Include="DynamicProgramming\01Knapsack\PartitionProblem\" />
     <Folder Include="Graph\TransitiveClosure\" />
     <Folder Include="UberProblems\" />
+    <Folder Include="Apple\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

@@ -52,6 +52,7 @@
     <Compile Include="DynamicProgramming\MaxSumPathTest.cs" />
     <Compile Include="DynamicProgramming\LongestIncreasingDecreasingSubsequenceTest.cs" />
     <Compile Include="CombinationSumTest.cs" />
+    <Compile Include="TelWordsPermutationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
