@@ -5,16 +5,16 @@ namespace Algorithm.Tree.Problems
     {
         public int MaxPathSum(TreeNode root)
         {
-            return MaxPathSumInternal(root).Item2;
+            return MaxPathSumInternal1(root).Item2;
         }
 
-        private Tuple<int, int> MaxPathSumInternal(TreeNode root)
+        private Tuple<int, int> MaxPathSumInternal1(TreeNode root)
         {
             if (root == null)
                 return new Tuple<int, int>(Int32.MinValue, Int32.MinValue);
 
-            var left = MaxPathSumInternal(root.left);
-            var right = MaxPathSumInternal(root.right);
+            var left = MaxPathSumInternal1(root.left);
+            var right = MaxPathSumInternal1(root.right);
 
             var leftMax = left.Item2;
             var rightMax = right.Item2;
@@ -57,5 +57,48 @@ namespace Algorithm.Tree.Problems
 
             return new Tuple<int, int>(path, max);
         }
+
+        private class PathMax{
+            public int Path;
+            public int Max;
+            public PathMax(int p, int m)
+            {
+                Path = p;
+                Max = m;
+            }
+        }
+
+        private int Max3(int x, int y, int z)
+        {
+            return Math.Max(x, Math.Max(y, z));
+        }
+
+        private int Max4(int x, int y, int z, int p)
+        {
+            return Math.Max(Max3(x, y, z), p);
+        }
+
+        private int MIN = -99999;
+        private PathMax MaxPathSumInternal(TreeNode root)
+        {
+            if (root == null)
+                return new PathMax(MIN, MIN);
+
+            var left = MaxPathSumInternal(root.left);
+            var right = MaxPathSumInternal(root.right);
+
+            int pathLeftExtended  = left.Path + root.val;
+            int pathRightExtended =             root.val + right.Path;
+            int pathStartHere = root.val;
+
+            int maxPath = Max3(pathLeftExtended, pathRightExtended, pathStartHere);
+
+            int pathAccross = left.Path + root.val + right.Path;
+
+            int max = Max4(left.Max, right.Max, pathAccross, maxPath);
+
+            return new PathMax(maxPath, max);
+        }
+
     }
 }

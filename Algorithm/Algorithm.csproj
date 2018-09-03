@@ -178,6 +178,7 @@
     <Compile Include="Apple\WordFromChar.cs" />
     <Compile Include="FacebookProblems\ThreeSum.cs" />
     <Compile Include="FacebookProblems\TelWordsPermutation.cs" />
+    <Compile Include="FacebookProblems\MaxSumNonoverlappingSubarray.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />
