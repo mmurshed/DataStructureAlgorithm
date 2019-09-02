@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     /*
      * Counting sort is a sorting technique based on keys between a specific 

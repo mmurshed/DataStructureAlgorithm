@@ -100,6 +100,27 @@ namespace DataStructure.Tree
             }            
         }
 
+        public void InsertR(string word)
+        {
+            InsertR(word, 0, Root);
+        }
+
+        public void InsertR(string word, int i, Node subroot)
+        {
+            if(i == word.Length)
+            {
+                subroot.IsTerminal = true;
+                return;
+            }
+            var node = subroot.Get(word[i]);
+            if (node == null)
+            {
+                node = subroot.Set(word[i], false);
+            }
+
+            InsertR(word, i + 1, node);
+        }
+
         public bool Remove(string str)
         {
             return Remove(str, 0, Root);
@@ -174,6 +195,21 @@ namespace DataStructure.Tree
             if (node.IsTerminal)
                 return true;
             return false;
+        }
+
+        public bool FindR(string word)
+        {
+            return FindR(word, 0, Root);
+        }
+
+        public bool FindR(string word, int i, Node subroot)
+        {
+            if (i == word.Length)
+                return subroot.IsTerminal;
+            Node node = subroot.Get(word[i]);
+            if (node == null)
+                return false;
+            return FindR(word, i+1, node);
         }
 
         public bool StartsWith(string word)

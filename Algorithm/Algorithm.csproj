@@ -179,6 +179,9 @@
     <Compile Include="FacebookProblems\ThreeSum.cs" />
     <Compile Include="FacebookProblems\TelWordsPermutation.cs" />
     <Compile Include="FacebookProblems\MaxSumNonoverlappingSubarray.cs" />
+    <Compile Include="FacebookProblems\DecodeWays.cs" />
+    <Compile Include="FacebookProblems\DecodeWaysII.cs" />
+    <Compile Include="Tree\Problems\VerticalOrderTraversal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

@@ -54,6 +54,23 @@
     <Compile Include="TelWordsPermutationTest.cs" />
     <Compile Include="MaxSumPathTest.cs" />
     <Compile Include="MaxSumNonoverlappingSubarrayTest.cs" />
+    <Compile Include="ExpressionAddOperatorTest.cs" />
+    <Compile Include="DecodeWaysTest.cs" />
+    <Compile Include="DecodeWaysIITest.cs" />
+    <Compile Include="ThreeSumTest.cs" />
+    <Compile Include="VerticalOrderTraversalTest.cs" />
+    <Compile Include="Sort\BubbleSortTest.cs" />
+    <Compile Include="Sort\BubbleSortRecursiveTest.cs" />
+    <Compile Include="Sort\InsertionSortTest.cs" />
+    <Compile Include="Sort\InsertionSortRecursiveTest.cs" />
+    <Compile Include="Sort\SelectionSortTest.cs" />
+    <Compile Include="Sort\ShellSortTest.cs" />
+    <Compile Include="Sort\QuickSortTest.cs" />
+    <Compile Include="Sort\MergeSortTest.cs" />
+    <Compile Include="Sort\TimSortTest.cs" />
+    <Compile Include="Sort\RadixSortTest.cs" />
+    <Compile Include="Sort\CountingSortTest.cs" />
+    <Compile Include="Sort\BucketSortTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -70,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DynamicProgramming\" />
+    <Folder Include="Sort\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

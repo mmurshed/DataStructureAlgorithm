@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     public class ShellSort<T> : SortBase<T>
         where T: IComparable<T>

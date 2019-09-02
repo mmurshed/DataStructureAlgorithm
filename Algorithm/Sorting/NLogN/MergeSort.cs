@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     public class MergeSort<T> : SortBase<T>
         where T: IComparable<T>
@@ -14,8 +14,8 @@ namespace DataStructure.Sort
                 rightData[i - mid - 1] = data[i];
 
             int j = left;
-            int l = left;
-            int r = mid;
+            int l = 0;
+            int r = 0;
             while(j <= right)
             {
                 if (leftData[l].CompareTo(rightData[r]) < 0)

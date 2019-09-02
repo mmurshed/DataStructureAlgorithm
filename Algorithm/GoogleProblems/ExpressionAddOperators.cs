@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructure.GoogleProblems
+namespace Algorithm.GoogleProblems
 {
-    public class ExpressionAddOperators
+    public class ExpressionAddOperatorsDepricated
     {
 
         private int[,] multTable;
@@ -76,6 +76,94 @@ namespace DataStructure.GoogleProblems
 
             // Backtrack
             currentString.Remove(lastLen, currentString.Length - lastLen);
+        }
+    }
+
+    public class ExpressionAddOperators
+    {
+        private readonly char[] ops = "+-*".ToCharArray();
+        private long target;
+        private string num;
+        private List<string> list;
+        private StringBuilder currentString;
+
+        public IList<string> AddOperators(string num, long target)
+        {
+            if (string.IsNullOrEmpty(num))
+                return new List<string>();
+
+            this.list = new List<string>();
+            this.num = num;
+            this.target = target;
+
+            this.currentString = new StringBuilder();
+
+            AddOperators(0, 0, 0);
+            return list;
+        }
+
+        public void AddOperators(int start, long prev, long value)
+        {
+            if (start == num.Length && value == target)
+            {
+                list.Add(currentString.ToString());
+                return;
+            }
+
+            if (start == num.Length)
+                return;
+
+            int currenStringLength = currentString.Length;
+
+            long curNum = 0;
+            var curNumStr = new StringBuilder();
+            for (int i = start; i < num.Length; i++)
+            {
+                curNum = curNum * 10 + (int)(num[i] - '0');
+
+                // First number
+                if (start == 0)
+                {
+                    // Insert number
+                    currentString.Append(num[i]);
+                    AddOperators(i + 1, curNum, curNum);
+                }
+                else
+                {
+                    curNumStr.Append(num[i]);
+
+                    // Insert operator placeholder
+                    currentString.Append(' ');
+                    // Insert number
+                    currentString.Append(curNumStr);
+
+                    foreach (char op in ops)
+                    {
+                        // Insert operator
+                        currentString[currenStringLength] = op;
+                        switch (op)
+                        {
+                            case '+':
+                                AddOperators(i + 1, curNum, value + curNum);
+                                break;
+                            case '-':
+                                AddOperators(i + 1, -curNum, value - curNum);
+                                break;
+                            case '*':
+                                var diff = value - prev;
+                                var newPrev = prev * curNum;
+                                AddOperators(i + 1, newPrev, diff + newPrev);
+                                break;
+                        }
+                    }
+                    // Backtrack
+                    currentString.Length = currenStringLength;
+                }
+
+                // Avoid 05
+                if (num[start] == '0')
+                    break;
+            }
         }
     }
 }

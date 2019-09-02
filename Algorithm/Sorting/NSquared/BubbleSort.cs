@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     public class BubbleSort<T> : SortBase<T>
         where T: IComparable<T>
@@ -11,7 +11,7 @@ namespace DataStructure.Sort
                 for (int j = 0; j < data.Length - i - 1; j++)
                 {
                     if (data[j].CompareTo(data[j + 1]) > 0)
-                        Swap(ref data[j], ref data[i]);
+                        Swap(ref data[j], ref data[j+1]);
                 }
             }
         }

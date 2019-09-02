@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     public abstract class SortBase<T> : ISort<T>
     {

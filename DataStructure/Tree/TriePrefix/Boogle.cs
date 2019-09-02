@@ -85,7 +85,7 @@ namespace DataStructure.Tree
         private bool[,] visited;
         private List<string> results;
 
-        private readonly int[,] locations = new int[,]
+        private readonly int[,] locations =
         {
                 {-1, -1},
                 {-1,  0},

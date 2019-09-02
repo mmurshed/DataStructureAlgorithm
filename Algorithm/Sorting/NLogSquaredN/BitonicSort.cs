@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     /*
      * Bitonic Sort is a classic parallel algorithm for sorting.

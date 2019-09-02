@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     /*
      * Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks 

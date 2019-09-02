@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     public class InsertionSortRecursive<T> : SortBase<T>
         where T: IComparable<T>
@@ -16,7 +16,7 @@ namespace DataStructure.Sort
                 data[j + 1] = data[j];
                 j--;
             }
-            data[j - 1] = key;
+            data[j + 1] = key;
 
         }
 

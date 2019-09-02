@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     /// <summary>
     /// For floating point numbers between 0.0 to 1.0

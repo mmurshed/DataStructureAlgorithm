@@ -21,7 +21,7 @@ occurs first. (Here, first means the smaller index.)
 
 We can solve these problems with dynamic programming. For example, if we 
 know that i is where the largest value of W[i] occurs first on [0,5], then 
-on [0,6] the first occurrence of the largest W[i] must be either i or 6. 
+on [0,6] the first occurrence of the la rgest W[i] must be either i or 6. 
 
 If say, 6 is better, then we set best = 6.
 

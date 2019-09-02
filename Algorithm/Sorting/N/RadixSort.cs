@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructure.Sort
+namespace Algorithm.Sort
 {
     /*
      * The lower bound for Comparison based sorting algorithm (Merge Sort, Heap
