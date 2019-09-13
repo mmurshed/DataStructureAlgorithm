@@ -182,6 +182,9 @@
     <Compile Include="FacebookProblems\DecodeWays.cs" />
     <Compile Include="FacebookProblems\DecodeWaysII.cs" />
     <Compile Include="Tree\Problems\VerticalOrderTraversal.cs" />
+    <Compile Include="FacebookProblems\TreeToDoublyLinkedList.cs" />
+    <Compile Include="FacebookProblems\TreeToLinkedList.cs" />
+    <Compile Include="FacebookProblems\ValidateBinaryTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backtracking\" />

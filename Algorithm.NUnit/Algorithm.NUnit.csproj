@@ -71,6 +71,9 @@
     <Compile Include="Sort\RadixSortTest.cs" />
     <Compile Include="Sort\CountingSortTest.cs" />
     <Compile Include="Sort\BucketSortTest.cs" />
+    <Compile Include="TreeToDoublyLinkedListTest.cs" />
+    <Compile Include="TreeToLinkedListTest.cs" />
+    <Compile Include="ValidateBinaryTreeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

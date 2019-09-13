@@ -1,37 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataStructure.Queue
 {
     public class MinComparer<T> : IComparer<T>
-        where T: IComparable
+        where T : IComparable
     {
-        public int Compare(T x, T y)
-        {
-            return x.CompareTo(y);
-        }
+        public int Compare(T x, T y) => x.CompareTo(y);
     }
 
     public class MaxComparer<T> : IComparer<T>
         where T : IComparable
     {
-        public int Compare(T x, T y)
-        {
-            return y.CompareTo(x);
-        }
+        public int Compare(T x, T y) => y.CompareTo(x);
     }
 
-	public class PriorityQueue<T>
-	{
-		private List<T> data = new List<T>();
+    public class PriorityQueue<T>
+    {
+        private List<T> data = new List<T>();
 
         private readonly Comparison<T> Compare;
 
-        public PriorityQueue(Comparison<T> compare)
-        {
-            this.Compare = compare;
-        }
+        public PriorityQueue(Comparison<T> compare) => Compare = compare;
 
         public PriorityQueue(IComparer<T> comparer) : this(comparer.Compare)
         {
@@ -41,12 +31,12 @@ namespace DataStructure.Queue
         {
         }
 
-		private void Swap(int i, int j)
-		{
-			T tmp = data[i];
-			data[i] = data[j];
-			data[j] = tmp;
-		}
+        private void Swap(int i, int j)
+        {
+            T tmp = data[i];
+            data[i] = data[j];
+            data[j] = tmp;
+        }
 
         public T Top => data[0];
         public int Count => data.Count;
@@ -56,62 +46,63 @@ namespace DataStructure.Queue
         private int Right(int i) => 2 * (i + 1);
 
         public void Enqueue(T obj)
-		{
-			data.Add(obj);
+        {
+            data.Add(obj);
 
-			int i = Count - 1;
-			while (i > 0)
-			{
-				int parent = Parent(i);
-				T val = data[parent];
-				
+            int i = Count - 1;
+            while (i > 0)
+            {
+                int parent = Parent(i);
+                T val = data[parent];
+
                 if (Compare(val, data[i]) <= 0)
-				{
-					break;
-				}
-				Swap(i, parent);
-				i = parent;
-			}
-		}
+                {
+                    break;
+                }
+                Swap(i, parent);
+                i = parent;
+            }
+        }
 
         public T Dequeue()
-		{
-			if (Count < 0)
-			{
-                return default(T);
-				// throw new ArgumentOutOfRangeException();
-			}
+        {
+            if (Count < 0)
+            {
+                return default;
+            }
 
-			T min = data[0];
-			data[0] = data[data.Count - 1];
-			data.RemoveAt(data.Count - 1);
-			this.Heapify(0);
-			return min;
-		}
+            T top = data[0];
+            int last = Count - 1;
 
-		private void Heapify(int i)
-		{
+            data[0] = data[last];
+            data.RemoveAt(last);
+            Heapify(0);
+            return top;
+        }
+
+        private void Heapify(int i)
+        {
             int current = i;
-			int left = Left(i);
-			int right = Right(i);
+            int left = Left(i);
+            int right = Right(i);
 
-            if (left < data.Count && Compare(data[left], data[current]) < 0)
-			{
-				current = left;
-			}
+            if (left < Count && Compare(data[left], data[current]) < 0)
+            {
+                current = left;
+            }
 
-            if (right < data.Count && Compare(data[right], data[current]) < 0)
-			{
-				current = right;
-			}
+            if (right < Count && Compare(data[right], data[current]) < 0)
+            {
+                current = right;
+            }
 
-			if (current != i)
-			{
-				Swap(i, current);
-				this.Heapify(current);
-			}
-		}
+            if (current != i)
+            {
+                Swap(i, current);
+                Heapify(current);
+            }
+        }
 
         public bool Empty => data.Count == 0;
-	}
+    }
 }
