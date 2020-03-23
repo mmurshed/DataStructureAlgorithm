@@ -1,33 +1,32 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using Algorithm.DynamicProgramming;
 
 namespace Algorithm.NUnit
 {
     [TestFixture()]
-    public class DecodeWaysTest
+	public class FindAnagramsTest
     {
         [TestCaseSource(nameof(TestCases))]
-        public void Test(string s, int expected)
+        public void Test(string s, string p, List<int> expected)
         {
             // Arrange
-            var sp = new Facebook.DecodeWays();
+			var prob = new Facebook.FindAnagramsProblem();
 
             // Act
-            var result = sp.NumDecodings(s);
+			var result = prob.FindAnagrams(s, p);
 
             // Assert
-			Assert.AreEqual(expected, result);
+			CollectionAssert.AreEquivalent(expected, result);
         }
 
         static object[] TestCases =
         {
             new object[] {
-                "12", 2
+                "cbaebabacd", "abc", new List<int> { 0, 6}
             },
             new object[] {
-                "226", 3
+                "abab", "ab", new List<int> { 0, 1, 2}
             }
         };
 

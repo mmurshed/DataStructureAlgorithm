@@ -11,7 +11,7 @@ namespace Algorithm.NUnit
         public void Test(string str1, string str2, bool expected)
         {
             // Arrange
-            var obj = new Algorithm.FacebookProblems.RegularExpression();
+            var obj = new Facebook.RegularExpression();
 
             // Act
             var result = obj.IsMatch(str1, str2);
@@ -24,7 +24,7 @@ namespace Algorithm.NUnit
         public void TestDP(string str1, string str2, bool expected)
         {
             // Arrange
-            var obj = new Algorithm.FacebookProblems.RegularExpression();
+            var obj = new Facebook.RegularExpression();
 
             // Act
             var result = obj.IsMatchDP(str1, str2);

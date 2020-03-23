@@ -30,6 +30,8 @@ namespace DataStructure.Graph
                         edgeVisitor.Visit(graph.GetEdge(vertex, neighbour));
                         stack.Push(neighbour);
                     }
+
+                    vertexVisitor.PostVisit(vertex);
                 }
             }
         }

@@ -6,7 +6,7 @@ namespace Algorithm.Recursion
 {
 	public class TelephoneWords
 	{
-		private readonly List<string> DigitWords = new List<string> { "0", "1", "ABC", "DEF", "GHI", "JKL", "MNO", "PRS", "TUV", "WXYZ" };
+		private readonly List<string> DigitWords = new List<string> { "0", "1", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ" };
 
         public List<string> GenerateTelephoneWords(int telephone)
 		{

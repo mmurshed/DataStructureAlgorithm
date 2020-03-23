@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Algorithm</RootNamespace>
     <AssemblyName>Algorithm</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,47 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Backtracking\KnightsTour.cs" />
-    <Compile Include="Backtracking\NQueen.cs" />
-    <Compile Include="Backtracking\RatInMaze.cs" />
-    <Compile Include="Backtracking\Sudoku.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\CoinChange.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\DiceThrow.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\ZeroOneKnapsack.cs" />
-    <Compile Include="DynamicProgramming\BuySellStocks\1BuySellStocksOnce.cs" />
-    <Compile Include="DynamicProgramming\BuySellStocks\2BuySellStocksAnytime.cs" />
-    <Compile Include="DynamicProgramming\BuySellStocks\3BuySellStocksTwice.cs" />
-    <Compile Include="DynamicProgramming\BuySellStocks\4BuySellStocksKTimes.cs" />
-    <Compile Include="DynamicProgramming\LargestSum\LargestSumRectangle.cs" />
-    <Compile Include="DynamicProgramming\LargestSum\LargestSumContiguousSubarray.cs" />
-    <Compile Include="DynamicProgramming\LargestSum\MaximumProductContiguousSubarray.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\EditDistance.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestCommonSubsequence.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestPalindromicSubsequence.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\LongestRepeatingSubsequence.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\MinInsertPalindrom.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\BoxStack.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestChainOfPairs.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingPathMatrix.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingSubsequence.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\MaxSumIncreasingSubsequence.cs" />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\BooleanParenthesization.cs" />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\BurstBalloons.cs" />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\MatrixChainMultiplication.cs" />
-    <Compile Include="DynamicProgramming\MatrixChainMultiplication\PalindromePartitioning.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\EggDropping.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\OptimalStrategyGame.cs" />
-    <Compile Include="DynamicProgramming\Numbers\CatalanNumber.cs" />
-    <Compile Include="GoogleProblems\BasicCalculator.cs" />
-    <Compile Include="GoogleProblems\CountSmallerNumbers.cs" />
-    <Compile Include="GoogleProblems\ExpressionAddOperators.cs" />
-    <Compile Include="GoogleProblems\LongestAbsolutePath.cs" />
-    <Compile Include="GoogleProblems\LongestConsecutiveSeq.cs" />
-    <Compile Include="GoogleProblems\LongestIncreasingPathMatrix.cs" />
-    <Compile Include="GoogleProblems\MergeKLists.cs" />
-    <Compile Include="GoogleProblems\NestedListIterator.cs" />
-    <Compile Include="GoogleProblems\SkylineProblem.cs" />
-    <Compile Include="GoogleProblems\ValidWordAbbreviation.cs" />
     <Compile Include="Graph\Bipartite\BipartiteEdgeVisitor.cs" />
     <Compile Include="Graph\Bipartite\BipartiteGraph.cs" />
     <Compile Include="Graph\Connectedness\ConnectednessTest.cs" />
@@ -115,51 +74,8 @@
     <Compile Include="String\KNPStringMatch.cs" />
     <Compile Include="String\NaiveStringMatch.cs" />
     <Compile Include="String\RabinKarpStringMatch.cs" />
-    <Compile Include="MicrosoftProblems\IntegerToWord.cs" />
-    <Compile Include="MicrosoftProblems\MedianTwoSortedArray.cs" />
-    <Compile Include="Tree\Problems\LevelOrderWithNext.cs" />
-    <Compile Include="Tree\Problems\ZigZagTraversal.cs" />
-    <Compile Include="Tree\Problems\MaxSumPath.cs" />
-    <Compile Include="Tree\Problems\TreeNode.cs" />
-    <Compile Include="Tree\Problems\TreeCodec.cs" />
-    <Compile Include="GoogleProblems\MergeKListsPQClass.cs" />
-    <Compile Include="MicrosoftProblems\ExcelSum.cs" />
-    <Compile Include="List\DetectCycle.cs" />
-    <Compile Include="List\ListFlatenning.cs" />
-    <Compile Include="List\CopyListRandom.cs" />
-    <Compile Include="Recursion\Permutation.cs" />
-    <Compile Include="Recursion\Combination.cs" />
-    <Compile Include="Recursion\TelephoneWords.cs" />
-    <Compile Include="DynamicProgramming\UniquePath\UniquePathObstacle.cs" />
-    <Compile Include="DynamicProgramming\UniquePath\UniquePathNoObstacle.cs" />
-    <Compile Include="DynamicProgramming\UniquePath\DungeonGame.cs" />
-    <Compile Include="List\SwapNodePair.cs" />
-    <Compile Include="MicrosoftProblems\HashTableWTime.cs" />
-    <Compile Include="MicrosoftProblems\HashTableWTime2.cs" />
-    <Compile Include="MicrosoftProblems\SpiralMatrix.cs" />
-    <Compile Include="MicrosoftProblems\MajorityProblem.cs" />
-    <Compile Include="MicrosoftProblems\MaxRectangle.cs" />
     <Compile Include="Graph\Cycle\HamiltonianCycleAlgorithm.cs" />
     <Compile Include="Graph\Cycle\HamiltonianCycle.cs" />
-    <Compile Include="MicrosoftProblems\LargestAreaUnderHistogram.cs" />
-    <Compile Include="MicrosoftProblems\LargestSquareWith1s.cs" />
-    <Compile Include="MicrosoftProblems\LargestRectangleWith1s.cs" />
-    <Compile Include="Recursion\ParenthesisGenerator.cs" />
-    <Compile Include="List\ReverseKGroup.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\StringInterleaving.cs" />
-    <Compile Include="DynamicProgramming\JumpGame\JumpGame.cs" />
-    <Compile Include="DynamicProgramming\JumpGame\JumpGame2.cs" />
-    <Compile Include="DynamicProgramming\WordBreak\WordBreakII.cs" />
-    <Compile Include="DynamicProgramming\WordBreak\WordBreakProblem.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\CuttingRod\CuttingRod.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\CuttingRod\MaximumProductCutting.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem\PartitionProblem.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\PartitionProblem\MinimumPartition.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\WaysToCover.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestPathInMatrix.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubsequence\ShortestCommonSupersequence.cs" />
-    <Compile Include="DynamicProgramming\01Knapsack\SubsetSum.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\LongestArithmeticProgression.cs" />
     <Compile Include="Graph\MinimalSpanningTree\MinimalSpanningTreePrim2.cs" />
     <Compile Include="Graph\MinimalSpanningTree\MinimalSpanningTreePrim3.cs" />
     <Compile Include="Graph\Connectedness\StronglyConnectedComponent.cs" />
@@ -168,45 +84,13 @@
     <Compile Include="Graph\ShortestPath\ParallelJobScheduling.cs" />
     <Compile Include="Graph\TransitiveClosure\TransitiveColsure.cs" />
     <Compile Include="Graph\MinimalSpanningTree\UnionFindGeneric.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\RegularExpression.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence\LongestIncreasingDecreasingSubsequence.cs" />
-    <Compile Include="Backtracking\CombinationSum.cs" />
-    <Compile Include="Backtracking\CombinationSum2.cs" />
-    <Compile Include="UberProblems\GroupAnagrams.cs" />
-    <Compile Include="UberProblems\Subsets.cs" />
-    <Compile Include="UberProblems\Subsets2.cs" />
-    <Compile Include="Apple\WordFromChar.cs" />
-    <Compile Include="FacebookProblems\ThreeSum.cs" />
-    <Compile Include="FacebookProblems\TelWordsPermutation.cs" />
-    <Compile Include="FacebookProblems\MaxSumNonoverlappingSubarray.cs" />
-    <Compile Include="FacebookProblems\DecodeWays.cs" />
-    <Compile Include="FacebookProblems\DecodeWaysII.cs" />
-    <Compile Include="Tree\Problems\VerticalOrderTraversal.cs" />
-    <Compile Include="FacebookProblems\TreeToDoublyLinkedList.cs" />
-    <Compile Include="FacebookProblems\TreeToLinkedList.cs" />
-    <Compile Include="FacebookProblems\ValidateBinaryTree.cs" />
+    <Compile Include="Sorting\NLogN\QuickSelect.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Backtracking\" />
-    <Folder Include="DynamicProgramming\" />
-    <Folder Include="GoogleProblems\" />
     <Folder Include="Graph\" />
     <Folder Include="Sorting\" />
     <Folder Include="String\" />
-    <Folder Include="MicrosoftProblems\" />
-    <Folder Include="Tree\" />
-    <Folder Include="Tree\Problems\" />
-    <Folder Include="FacebookProblems\" />
-    <Folder Include="List\" />
-    <Folder Include="Recursion\" />
-    <Folder Include="DynamicProgramming\UniquePath\" />
-    <Folder Include="DynamicProgramming\JumpGame\" />
-    <Folder Include="DynamicProgramming\WordBreak\" />
-    <Folder Include="DynamicProgramming\01Knapsack\CuttingRod\" />
-    <Folder Include="DynamicProgramming\01Knapsack\PartitionProblem\" />
     <Folder Include="Graph\TransitiveClosure\" />
-    <Folder Include="UberProblems\" />
-    <Folder Include="Apple\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">

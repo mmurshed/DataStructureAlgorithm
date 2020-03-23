@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
     public class DecodeWays
     {

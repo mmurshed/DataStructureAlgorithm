@@ -32,7 +32,7 @@ namespace Algorithm.GoogleProblems
             ListNode cur = null;
 
             // min queue
-            var priorityQueue = new PriorityQueue<QueueNode>( (x, y) => x.node.val - y.node.val);
+            var priorityQueue = new PriorityQueueDeprecated<QueueNode>( (x, y) => x.node.val - y.node.val);
 
             for (int i = 0; i < lists.Length; i++)
             {

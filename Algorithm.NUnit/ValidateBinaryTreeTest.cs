@@ -9,12 +9,12 @@ namespace Algorithm.NUnit
         public void Test()
         {
             // Arrange
-            var tree = new FacebookProblems.ValidateBinaryTree.TreeNode(5);
-            tree.left = new FacebookProblems.ValidateBinaryTree.TreeNode(1);
-            tree.right = new FacebookProblems.ValidateBinaryTree.TreeNode(4);
-            tree.right.left = new FacebookProblems.ValidateBinaryTree.TreeNode(3);
-            tree.right.right = new FacebookProblems.ValidateBinaryTree.TreeNode(6);
-            var prob = new FacebookProblems.ValidateBinaryTree();
+            var tree = new Facebook.ValidateBinaryTree.TreeNode(5);
+            tree.left = new Facebook.ValidateBinaryTree.TreeNode(1);
+            tree.right = new Facebook.ValidateBinaryTree.TreeNode(4);
+            tree.right.left = new Facebook.ValidateBinaryTree.TreeNode(3);
+            tree.right.right = new Facebook.ValidateBinaryTree.TreeNode(6);
+            var prob = new Facebook.ValidateBinaryTree();
             var expected = false;
 
             // Act

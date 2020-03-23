@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
     // Definition for a binary tree node.
     public class TreeNode

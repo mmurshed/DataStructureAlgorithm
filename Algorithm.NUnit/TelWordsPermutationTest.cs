@@ -12,7 +12,7 @@ namespace Algorithm.NUnit
         public void Test(string perm, Dictionary<string, List<char>> dict, IList<string> expected)
         {
             // Arrange
-            var sp = new Algorithm.FacebookProblems.TelWordsPermutation();
+            var sp = new Facebook.TelWordsPermutation();
 
             // Act
             var result = sp.GenTelWordsPermutation2(dict, perm);

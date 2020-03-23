@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
     // Definition for a Node.
     public class Node

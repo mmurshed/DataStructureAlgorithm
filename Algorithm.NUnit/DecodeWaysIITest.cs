@@ -12,7 +12,7 @@ namespace Algorithm.NUnit
         public void Test(string s, int expected)
         {
             // Arrange
-            var sp = new Algorithm.FacebookProblems.DecodeWaysII();
+            var sp = new Facebook.DecodeWaysII();
 
             // Act
             var result = sp.NumDecodings(s);

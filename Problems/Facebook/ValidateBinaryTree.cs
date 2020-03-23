@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
 
     public class ValidateBinaryTree

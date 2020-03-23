@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
     public class RegularExpression
     {
@@ -54,9 +54,9 @@ namespace Algorithm.FacebookProblems
             else if (p[pi] == '*')
             {
                 char prev = p[pi - 1];
-                if(prev != '.' || prev != s[si])
+                if (prev != '.' || prev != s[si])
                     return IsMatchNaive(s, si + 1, p, pi - 1); // Zero match
-                
+
                 return
                     IsMatchNaive(s, si + 1, p, pi) || // One match
                     IsMatchNaive(s, si, p, pi + 1) || // multiple match
@@ -135,5 +135,5 @@ namespace Algorithm.FacebookProblems
             return dp[s.Length, p.Length];
         }
     }
- 
+
 }

@@ -7,7 +7,7 @@ namespace Algorithm.Graph.ShortestPath
     public class SingleSourceShortestPathPQ<V> : SingleSourceShortestPath<V>
         where V: IComparable
     {
-        PriorityQueue<IVertex<V>> queue;
+        PriorityQueueDeprecated<IVertex<V>> queue;
         public SingleSourceShortestPathPQ(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
@@ -16,7 +16,7 @@ namespace Algorithm.Graph.ShortestPath
         protected override void Init()
         {
             base.Init();
-            queue = new PriorityQueue<IVertex<V>>( (a, b) => Distance[a.ID] - Distance[b.ID] );
+            queue = new PriorityQueueDeprecated<IVertex<V>>( (a, b) => Distance[a.ID] - Distance[b.ID] );
             foreach (var vertex in graph.Vertices)
             {
                 queue.Enqueue(vertex);

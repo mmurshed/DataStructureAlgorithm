@@ -9,12 +9,12 @@ namespace Algorithm.NUnit
         public void Test()
         {
             // Arrange
-            var tree = new FacebookProblems.Node(4);
-            tree.left = new FacebookProblems.Node(2);
-            tree.right = new FacebookProblems.Node(5);
-            tree.left.left = new FacebookProblems.Node(1);
-            tree.left.right = new FacebookProblems.Node(3);
-            var prob = new FacebookProblems.TreeToDoublyLinkedList();
+            var tree = new Facebook.Node(4);
+            tree.left = new Facebook.Node(2);
+            tree.right = new Facebook.Node(5);
+            tree.left.left = new Facebook.Node(1);
+            tree.left.right = new Facebook.Node(3);
+            var prob = new Facebook.TreeToDoublyLinkedList();
             var expected = new int[] {1, 2, 3, 4, 5};
 
             // Act
@@ -35,12 +35,12 @@ namespace Algorithm.NUnit
         public void Test2()
         {
             // Arrange
-            var tree = new FacebookProblems.Node(-7);
-            tree.left = new FacebookProblems.Node(-8);
-            tree.left.left = new FacebookProblems.Node(-9);
-            tree.right = new FacebookProblems.Node(-6);
-            tree.right.right = new FacebookProblems.Node(-5);
-            var prob = new FacebookProblems.TreeToDoublyLinkedList();
+            var tree = new Facebook.Node(-7);
+            tree.left = new Facebook.Node(-8);
+            tree.left.left = new Facebook.Node(-9);
+            tree.right = new Facebook.Node(-6);
+            tree.right.right = new Facebook.Node(-5);
+            var prob = new Facebook.TreeToDoublyLinkedList();
             var expected = new int[] { -9, -8, -7, -6, -5 };
 
             // Act

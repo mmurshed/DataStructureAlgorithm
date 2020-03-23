@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
     public class DecodeWaysII
     {

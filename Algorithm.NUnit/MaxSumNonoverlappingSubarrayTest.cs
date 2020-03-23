@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using Algorithm.FacebookProblems;
+using Algorithm.Facebook;
 using System.Linq;
 
 namespace Algorithm.NUnit

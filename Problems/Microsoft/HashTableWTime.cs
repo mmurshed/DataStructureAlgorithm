@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace Algorithm.MicrosoftProblems
 {
-    public class HashTableWTime<K, T, V>
+	public class HashTableWTime<K, T, V>
     {
 		private Dictionary<K, SortedDictionary<T, V>> hashTable;
         public HashTableWTime()

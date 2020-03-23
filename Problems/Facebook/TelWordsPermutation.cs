@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace Algorithm.FacebookProblems
+namespace Algorithm.Facebook
 {
     /*
 Given a string as input, return the list of all the patterns possible:

@@ -12,7 +12,7 @@ namespace Algorithm.NUnit
         public void Test(int[] s, List<List<int>> expected)
         {
             // Arrange
-            var sp = new Algorithm.FacebookProblems.ThreeSumProblem();
+            var sp = new Algorithm.Facebook.ThreeSumProblem();
 
             // Act
             var result = sp.ThreeSum(s);

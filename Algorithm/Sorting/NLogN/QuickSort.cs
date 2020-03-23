@@ -158,7 +158,7 @@ namespace Algorithm.Sort
 
         private int Partition(T[] data, int left, int right)
         {
-            int pi = left - 1;
+            int pi = left;
             T pivot = data[right];
 
             for (int j = left; j < right; j++)
@@ -166,11 +166,11 @@ namespace Algorithm.Sort
                 // If data is less than pivot
                 if (data[j].CompareTo(pivot) <= 0)
                 {
-                    pi++;
                     Swap(ref data[j], ref data[pi]);
+                    pi++;
                 }
             }
-            Swap(ref data[pi + 1], ref data[right]);
+            Swap(ref data[right], ref data[pi]);
             return pi;
         }
 

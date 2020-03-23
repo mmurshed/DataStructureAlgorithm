@@ -16,7 +16,7 @@ namespace Algorithm.Graph.ShortestPath
             }
         }
 
-        private PriorityQueue<IVertex<V>> queue;
+        private PriorityQueueDeprecated<IVertex<V>> queue;
         private IAStarHeuristic<V> heuristic;
         private IVertex<V> target;
 
@@ -30,7 +30,7 @@ namespace Algorithm.Graph.ShortestPath
         protected override void Init()
         {
             base.Init();
-            queue = new PriorityQueue<IVertex<V>>(new VertexComparer());
+            queue = new PriorityQueueDeprecated<IVertex<V>>(new VertexComparer());
             foreach (var vertex in graph.Vertices)
             {
                 queue.Enqueue(vertex);

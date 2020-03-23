@@ -83,7 +83,7 @@
     <Compile Include="Queue\MaxHeapSimple.cs" />
     <Compile Include="Queue\MinHeap.cs" />
     <Compile Include="Queue\MonotonicQueue.cs" />
-    <Compile Include="Queue\PriorityQueue.cs" />
+    <Compile Include="Queue\PriorityQueueDeprecated.cs" />
     <Compile Include="Set\BitSet.cs" />
     <Compile Include="Set\ISet.cs" />
     <Compile Include="Tree\AVLTree\AVLTree.cs" />
@@ -97,7 +97,6 @@
     <Compile Include="Tree\CartesianTree\CartesianTree.cs" />
     <Compile Include="Tree\HuffmanTree\HuffmanNode.cs" />
     <Compile Include="Tree\HuffmanTree\HuffmanTree.cs" />
-    <Compile Include="Tree\HuffmanTree\PriorityQueue.cs" />
     <Compile Include="Tree\RadixTree\BoogleRadix.cs" />
     <Compile Include="Tree\RadixTree\RadixTree.cs" />
     <Compile Include="Tree\SegmentTree\SegmentTree.cs" />
@@ -133,6 +132,11 @@
     <Compile Include="Graph\Simple2\Edge.cs" />
     <Compile Include="Graph\Simple2\Graph.cs" />
     <Compile Include="Graph\Simple2\Vertex.cs" />
+    <Compile Include="Queue\Queue.cs" />
+    <Compile Include="Queue\PriorityQueue.cs" />
+    <Compile Include="Queue\PriorityQueueSimple.cs" />
+    <Compile Include="Graph\Simple\SimpleGraph.cs" />
+    <Compile Include="Graph\Simple\BareboneGraph.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
