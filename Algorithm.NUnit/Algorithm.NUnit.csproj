@@ -82,6 +82,7 @@
     <Compile Include="GraphBipartiteTest.cs" />
     <Compile Include="AccountsMergeTest.cs" />
     <Compile Include="PasclesTriangleTest.cs" />
+    <Compile Include="StreamCheckerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

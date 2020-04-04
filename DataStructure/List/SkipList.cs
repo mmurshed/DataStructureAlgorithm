@@ -16,7 +16,7 @@ namespace DataStructure.List.Skip
 
     }
 
-    public class SkipList<T> where T:IComparable<T>
+    public class SkipList<T> where T: IComparable<T>
     {
         public int Size { get; }
 
@@ -31,7 +31,7 @@ namespace DataStructure.List.Skip
 
         private static Random rand  = new Random();
 
-        public SkipList(int size, double fraction)
+        public SkipList(int size, double fraction=0.5)
         {
             Size = size;
             Fraction = fraction;

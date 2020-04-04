@@ -129,6 +129,8 @@
     <Compile Include="Recursion\PermutationRepetion.cs" />
     <Compile Include="Facebook\AccountsMerge.cs" />
     <Compile Include="Recursion\PasclesTriangle.cs" />
+    <Compile Include="Facebook\StreamChecker.cs" />
+    <Compile Include="Backtracking\NQueenII.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Microsoft\" />
