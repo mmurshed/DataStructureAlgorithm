@@ -70,11 +70,11 @@ namespace DataStructure.Queue
                     break;
 
                 // Select right if less
-                if (j < count && Less(j + 1, j))
+                if (j < count && Less(j, j+1))
                     j++;
 
                 // Stop if not less
-                if (!Less(j, i))
+                if (!Less(i, j))
                     break;
 
                 Swap(i, j);

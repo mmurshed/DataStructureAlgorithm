@@ -34,15 +34,8 @@ namespace Algorithm.Graph.ShortestPath
 
                 foreach(var w in graph.GetNeighbours(v))
                 {
-                    var edge = graph.GetEdge(v, w);
-                    var newDistance = Distance[(int)v.ID] + edge.Value;
-
-                    if (newDistance < Distance[(int)w.ID])
-                    {
-                        Distance[(int)w.ID] = newDistance;
-                        PreviousVertex[(int)w.ID] = v;
+                    if(Relax(v, w))
                         queue.Enqueue(w);
-                    }
                 }
             }
         }

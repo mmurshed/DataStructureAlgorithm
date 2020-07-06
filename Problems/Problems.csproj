@@ -131,6 +131,8 @@
     <Compile Include="Recursion\PasclesTriangle.cs" />
     <Compile Include="Facebook\StreamChecker.cs" />
     <Compile Include="Backtracking\NQueenII.cs" />
+    <Compile Include="Tree\Problems\NAryTreeCodec.cs" />
+    <Compile Include="Facebook\RandomizedCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Microsoft\" />

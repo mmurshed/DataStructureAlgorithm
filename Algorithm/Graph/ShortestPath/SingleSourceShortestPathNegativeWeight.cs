@@ -19,14 +19,7 @@ namespace Algorithm.Graph.ShortestPath
             {
                 foreach (var edge in graph.Edges)
                 {
-                    var u = edge.Start;
-                    var v = edge.End;
-                    var newDistance = Distance[u.ID] + edge.Value;
-                    if (newDistance < Distance[v.ID])
-                    {
-                        Distance[v.ID] = newDistance;
-                        PreviousVertex[v.ID] = u;
-                    }
+                    Relax(edge);
                 }
             }
 

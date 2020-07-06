@@ -137,6 +137,7 @@
     <Compile Include="Queue\PriorityQueueSimple.cs" />
     <Compile Include="Graph\Simple\SimpleGraph.cs" />
     <Compile Include="Graph\Simple\BareboneGraph.cs" />
+    <Compile Include="List\CircularLinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -75,28 +75,5 @@ namespace Algorithm.Backtracking
             }
             return true;
         }
-
-        /*
-
-.Q..
-...Q
-Q...
-..Q.
-
-.QQ.
-Q..Q
-Q..Q
-.QQ.
-
-.Q..
-...Q
-Q...
-..Q.
-
-..Q.
-Q...
-...Q
-.Q..
-           */
     }
 }

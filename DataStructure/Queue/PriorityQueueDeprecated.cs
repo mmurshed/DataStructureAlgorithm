@@ -21,7 +21,7 @@ namespace DataStructure.Queue
 
         private readonly Comparison<T> Compare;
 
-        public PriorityQueueDeprecated(Comparison<T> compare) => Compare = compare;
+        public PriorityQueueDeprecated(Comparison<T> compare) => Compare = compare; 
 
         public PriorityQueueDeprecated(IComparer<T> comparer) : this(comparer.Compare)
         {

@@ -83,6 +83,8 @@
     <Compile Include="AccountsMergeTest.cs" />
     <Compile Include="PasclesTriangleTest.cs" />
     <Compile Include="StreamCheckerTest.cs" />
+    <Compile Include="NaryTreeCodecTest.cs" />
+    <Compile Include="RandomizedCollectionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

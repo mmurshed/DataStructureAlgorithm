@@ -9,7 +9,8 @@ namespace Algorithm.DynamicProgramming
     {
         // Source: https://www.geeksforgeeks.org/knapsack-problem/
 
-        /* Given weights and values of n items, put these items in a knapsack 
+        /* 
+         * Given weights and values of n items, put these items in a knapsack 
          * of capacity W to get the maximum total value in the knapsack. 
          * 
          * In other words, given two integer arrays val[0..n-1] and wt[0..n-1] 
@@ -69,16 +70,18 @@ namespace Algorithm.DynamicProgramming
          * parameters indicated in the following recursion tree are n and W.  
          * The recursion tree is for following sample inputs.
          * wt[] = {1, 1, 1}, W = 2, val[] = {10, 20, 30}
-
-                       K(3, 2)         ---------> K(n, W)
-                   /            \ 
+         * 
+         * K(n, W)
+                       K(3, 2)
+                   --------------
+                  /              \ 
                  /                \               
             K(2,2)                  K(2,1)
           /       \                  /    \ 
-        /           \              /        \
+         /         \                /      \
        K(1,2)      K(1,1)        K(1,1)     K(1,0)
-       /  \         /   \          /   \
-     /      \     /       \      /       \
+      /    \       /     \         /   \
+     /      \     /       \       /     \
 K(0,2)  K(0,1)  K(0,1)  K(0,0)  K(0,1)   K(0,0)
 
          * Recursion tree for Knapsack capacity 2 units and 3 items of 1 unit weight.
@@ -118,7 +121,7 @@ K(0,2)  K(0,1)  K(0,1)  K(0,0)  K(0,1)   K(0,0)
         int KnapSackDynamic(int W, int[] wt, int[] val)
         {
             int n = val.Length;
-            var K = new int[n + 1, W + 1];
+            var dp = new int[n + 1, W + 1];
 
             // Build table K[,] in bottom up manner
             for (int i = 0; i <= n; i++)
@@ -126,16 +129,16 @@ K(0,2)  K(0,1)  K(0,1)  K(0,0)  K(0,1)   K(0,0)
                 for (int w = 0; w <= W; w++)
                 {
                     if (i==0 || w==0)
-                        K[i, w] = 0;
+                        dp[i, w] = 0;
                     else if (wt[i - 1] > w)
-                        K[i, w] = K[i - 1, w]; // Weight exceeded
+                        dp[i, w] = dp[i - 1, w]; // Weight exceeded
                     else
-                        K[i, w] = Math.Max(
-                            val[i - 1] + K[i - 1, w - wt[i - 1]], // 1. nth Item included
-                            K[i - 1, w]); // 2. not included
+                        dp[i, w] = Math.Max(
+                            val[i - 1] + dp[i - 1, w - wt[i - 1]], // 1. nth Item included
+                            dp[i - 1, w]); // 2. not included
                 }
             }
-            return K[n, W];
+            return dp[n, W];
         }
 	}
 }

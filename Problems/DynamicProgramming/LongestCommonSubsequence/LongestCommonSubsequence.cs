@@ -12,8 +12,8 @@ namespace Algorithm.DynamicProgramming
         LCS Problem Statement: Given two sequences, find the length of longest 
         subsequence present in both of them. A subsequence is a sequence that 
         appears in the same relative order, but not necessarily contiguous. 
-        For example, “abc”, “abg”, “bdf”, “aeg”, ‘”acefg”, .. etc are 
-        subsequences of “abcdefg”. So a string of length n has 2^n different 
+        For example, "abc", "abg", "bdf", "aeg", ‘"acefg", .. etc are 
+        subsequences of "abcdefg". So a string of length n has 2^n different 
         possible subsequences.
 
         It is a classic computer science problem, the basis of diff (a file 
@@ -21,8 +21,8 @@ namespace Algorithm.DynamicProgramming
         and has applications in bioinformatics.
 
         Examples:
-        LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
-        LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4.
+        LCS for input Sequences "ABCDGH" and "AEDFHR" is "ADH" of length 3.
+        LCS for input Sequences "AGGTAB" and "GXTXAYB" is "GTAB" of length 4.
 
         The naive solution for this problem is to generate all subsequences of 
         both given sequences and find the longest matching subsequence. This 
@@ -43,9 +43,9 @@ namespace Algorithm.DynamicProgramming
             L(X[0..m-1], Y[0..n-1]) = MAX ( L(X[0..m-2], Y[0..n-1]), L(X[0..m-1], Y[0..n-2])
 
         Examples:
-        1) Consider the input strings “AGGTAB” and “GXTXAYB”.
+        1) Consider the input strings "AGGTAB" and "GXTXAYB".
         Last characters match for the strings. So length of LCS can be written as:
-        L(“AGGTAB”, “GXTXAYB”) = 1 + L(“AGGTA”, “GXTXAY”)
+        L("AGGTAB", "GXTXAYB") = 1 + L("AGGTA", "GXTXAY")
 
         _______________
         | |A|G|G|T|A|B|
@@ -58,9 +58,9 @@ namespace Algorithm.DynamicProgramming
         |B| | | | | |1|
         ---------------
 
-        2) Consider the input strings “ABCDGH” and “AEDFHR.
+        2) Consider the input strings "ABCDGH" and "AEDFHR.
         Last characters do not match for the strings. So length of LCS can be written as:
-        L(“ABCDGH”, “AEDFHR”) = MAX ( L(“ABCDG”, “AEDFHR”), L(“ABCDGH”, “AEDFH”) )
+        L("ABCDGH", "AEDFHR") = MAX ( L("ABCDG", "AEDFHR"), L("ABCDGH", "AEDFH") )
 
         So the LCS problem has optimal substructure property as the main 
         problem can be solved using solutions to subproblems.
@@ -74,7 +74,7 @@ namespace Algorithm.DynamicProgramming
 
         // Naive: O(2^n)
         /* For the Naive implementation, following is a partial recursion tree 
-         * for input strings “AXYT” and “AYZX”
+         * for input strings "AXYT" and "AYZX"
 
                          lcs("AXYT", "AYZX")
                        /                 
@@ -144,21 +144,19 @@ lcs("AX", "AYZX") lcs("AXY", "AYZ")   lcs("AXY", "AYZ") lcs("AXYT", "AY")
             int n = Y.Length;
 
             int i = m, j = n;
-            int index = lcs[m, n];
-            var strb = new StringBuilder(new string(' ', index + 1));
+            int k = lcs[m, n];
+            var strb = new StringBuilder(new string(' ', k + 1));
             while (i > 0 && j > 0)
             {
                 if (X[i - 1] == Y[j - 1])
                 {
-                    strb[index - 1] = X[i - 1];
-                    i--;
-                    j--;
-                    index--;
+                    strb[--k] = X[--i];
+                    --j;
                 }
                 else if (lcs[i - 1, j] > lcs[i, j - 1])
-                    i--;
+                    --i;
                 else
-                    j--;
+                    --j;
             }
             return strb.ToString();
         }

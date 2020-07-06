@@ -9,8 +9,8 @@ namespace Algorithm.Facebook
     {
         public IList<int> FindAnagrams(string s, string p)
         {
-            var map = new int[26];
-            var window = new int[26];
+            var map = new int[256];
+            var window = new int[256];
             var list = new List<int>();
             int unique = 0;
             int foundUnique = 0;
@@ -39,14 +39,14 @@ namespace Algorithm.Facebook
                     foundUnique++;
 
                 if (unique == foundUnique)
-                    list.Add(l);                    
+                    list.Add(l); 
 
                 if (r - l == p.Length - 1)
                 {
                     int m = s[l] - 'a';
                     window[m]--;
 
-                    if(window[m] < map[m])
+                    if(window[m] < map[m] && foundUnique > 0)
                         --foundUnique;
 
                     l++;

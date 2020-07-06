@@ -27,6 +27,9 @@ namespace Algorithm.NUnit
             },
             new object[] {
                 "abab", "ab", new List<int> { 0, 1, 2}
+            },
+            new object[] {
+                "aaabaaa", "aaa", new List<int> { 0, 4}
             }
         };
 

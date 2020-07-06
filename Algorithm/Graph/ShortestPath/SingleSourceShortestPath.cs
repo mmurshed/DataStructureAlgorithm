@@ -57,5 +57,26 @@ namespace Algorithm.Graph.ShortestPath
 
             return path;
         }
+
+        public bool Relax(IVertex<V> v, IVertex<V> w) => Relax(graph.GetEdge(v, w));
+
+        public bool Relax(IEdge<V, int> edge)
+        {
+            var v = edge.Start;
+            var w = edge.End;
+
+            var newDistance = Distance[(int)v.ID] + edge.Value;
+
+            // If the new distance is smaller than the previous distance calculated
+            if (newDistance < Distance[(int)w.ID])
+            {
+                Distance[(int)w.ID] = newDistance;
+                PreviousVertex[(int)w.ID] = v;
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

@@ -9,7 +9,8 @@ namespace Algorithm.DynamicProgramming
     {
         // Source: https://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/
 
-        /* Given a value N, if we want to make change for N cents, and we have 
+        /*
+         * Given a value N, if we want to make change for N cents, and we have 
          * infinite supply of each of S = { S1, S2, .. , Sm} valued coins, 
          * how many ways can we make the change? The order of coins doesn’t matter.
          * 
@@ -41,7 +42,8 @@ namespace Algorithm.DynamicProgramming
          * The function C({1}, 3) is called two times. If we draw the complete 
          * tree, then we can see that there are many subproblems being called 
          * more than once.
-C() --> count()
+         * 
+         * C() --> count()
                              C({1,2,3}, 5)
                             --------------
                            /             \    
@@ -50,11 +52,11 @@ C() --> count()
             /       \                      /      \         
            /         \                    /         \   
 C({1,2,3}, -1)  C({1,2}, 2)        C({1,2}, 3)    C({1}, 5)
-               /    \             /     \           /     \
-             /       \           /       \         /        \
-    C({1,2},0)  C({1},2)   C({1,2},1) C({1},3)    C({1}, 4)  C({}, 5)
-                   / \     / \        /\         /     \         
-                  /   \   /   \     /   \       /       \  
+               /     \             /     \           /     \
+              /       \           /       \         /        \
+     C({1,2},0)  C({1},2)   C({1,2},1) C({1},3)    C({1}, 4)  C({}, 5)
+                   / \     / \        / \         /     \         
+                  /   \   /   \      /   \       /       \  
                 .      .  .     .   .     .   C({1}, 3) C({}, 4)
                                                / \ 
                                               /   \   

@@ -18,9 +18,9 @@ namespace Algorithm.DynamicProgramming
          * 
          * Input : N = 4, M = 4
          * m[,] = { { 1, 2, 3, 4 },
-         *           { 2, 2, 3, 4 },
-         *           { 3, 2, 3, 4 },
-         *           { 4, 5, 6, 7 } };
+         *          { 2, 2, 3, 4 },
+         *          { 3, 2, 3, 4 },
+         *          { 4, 5, 6, 7 } };
          * 
          * Output : 7
          * 
@@ -28,7 +28,7 @@ namespace Algorithm.DynamicProgramming
          * 
          * Input : N = 2, M =2
          * m[,] = { { 1, 2 },
-         *           { 3, 4 } };
+         *          { 3, 4 } };
          * 
          * Output :3
          * 
