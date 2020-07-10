@@ -69,8 +69,10 @@ namespace Algorithm.DynamicProgramming
          * eggDrop(n, k) ==> Minimum number of trials needed to find the critical
          *                  floor in worst case.
          * 
-         * eggDrop(n, k) = 1 + min{max(eggDrop(n - 1, x - 1), eggDrop(n, k - x)): 
-         *              x in {1, 2, ..., k}}
+         * eggDrop(n, k) = 1 + min[
+         *                          max(
+         *                              eggDrop(n - 1, x - 1), eggDrop(n, k - x))
+         *                                     : x in {1, 2, ..., k}]
          * 
          * 2) Overlapping Subproblems
          * Following is recursive implementation that simply follows the
@@ -90,7 +92,7 @@ namespace Algorithm.DynamicProgramming
             if (n == 1)
                 return k;
 
-            int min = Int32.MaxValue;
+            int min = int.MaxValue;
 
             // Consider all droppings from 1st floor to kth floor and
             // return the minimum of these values plus 1.
@@ -164,7 +166,7 @@ namespace Algorithm.DynamicProgramming
             {
                 for (int j = 2; j <= k; j++)
                 {
-                    eggFloor[i, j] = Int32.MaxValue;
+                    eggFloor[i, j] = int.MaxValue;
                     for (int x = 1; x <= j; x++)
                     {
                         int res = 1 + Math.Max(eggFloor[i - 1, x - 1], eggFloor[i, j - x]);

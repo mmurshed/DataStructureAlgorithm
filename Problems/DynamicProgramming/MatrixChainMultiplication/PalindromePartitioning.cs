@@ -11,10 +11,10 @@ namespace Algorithm.DynamicProgramming
          * 
          * Given a string, a partitioning of the string is a palindrome 
          * partitioning if every substring of the partition is a palindrome. 
-         * For example, “aba|b|bbabb|a|b|aba” is a palindrome partitioning of 
-         * “ababbbabbababa”. Determine the fewest cuts needed for palindrome 
+         * For example, "aba|b|bbabb|a|b|aba" is a palindrome partitioning of 
+         * "ababbbabbababa". Determine the fewest cuts needed for palindrome 
          * partitioning of a given string. For example, minimum 3 cuts are 
-         * needed for “ababbbabbababa”. The three cuts are “a|babbbab|b|ababa”.
+         * needed for "ababbbabbababa". The three cuts are "a|babbbab|b|ababa".
          * If a string is palindrome, then minimum 0 cuts are needed. If a 
          * string of length n containing all different characters, then 
          * minimum n-1 cuts are needed.
@@ -52,11 +52,11 @@ namespace Algorithm.DynamicProgramming
             return GenerateNaive(str, 0, str.Length - 1);
         }
 
-        private bool IsPalindrom(string str, int i, int j)
+        private bool IsPalindrom(string s, int i, int j)
         {
             while(i < j)
             {
-                if (str[i] != str[j])
+                if (s[i] != s[j])
                     return false;
                 i++;
                 j--;
@@ -79,17 +79,17 @@ namespace Algorithm.DynamicProgramming
                                  minPalPartion(str, k+1, j) }
             where k varies from i to j-1
         */
-        private int GenerateNaive(string str, int i, int j)
+        private int GenerateNaive(string s, int i, int j)
         {
             if (i == j)
                 return 0; // Zero cut needed
 
-            if (IsPalindrom(str, i, j))
+            if (IsPalindrom(s, i, j))
                 return 0; // Zero cut needed
-            int min = Int32.MaxValue;
+            int min = int.MaxValue;
             for (int k = i; k < j; k++)
             {
-                int cut = GenerateNaive(str, i, k) + GenerateNaive(str, k + 1, j) + 1;
+                int cut = GenerateNaive(s, i, k) + GenerateNaive(s, k + 1, j) + 1;
                 min = Math.Min(min, cut);
             }
             return min;
@@ -98,16 +98,15 @@ namespace Algorithm.DynamicProgramming
         // Returns the minimum number of cuts needed to partition a string
         // such that every part is a palindrome
         // O(n^3)
-        public static int Generate(string str)
+        public static int Generate(string s)
         {
-            // Get the length of the string
-            int n = str.Length;
+            int n = s.Length;
 
-            /* Create two arrays to build the solution in bottom up manner
-               C[i, j] = Minimum number of cuts needed for palindrome partitioning
-                         of substring str[i..j]
-               P[i, j] = true if substring str[i..j] is palindrome, else false
-               Note that C[i, j] is 0 if P[i, j] is true */
+            // Create two arrays to build the solution in bottom up manner
+            // C[i, j] = Minimum number of cuts needed for palindrome
+            //          partitioning of substring str[i..j]
+            // P[i, j] = true if substring str[i..j] is palindrome, else false
+            // Note that C[i, j] is 0 if P[i, j] is true
             var C = new int[n, n];
             var P = new bool[n, n];
 
@@ -118,33 +117,32 @@ namespace Algorithm.DynamicProgramming
                 C[i, i] = 0;
             }
 
-            /* L is substring length. Build the solution in bottom up manner by
-               considering all substrings of length starting from 2 to n.
-               The loop structure is same as Matrx Chain Multiplication problem (
-               See https://www.geeksforgeeks.org/archives/15553 )*/
+            // L is substring length. Build the solution in bottom up manner by
+            // considering all substrings of length starting from 2 to n.
+            // The loop structure is same as Matrx Chain Multiplication problem
             for (int L = 2; L <= n; L++)
             {
                 // For substring of length L, set different possible starting indexes
-                for (int i = 0; i < n - L + 1; i++)
+                for (int i = 0; i <= n - L; i++)
                 {
                     // Set ending index
                     int j = i + L - 1; 
 
-                    // If L is 2, then we just need to compare two characters. Else
-                    // need to check two corner characters and value of P[i+1, j-1]
+                    // If L is 2, then we just need to compare two characters.
                     if (L == 2)
-                        P[i, j] = (str[i] == str[j]);
+                        P[i, j] = (s[i] == s[j]);
+                    // Otherwise, check two end characters and value of P[i+1, j-1]
                     else
-                        P[i, j] = (str[i] == str[j]) && P[i + 1, j - 1];
+                        P[i, j] = (s[i] == s[j]) && P[i + 1, j - 1];
   
-                    // IF str[i..j] is palindrome, then C[i, j] is 0
-                    if (P[i, j] == true)
+                    // If s[i..j] is palindrome, then C[i, j] is 0
+                    if (P[i, j])
                         C[i, j] = 0;
                     else
                     {
                         // Make a cut at every possible localtion starting from i to j,
                         // and get the minimum cost cut.
-                        C[i, j] = Int32.MaxValue;
+                        C[i, j] = int.MaxValue;
                         for (int k = i; k < j; k++)
                         {
                             int cost = C[i, k] + C[k + 1, j] + 1;
@@ -198,7 +196,7 @@ namespace Algorithm.DynamicProgramming
             for (int L = 2; L <= n; L++)
             {
                 // For substring of length L, set different possible starting indexes
-                for (int i = 0; i < n - L + 1; i++)
+                for (int i = 0; i <= n - L; i++)
                 {
                     int j = i + L - 1; // Set ending index
 

@@ -78,8 +78,8 @@ namespace Algorithm.DynamicProgramming
          *                                               |      buying on day j and selling at day i
          *                                               |      PLUS the profit of previous transaction at day j
          * 
-         * profit[t][i] will be maximum of –
-         * profit[t][i-1] which represents not doing any transaction on
+         * profit[t, i] will be maximum of –
+         * profit[t, i-1] which represents not doing any transaction on
          * the ith day.
          * 
          * Maximum profit gained by selling on ith day. In order to sell shares 
@@ -91,9 +91,9 @@ namespace Algorithm.DynamicProgramming
          */
 
         // O(k.n^2)
-        public static int BuySellStocks(int[] price, int k)
+        public static int BuySellStocks(int[] p, int k)
         {
-            int n = price.Length;
+            int n = p.Length;
             // table to store results of subproblems profit[t, i] stores maximum
             // profit using atmost t transactions up to day i (including day i)
             int[,] profit = new int[k + 1, n + 1];
@@ -113,12 +113,12 @@ namespace Algorithm.DynamicProgramming
                 // For each day
                 for (int d = 1; d <= n; d++)
                 {
-                    int max_so_far = Int32.MinValue;
+                    int max_so_far = int.MinValue;
 
                     // For each day before today
                     for (int m = 0; m < d; m++)
                     {
-                        var diff = price[d] - price[m];
+                        var diff = p[d] - p[m];
                         max_so_far = Math.Max(max_so_far, diff + profit[t - 1, m]);
                     }
          
@@ -167,12 +167,12 @@ namespace Algorithm.DynamicProgramming
          * for all j in range [0, i-2]
         */
         // O(n^2)
-        public static int BuySellStocksOptimized(int[] price, int k)
+        public static int BuySellStocksOptimized(int[] p, int k)
         {
-            int n = price.Length;
+            int n = p.Length;
             // table to store results of subproblems profit[t, d] stores maximum
             // profit using atmost t transactions up to day d (including day d)
-            int[,] profit = new int[k + 1, n + 1];
+            var profit = new int[k + 1, n + 1];
 
             // For day 0, you can't earn money irrespective of how many times you trade
             for (int i = 0; i <= k; i++)
@@ -186,14 +186,14 @@ namespace Algorithm.DynamicProgramming
             // For each transaction t
             for (int t = 1; t <= k; t++)
             {
-                int prevDiff = Int32.MinValue;
+                int diff = int.MinValue;
                 // For each day d
                 for (int d = 1; d < n; d++)
                 {
                     // Profit for previous day with 1 less transaction
-                    prevDiff = Math.Max(prevDiff, profit[t - 1, d - 1] - price[d - 1]);
+                    diff = Math.Max(diff, profit[t - 1, d - 1] - p[d - 1]);
                     // Profit for today is MAX of previous day and today
-                    profit[t, d] = Math.Max(profit[t, d - 1], price[d] + prevDiff);
+                    profit[t, d] = Math.Max(profit[t, d - 1], p[d] + diff);
                 }
             }
 

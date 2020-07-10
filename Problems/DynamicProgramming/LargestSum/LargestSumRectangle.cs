@@ -45,29 +45,48 @@ namespace Algorithm.DynamicProgramming
          * overall maximum sum, we compare this sum with the maximum sum so far.
         */
 
+        public static (int, int, int) MaxSumArrayAllNegative(int[] a)
+        {
+            // Special Case: When all numbers in arr[] are negative
+            int maxSum = a[0];
+            int start = 0, finish = 0;
+
+            // Find the maximum element in array
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i] > maxSum)
+                {
+                    maxSum = a[i];
+                    start = finish = i;
+                }
+            }
+
+            return (maxSum, start, finish);
+        }
         // Implementation of Kadane's algorithm for 1D array. The function 
         // returns the maximum sum and stores starting and ending indexes of the 
         // maximum sum subarray at addresses pointed by start and finish pointers 
         // respectively.
-        public static Tuple<int, int, int> kadane(int[] arr)
+        public static (int, int, int) MaxSumArray(int[] a)
         {
-            // initialize sum, maxSum and
-            int sum = 0, maxSum = Int32.MinValue, i;
+            int sum = 0;
+            int maxSum = int.MinValue;
 
             // Just some initial value to check for all negative values case
             int start = -1, finish = -1;
             // local variable
             int local_start = 0;
 
-            for (i = 0; i < arr.Length; ++i)
+            for (int i = 0; i < a.Length; ++i)
             {
-                sum += arr[i];
+                sum += a[i];
                 if (sum < 0)
                 {
                     sum = 0;
                     local_start = i + 1;
                 }
-                else if (sum > maxSum)
+
+                if (sum > maxSum)
                 {
                     maxSum = sum;
                     start = local_start;
@@ -77,52 +96,34 @@ namespace Algorithm.DynamicProgramming
 
             // There is at-least one non-negative number
             if (finish != -1)
-                return new Tuple<int, int, int>(maxSum, start, finish);
+                return (maxSum, start, finish);
 
             // Special Case: When all numbers in arr[] are negative
-            maxSum = arr[0];
-            start = finish = 0;
-
-            // Find the maximum element in array
-            for (i = 1; i < arr.Length; i++)
-            {
-                if (arr[i] > maxSum)
-                {
-                    maxSum = arr[i];
-                    start = finish = i;
-                }
-            }
-            return new Tuple<int, int, int>(maxSum, start, finish);
+            return MaxSumArrayAllNegative(a);
         }
 
         // The main function that finds maximum sum rectangle in M[,]
-        public static Tuple<int, int, int, int, int> findMaxSum(int[,] M)
+        public static (int, int, int, int, int) MaxSum(int[,] M)
         {
             // Variables to store the final output
-            int maxSum = Int32.MinValue;
-            int finalLeft = -1, finalRight = -1, finalTop = -1, finalBottom = -1;
+            int max = int.MinValue;
+            int left = -1, right = -1, top = -1, bottom = -1;
 
-            int left, right, i;
-
-            int row = M.GetLength(0);
-            int col = M.GetLength(1);
-            var temp = new int[row];
-                
+            int m = M.GetLength(0);
+            int n = M.GetLength(1);
 
             // Set the left column
-            for (left = 0; left < col; ++left)
+            for (int l = 0; l < n; ++l)
             {
-                // Initialize all elements of temp as 0
-                for (i = 0; i < row; ++i)
-                    temp[i] = 0;
+                var col = new int[m];
 
                 // Set the right column for the left column set by outer loop
-                for (right = left; right < col; ++right)
+                for (int r = l; r < n; ++r)
                 {
                     // Calculate sum between current left and right for every row 'i'
-                    for (i = 0; i < row; ++i)
+                    for (int i = 0; i < m; ++i)
                     {
-                        temp[i] += M[i, right];
+                        col[i] += M[i, r];
                     }
 
                     // Find the maximum sum subarray in temp[]. The kadane() 
@@ -130,29 +131,22 @@ namespace Algorithm.DynamicProgramming
                     // sum of rectangle between (start, left) and (finish, right) 
                     //  which is the maximum sum with boundary columns strictly as
                     //  left and right.
-                    var ret = kadane(temp);
-                    int sum = ret.Item1;
-                    int start = ret.Item2;
-                    int finish = ret.Item3;
+                    var (sum, start, end) = MaxSumArray(col);
 
                     // Compare sum with maximum sum so far. If sum is more, then 
                     // update maxSum and other output values
-                    if (sum > maxSum)
+                    if (sum > max)
                     {
-                        maxSum = sum;
-                        finalLeft = left;
-                        finalRight = right;
-                        finalTop = start;
-                        finalBottom = finish;
+                        max = sum;
+                        left = l;
+                        right = r;
+                        top = start;
+                        bottom = end;
                     }
                 }
             }
 
-            // Print final values
-            // printf("(Top, Left) (%d, %d)n", finalTop, finalLeft);
-            // printf("(Bottom, Right) (%d, %d)n", finalBottom, finalRight);
-            // printf("Max sum is: %dn", maxSum);
-            return new Tuple<int, int, int, int, int>(maxSum, finalTop, finalLeft, finalBottom, finalRight);
+            return (max, top, left, bottom, right);
         }
 
         // Driver program to test above functions
@@ -165,8 +159,8 @@ namespace Algorithm.DynamicProgramming
                 {3, 8, 10, 1, 3},
                 {-4, -1, 1, 7, -6}
             };
-            var result = findMaxSum(M);
-            Console.WriteLine($"Max: {result.Item1} Top: {result.Item2} Left: {result.Item3} Bottom: {result.Item4} Right: {result.Item5}.");
+            var (sum, top, left, bottom, right) = MaxSum(M);
+            Console.WriteLine($"Max: {sum} Top: {top} Left: {left} Bottom: {bottom} Right: {right}.");
         }
     }
 }

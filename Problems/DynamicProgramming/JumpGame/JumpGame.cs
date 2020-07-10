@@ -18,25 +18,23 @@ namespace Algorithm.DynamicProgramming
          * Determine if you are able to reach the last index.
          * 
          * For example:
-         * A = [2,3,1,1,4], return 1 ( true ).
+         * A = [2,3,1,1,4], return true.
          * 
-         * A = [3,2,1,0,4], return 0 ( false ).
-         * 
-         * Return 0/1 for this problem
+         * A = [3,2,1,0,4], return false.
         */
 
         // O(2^n)
-        public static int Jump(int[] A, int index)
+        public static bool Jump(int[] A, int i)
         {
-            if (index >= A.Length)
-                return 0;
-            if (index == A.Length - 1)
-                return 1;
+            if (i >= A.Length)
+                return false;
+            if (i == A.Length - 1)
+                return true;
 
-            for (int i = 1; i <= A[index]; i++)
-                if(Jump(A, index + i) == 1)
-                    return 1;
-            return 0;
+            for (int j = 1; j <= A[i]; j++)
+                if(Jump(A, i + j))
+                    return true;
+            return false;
         }
 
         /* Source: https://leetcode.com/problems/jump-game/solution/
@@ -70,13 +68,13 @@ namespace Algorithm.DynamicProgramming
          * memo     U   G   B   B   B   G   G
         */
         // Greedy
-        public static int JumpGreedy(int[] A, int index)
+        public static bool JumpGreedy(int[] A)
         {
             int last = A.Length - 1;
-            for (int i = last; i >= 0; i++)
+            for (int i = last; i >= 0; i--)
                 if (i + A[i] >= last)
                     last = i;
-            return last == 0 ? 1: 0;
+            return last == 0;
         }
         // Driver program to test to pront printDups
         public static void Test()

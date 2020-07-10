@@ -41,73 +41,69 @@ namespace Algorithm.DynamicProgramming
         /* Returns the product of max product subarray. 
            Assumes that the given array always has a subarray
            with product more than 1 */
-        public static int maxSubarrayProduct(int[] arr)
+        public static int MaxSubarrayProduct(int[] a)
         {
             // max positive product ending at the current position
-            int max_ending_here = 1;
+            int current_max = 1;
          
             // min negative product ending at the current position
-            int min_ending_here = 1;
+            int current_min = 1;
          
             // Initialize overall max product
-            int max_so_far = 1;
+            int max = 1;
          
-            /* Traverse through the array. Following values are
-               maintained after the i'th iteration:
-               max_ending_here is always 1 or some positive product
-                               ending with arr[i]
-               min_ending_here is always 1 or some negative product 
-                               ending with arr[i] */
-            for (int i = 0; i < arr.Length; i++)
+            // Following values are maintained after the i'th iteration.
+            // current_max is always 1 or some positive product ending with a[i]
+            // current_min is always 1 or some negative product ending with a[i]
+            foreach(var n in a)
             {
-                /* If this element is positive, update max_ending_here. 
-                   Update min_ending_here only if min_ending_here is 
-                   negative */
-                if (arr[i] > 0)
+                // CASE 1: Positive
+                // If n is positive, update current_max. 
+                // Update current_min only if it is negative.
+                if (n > 0)
                 {
-                    max_ending_here = max_ending_here * arr[i];
-                    min_ending_here = Math.Min(min_ending_here * arr[i], 1);
+                    current_max *= n;
+                    current_min = Math.Min(current_min * n, 1);
                 }
          
-                /* If this element is 0, then the maximum product 
-                   cannot end here, make both max_ending_here and 
-                   min_ending_here 0
-                   Assumption: Output is alway greater than or equal 
-                               to 1. */
-                else if (arr[i] == 0)
+                // CASE 2: Negative
+                // If n is negative,
+                // current_max can either be 1 or positive. 
+                // current_min can either be 1 or negative.
+                // 
+                // current_min will be previous current_max * n
+                //
+                // current_max will be 1 if previous current_min is 1.
+                // Otherwise it will be previous current_min * n
+                else if(n < 0)
                 {
-                    max_ending_here = 1;
-                    min_ending_here = 1;
+                    int prev_current_min = current_min;
+                    current_min = current_max * n;
+                    current_max = Math.Max(prev_current_min * n, 1);
                 }
-         
-                /* If element is negative. This is tricky
-                   max_ending_here can either be 1 or positive. 
-                   min_ending_here can either be 1 or negative.
-                   next min_ending_here will always be prev. 
-                   max_ending_here * arr[i] next max_ending_here
-                   will be 1 if prev min_ending_here is 1, otherwise 
-                   next max_ending_here will be prev min_ending_here *
-                   arr[i] */
+
+                // CASE 3: Zero
+                // If n is 0, then the maximum product cannot end here.
+                // Set both current_max and current_min to 1
+                // Assumption: Output is alway greater than or equal to 1.
                 else
                 {
-                    int temp = max_ending_here;
-                    max_ending_here = Math.Max(min_ending_here * arr[i], 1);
-                    min_ending_here = temp * arr[i];
+                    current_max = 1;
+                    current_min = 1;
                 }
-         
-                // update max_so_far, if needed
-                if (max_so_far <  max_ending_here)
-                  max_so_far  =  max_ending_here;
+
+                // update overall max
+                max =  Math.Max(max, current_max);
             }
          
-            return max_so_far;
+            return max;
         }
  
         // Driver program to test above functions
         public static void Test()
         {
             var arr = new int[] { 1, -2, -3, 0, 7, -8, -2 };
-            var result = maxSubarrayProduct(arr);
+            var result = MaxSubarrayProduct(arr);
             Console.WriteLine($"{result}");
         }
     }

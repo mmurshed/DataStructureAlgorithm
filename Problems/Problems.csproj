@@ -110,7 +110,6 @@
     <Compile Include="DynamicProgramming\Micellaneous\LongestArithmeticProgression.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\OptimalStrategyGame.cs" />
     <Compile Include="DynamicProgramming\Micellaneous\RegularExpression.cs" />
-    <Compile Include="DynamicProgramming\Micellaneous\WaysToCover.cs" />
     <Compile Include="DynamicProgramming\Numbers\CatalanNumber.cs" />
     <Compile Include="DynamicProgramming\UniquePath\DungeonGame.cs" />
     <Compile Include="DynamicProgramming\UniquePath\UniquePathNoObstacle.cs" />
@@ -133,6 +132,7 @@
     <Compile Include="Backtracking\NQueenII.cs" />
     <Compile Include="Tree\Problems\NAryTreeCodec.cs" />
     <Compile Include="Facebook\RandomizedCollection.cs" />
+    <Compile Include="DynamicProgramming\Numbers\WaysToCover.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Microsoft\" />

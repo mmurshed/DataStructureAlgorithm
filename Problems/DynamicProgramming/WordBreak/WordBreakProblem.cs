@@ -5,8 +5,7 @@ using DataStructure.Tree;
 namespace Algorithm.DynamicProgramming.Micellaneous
 {
     // https://www.geeksforgeeks.org/dynamic-programming-set-32-word-break-problem/
-    /*
-Given an input string and a dictionary of words, find out if the input string can be segmented into a space-separated sequence of dictionary words.
+    /* Given an input string and a dictionary of words, find out if the input string can be segmented into a space-separated sequence of dictionary words.
 
 Consider the following dictionary 
 { i, like, sam, sung, samsung, mobile, ice, cream, icecream, man, go, mango}

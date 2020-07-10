@@ -24,34 +24,34 @@ namespace Algorithm.DynamicProgramming
          * 
          * Kadane’s Algorithm:
          * Initialize:
-         * max_so_far = 0
-         * max_ending_here = 0
+         * max = 0
+         * current_max = 0
          * 
          * Loop for each element of the array
-         * (a) max_ending_here = max_ending_here + a[i]
-         * (b) if(max_ending_here < 0)
-         *      max_ending_here = 0
-         * (c) if(max_so_far < max_ending_here)
-         *      max_so_far = max_ending_here
+         * (a) current_max = max_ending_here + a[i]
+         * (b) if(current_max < 0)
+         *      current_max = 0
+         * (c) if(max < current_max)
+         *      max = currnet_max
          * 
-         * return max_so_far
+         * return max
          * 
          * Explanation:
          * Simple idea of the Kadane's algorithm is to look for all positive 
-         * contiguous segments of the array (max_ending_here is used for this). 
+         * contiguous segments of the array (current_max is used for this). 
          * And keep track of maximum sum contiguous segment among all positive 
-         * segments (max_so_far is used for this). Each time we get a positive 
-         * sum compare it with max_so_far and update max_so_far if it is greater
-         * than max_so_far
+         * segments (max is used for this). Each time we get a positive 
+         * sum compare it with max and update current_max if it is greater
+         * than current_max
          * 
          * Lets take the example:
          * {-2, -3, 4, -1, -2, 1, 5, -3}
          * 
-         * max_so_far = max_ending_here = 0
+         * max = current_max = 0
          * 
          * for i=0,  a[0] =  -2
-         *      max_ending_here = max_ending_here + (-2)
-         *      Set max_ending_here = 0 because max_ending_here < 0
+         *      current_max += (-2)
+         *      Set current_max = 0 because current_max < 0
          * 
          * for i=1,  a[1] =  -3
          *      max_ending_here = max_ending_here + (-3)
@@ -88,18 +88,19 @@ namespace Algorithm.DynamicProgramming
 
         public static int MaxSubArraySum(int[] a)
         {
-            int max_so_far = Int32.MinValue, max_ending_here = 0;
+            int max = int.MinValue;
+            int current_max = 0;
 
-            for (int i = 0; i < a.Length; i++)
+            foreach(var n in a)
             {
-                max_ending_here = max_ending_here + a[i];
-                if (max_so_far < max_ending_here)
-                    max_so_far = max_ending_here;
+                current_max += n;
 
-                if (max_ending_here < 0)
-                    max_ending_here = 0;
+                max = Math.Max(max, current_max);
+
+                // If current max is negative, reset to 0
+                current_max = Math.Max(current_max, 0);
             }
-            return max_so_far;
+            return max;
         }
 
         public static void Test()
@@ -112,15 +113,15 @@ namespace Algorithm.DynamicProgramming
         // array are negative.
         public static int MaxSubArraySumAllNegative(int[] a)
         {
-            int max_so_far = a[0];
-            int curr_max = a[0];
+            int max = a[0];
+            int current_max = a[0];
 
-            for (int i = 1; i < a.Length; i++)
+            foreach(var n in a)
             {
-                curr_max = Math.Max(a[i], curr_max + a[i]);
-                max_so_far = Math.Max(max_so_far, curr_max);
+                current_max = Math.Max(n, current_max + n);
+                max = Math.Max(max, current_max);
             }
-            return max_so_far;
+            return max;
         }
     }
 }

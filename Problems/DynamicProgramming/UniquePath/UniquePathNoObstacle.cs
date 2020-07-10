@@ -4,21 +4,26 @@ namespace Algorithm.DynamicProgramming.UniquePath
 	// https://www.geeksforgeeks.org/print-all-possible-paths-from-top-left-to-bottom-right-of-a-mxn-matrix/
 	// https://leetcode.com/problems/unique-paths/description/
     /*
-The problem is to print all the possible paths from top left to bottom right of a mXn matrix with the constraints that from each cell you can either move only to right or down.
-
-Examples :
-
-Input : 1 2 3
-        4 5 6
-Output : 1 4 5 6
-         1 2 5 6
-         1 2 3 6
-
-Input : 1 2 
-        3 4
-Output : 1 2 4
-         1 3 4
-The algorithm is a simple recursive algorithm, from each cell first print all paths by going down and then print all paths by going right. Do this recursively for each cell encountered.
+     * The problem is to print all the possible paths from top left to bottom
+     * right of a m * n matrix with the constraints that from each cell you can 
+     * either move only to right or down.
+     * 
+     * Examples
+     * Input : 1 2 3
+     *         4 5 6
+     * 
+     * Output : 1 4 5 6
+     *          1 2 5 6
+     *          1 2 3 6
+     * 
+     * Input : 1 2
+     *         3 4
+     * Output : 1 2 4
+     *          1 3 4
+     * 
+     * The algorithm is a simple recursive algorithm, from each cell first print
+     * all paths by going down and then print all paths by going right.
+     * Do this recursively for each cell encountered.
         */
     public class UniquePathNoObstacle
     {
@@ -83,18 +88,22 @@ The algorithm is a simple recursive algorithm, from each cell first print all pa
 
 
 		// http://codesniper.blogspot.com/2015/03/62-unique-paths-leetcode.html
-        /*
-Clearly, for the top row, res[0][j]=res[0][j-1], because there is only one 
-possible path which is from left to right. Similarly for the left column, 
-res[i][0]=res[i-1][0]. All other points in the grid hold res[i][j]=res[i-1][j]+ res[i][j-1].
-
-According to this recursion analysis, we can calculate the unique paths to any point in the grid. 
-
-As we only need to find the the unique paths to the "Finish" point, we can use
-one dimension array to iterativly update the information. Eg. res[i][j]=res[i-1][j]+ 
-res[i][j-1] => res[j](current loop with i)=res[j](last loop with i-1)+res[j-1],.
-
-Time complexity O(m*n) Extra space: O(n)
+        /* 
+         * Clearly, for the top row, res[0, j] = res[0, j-1], because there is 
+         * only one possible path which is from left to right. Similarly for 
+         * the left column, res[i, 0] = res[i-1, 0]. All other points in the grid
+         * hold res[i, j] = res[i-1, j] + res[i, j-1].
+         * 
+         * According to this recursion analysis, we can calculate the unique 
+         * paths to any point in the grid. 
+         * 
+         * As we only need to find the the unique paths to the "Finish" point, 
+         * we can use one dimension array to iterativly update the information.
+         * 
+         * Eg. res[i, j]=res[i-1, j]+ res[i, j-1] => res[j](current loop with i)
+         * =res[j] (last loop with i-1) + res[j-1],.
+         * 
+         * Time complexity O(m*n) Extra space: O(n)
         */
 		public int uniquePaths(int m, int n)
         {

@@ -28,20 +28,19 @@ namespace Algorithm.DynamicProgramming
          * You can assume that you can always reach the last index.
         */
 
+        private const int MAX = 99999;
         // O(2^n)
         public static int Jump(int[] A, int index)
         {
             if (index >= A.Length)
-                return Int32.MaxValue;
+                return MAX;
             if (index == A.Length - 1)
                 return 0;
 
-            int min = Int32.MaxValue;
+            int min = MAX;
             for (int i = 1; i <= A[index]; i++)
             {
-                int j = Jump(A, index + i);
-                if( j != Int32.MaxValue && j + 1 < min)
-                    min = j + 1;
+                min = Math.Min(min, Jump(A, index + i) + 1);
             }
             return min;
         }
@@ -53,30 +52,29 @@ namespace Algorithm.DynamicProgramming
          * arr[n-1] from arr[i]. Finally, we return arr[0].
         */
         // Dynamic O(n^2)
-        public static int JumpGreedy(int[] A, int index)
+        public static int JumpGreedy(int[] A)
         {
-            int[] jumps = new int[A.Length];
+            int n = A.Length;
+            int[] jumps = new int[n];
 
-            for (int i = A.Length - 2; i >= 0; i--)
+            for (int i = n - 2; i >= 0; i--)
             {
                 if (A[i] == 0) // Can't reach end from 0
-                    jumps[i] = Int32.MaxValue;
-                else if (i + A[i] >= A.Length - 1)
+                    jumps[i] = MAX;
+                else if (i + A[i] >= n - 1)
                     jumps[i] = 1; // Greedy: we can jump directly from here
                 else
                 {
                     // Find minimum
-                    int min = Int32.MaxValue;
-                    int last = Math.Min(A.Length - 1, A[i]);
+                    int min = MAX;
+                    int last = Math.Min(n - 1, A[i]);
+
                     for (int j = i + 1; j <= last; j++)
                     {
-                        if (min > jumps[j])
-                            min = jumps[j];
+                        min = Math.Min(min, jumps[j]);
                     }
-                    if (min != Int32.MaxValue)
-                        jumps[i] = min + 1;
-                    else
-                        jumps[i] = min;
+
+                    jumps[i] = Math.Min(MAX, min + 1);
                 }
             }
             return jumps[0];
@@ -85,7 +83,7 @@ namespace Algorithm.DynamicProgramming
         public static void Test()
         {
             var A = new[] { 1, 3, 6, 3, 2, 3, 6, 8, 9, 5 };
-            Console.WriteLine($"{JumpGreedy(A, 0)}");
+            Console.WriteLine($"{JumpGreedy(A)}");
         }
 	}
 }

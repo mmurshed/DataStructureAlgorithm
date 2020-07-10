@@ -16,7 +16,7 @@ namespace Algorithm.DynamicProgramming
         // O(n^2)
         public static int BuySellStocksA(int[] a)
         {
-            int min = Int32.MaxValue;
+            int min = int.MaxValue;
             for (int i = 0; i < a.Length; i++)
             {
                 for (int j = i + 1; j < a.Length; j++)
@@ -31,20 +31,18 @@ namespace Algorithm.DynamicProgramming
         }
 
         // O(n)
-        public static int BuySellStocksB(int[] a)
+        public static int BuySellStocksB(int[] prices)
         {
-            int min = Int32.MaxValue;
-            int last = a[0];
-            for (int i = 1; i < a.Length; i++)
+            if (prices.Length == 0)
+                return 0;
+            int min = prices[0];
+            int profit = 0;
+            for (int i = 1; i < prices.Length; i++)
             {
-                int diff = a[i] - last;
-                if (diff < min)
-                    min = diff;
-                if (a[i] < last)
-                    last = a[i];
+                min = Math.Min(min, prices[i]);
+                profit = Math.Max(prices[i] - min, profit);
             }
-
-            return min;
+            return profit;
         }
 
 

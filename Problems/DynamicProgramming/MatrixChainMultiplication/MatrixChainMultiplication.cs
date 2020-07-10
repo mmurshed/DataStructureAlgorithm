@@ -81,7 +81,7 @@ namespace Algorithm.DynamicProgramming
         {
             if (i == j)
                 return 0;
-            int min = Int32.MaxValue;
+            int min = int.MaxValue;
 
             // place parenthesis at different places between first
             // and last matrix, recursively calculate count of
@@ -152,7 +152,7 @@ namespace Algorithm.DynamicProgramming
                 for (int i = 1; i < n - L + 1; i++)
                 {
                     int j = i + L - 1;
-                    dp[i, j] = Int32.MaxValue;
+                    dp[i, j] = int.MaxValue;
                     for (int k = i; k < j; k++)
                     {
                         // cost = cost/scalar multiplications

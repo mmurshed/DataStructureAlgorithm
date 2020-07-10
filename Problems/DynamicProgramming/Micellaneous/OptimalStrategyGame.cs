@@ -19,9 +19,9 @@ namespace Algorithm.DynamicProgramming
          * Note: The opponent is as clever as the user.
          * 
          * Let us understand the problem with few examples:
-         * 1. 5, 3, 7, 10 : The user collects maximum value as 15(10 + 5)
+         * 1. 5, 3, 7, 10 : The user collects maximum value as 15 = (10 + 5)
          * 
-         * 2. 8, 15, 3, 7 : The user collects maximum value as 22(7 + 15)
+         * 2. 8, 15, 3, 7 : The user collects maximum value as 22 = (7 + 15)
          * 
          * Does choosing the best at each move give an optimal solution?
          * 
@@ -85,31 +85,35 @@ namespace Algorithm.DynamicProgramming
 
         // Returns optimal value possible that a player can collect from
         // an array of coins of size n. Note than n must be even
-        public static int OptimalStrategyOfGame(int[] arr)
+        public static int OptimalStrategyOfGame(int[] a)
         {
-            int n = arr.Length;
+            int n = a.Length;
             // Create a table to store solutions of subproblems
-            var table = new int[n, n];
+            var dp = new int[n, n];
 
             // Fill table using above recursive formula. Note that the table
-            // is filled in diagonal fashion (similar to http://goo.gl/PQqoS),
+            // is filled in diagonal fashion, similar to Min Insert to Form Palindrom
+            // https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome-dp-28/
             // from diagonal elements to table[0, n-1] which is the result.
             for (int gap = 0; gap < n; ++gap)
             {
                 for (int i = 0, j = gap; j < n; ++i, ++j)
                 {
-                    // Here x is value of F(i+2, j), y is F(i+1, j-1) and
-                    // z is F(i, j-2) in above recursive formula
-                    int x = i + 2 <= j     ? table[i + 2, j]     : 0;
-                    int y = i + 1 <= j - 1 ? table[i + 1, j - 1] : 0;
-                    int z = i     <= j - 2 ? table[i,     j - 2] : 0;
+                    // x is F(i+2, j)
+                    int x = (i + 2 <= j ? dp[i + 2, j]: 0);
 
-                    table[i, j] = Math.Max(arr[i] + Math.Min(x, y),
-                                           arr[j] + Math.Min(y, z));
+                    // y is F(i+1, j-1)
+                    int y = (i + 1 <= j - 1 ? dp[i + 1, j - 1] : 0);
+
+                    // z is F(i, j-2)
+                    int z = (i <= j - 2 ? dp[i,     j - 2] : 0);
+
+                    dp[i, j] = Math.Max(a[i] + Math.Min(x, y),
+                                        a[j] + Math.Min(y, z));
                 }
             }
 
-            return table[0, n - 1];
+            return dp[0, n - 1];
         }
 
         public static void Test()

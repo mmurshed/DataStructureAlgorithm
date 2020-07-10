@@ -42,25 +42,25 @@ namespace Algorithm.Facebook
             return false;
         }
 
-        private bool IsMatchNaive2(string s, int si, string p, int pi)
+        private bool IsMatchNaive2(string t, int i, string p, int j)
         {
-            if (pi >= p.Length && si >= s.Length)
+            if (j >= p.Length && i >= t.Length)
                 return true;
-            if (pi >= p.Length)
+            if (j >= p.Length)
                 return false;
 
-            if (p[pi] == '.' || (si < s.Length && p[pi] == s[si]))
-                return IsMatchNaive(s, ++si, p, ++pi);
-            else if (p[pi] == '*')
+            if (p[j] == '.' || (i < t.Length && p[j] == t[i]))
+                return IsMatchNaive(t, ++i, p, ++j);
+            else if (p[j] == '*')
             {
-                char prev = p[pi - 1];
-                if (prev != '.' || prev != s[si])
-                    return IsMatchNaive(s, si + 1, p, pi - 1); // Zero match
+                char prev = p[j - 1];
+                if (prev != '.' || prev != t[i])
+                    return IsMatchNaive(t, i + 1, p, j - 1); // Zero match
 
                 return
-                    IsMatchNaive(s, si + 1, p, pi) || // One match
-                    IsMatchNaive(s, si, p, pi + 1) || // multiple match
-                    IsMatchNaive(s, si + 1, p, pi - 1); // Zero match
+                    IsMatchNaive(t, i + 1, p, j) || // One match
+                    IsMatchNaive(t, i, p, j + 1) || // multiple match
+                    IsMatchNaive(t, i + 1, p, j - 1); // Zero match
             }
 
             return false;
@@ -74,9 +74,9 @@ namespace Algorithm.Facebook
          * that finds if wildcard pattern is matched with text. The matching should cover the 
          * entire text (not partial text).
          * 
-         * The wildcard pattern can include the characters ‘?’ and ‘*’
-         * ‘?’ – matches any single character
-         * ‘*’ – Matches any sequence of characters (including the empty sequence)
+         * The wildcard pattern can include the characters '?' and '*'
+         * '?' – matches any single character
+         * '*' – Matches any sequence of characters (including the empty sequence)
          * 
          * For example,
          * 
@@ -104,22 +104,22 @@ namespace Algorithm.Facebook
          * Pattern =       |ba| * |a?|
          * Output  = true
          * 
-         * Each occurrence of ‘?’ character in wildcard pattern can be replaced 
-         * with any other character and each occurrence of ‘*’ with a sequence 
+         * Each occurrence of '?' character in wildcard pattern can be replaced 
+         * with any other character and each occurrence of '*' with a sequence 
          * of characters such that the wildcard pattern becomes identical to 
          * the input string after replacement.
          * 
-         * Let’s consider any character in the pattern.
+         * Let's consider any character in the pattern.
          * 
-         * Case 1: The character is ‘*’
+         * Case 1: The character is '*'
          * 
          * Here two cases arise
-         * 1a. We can ignore ‘*’ character and move to next character in the Pattern.
+         * 1a. We can ignore '*' character and move to next character in the Pattern.
          * 
-         * 1b. ‘*’ character matches with one or more characters in Text.
+         * 1b. '*' character matches with one or more characters in Text.
          *      Here we will move to next character in the string.
          * 
-         * Case 2: The character is ‘?’
+         * Case 2: The character is '?'
          * We can ignore current character in Text and move to next character 
          * in the Pattern and Text.
          * 
@@ -130,18 +130,18 @@ namespace Algorithm.Facebook
          * 
          * We can use Dynamic Programming to solve this problem -
          * 
-         * Let T[i][j] is true if first i characters in given string matches the first j characters of pattern.
+         * Let T[i, j] is true if first i characters in given string matches the first j characters of pattern.
          * 
          * DP Initialization:
          * 
          * both text and pattern are null
-         * T[0][0] = true; 
+         * T[0, 0] = true; 
          * 
          * pattern is null
-         * T[i][0] = false; 
+         * T[i, 0] = false; 
          * 
          * text is null
-         * T[0][j] = T[0][j - 1] if pattern[j – 1] is '*'  
+         * T[0, j] = T[0, j - 1] if pattern[j – 1] is '*'  
          * 
          * 
          * DP relation :
@@ -154,41 +154,44 @@ namespace Algorithm.Facebook
          *    with any character of text. 
          * b) If current characters in both match
          * 
-         * if (pattern[j – 1] == ‘?’) || (pattern[j – 1] == text[i - 1])
-         *     T[i][j] = T[i-1][j-1]
+         * if (pattern[j – 1] == '?') || (pattern[j – 1] == text[i - 1])
+         *     T[i, j] = T[i-1, j-1]
          *     
-         * If we encounter ‘*’, two choices are possible -
-         *   a) We ignore ‘*’ character and move to next 
-         *      character in the pattern, i.e., ‘*’ 
+         * If we encounter '*', two choices are possible -
+         *   a) We ignore '*' character and move to next 
+         *      character in the pattern, i.e., '*' 
          *      indicates an empty sequence.
          *   b) '*' character matches with ith character in input 
          *   
-         * else if (pattern[j – 1] == ‘*’)
-         *     T[i][j] = T[i][j-1] || T[i-1][j]  
+         * else if (pattern[j – 1] == '*')
+         *     T[i, j] = T[i, j-1] || T[i-1, j]  
          * 
          * pattern[j – 1] is not equal to text[i - 1]
          *  
          * else 
-         *     T[i][j]  = false 
+         *     T[i, j]  = false 
          */
-        public bool IsMatchDP(string s, string p)
+        public bool IsMatchDP(string t, string p)
         {
-            if ((p == null || p.Length == 0) && (s == null || s.Length == 0))
+            if ((p == null || p.Length == 0) && (t == null || t.Length == 0))
                 return true;
 
-            var dp = new bool[s.Length + 1, p.Length + 1];
+            int m = t.Length;
+            int n = p.Length;
+
+            var dp = new bool[m + 1, n + 1];
 
             // Empty string and empty pattern
             dp[0, 0] = true;
 
             // Empty string and a pattern such as "***"
-            for (int i = 1; i <= p.Length; i++)
-                if (p[i - 1] == '*')
-                    dp[0, i] = dp[0, i - 1];
+            for (int j = 1; j <= n; j++)
+                if (p[j - 1] == '*')
+                    dp[0, j] = dp[0, j - 1];
 
-            for (int i = 1; i <= s.Length; i++)
+            for (int i = 1; i <= m; i++)
             {
-                for (int j = 1; j <= p.Length; j++)
+                for (int j = 1; j <= n; j++)
                 {
                     // Two cases if we see a '*' 
                     // a) We ignore '*' character and move 
@@ -203,7 +206,7 @@ namespace Algorithm.Facebook
                     // matching in two cases 
                     // (a) current character of pattern is '?' 
                     // (b) characters actually match 
-                    else if (p[j - 1] == '?' || s[i - 1] == p[j - 1])
+                    else if (p[j - 1] == '?' || t[i - 1] == p[j - 1])
                         dp[i, j] = dp[i - 1, j - 1];
 
                     // If characters don't match 
@@ -211,7 +214,7 @@ namespace Algorithm.Facebook
                 }
             }
 
-            return dp[s.Length, p.Length];
+            return dp[t.Length, p.Length];
         }
     }
 
