@@ -49,7 +49,7 @@ namespace DataStructure.Tree
             }
 
             // 2. Build PiorityQueue
-            var priorityQueue = new Queue.PriorityQueue<HuffmanNode>(line.Length);
+            var priorityQueue = new Queue.PriorityQueueArray<HuffmanNode>(line.Length);
 
             for (int i = 0; i < line.Length; i++)
             {

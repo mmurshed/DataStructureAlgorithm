@@ -87,7 +87,7 @@
     <Compile Include="Queue\MaxHeapSimple.cs" />
     <Compile Include="Queue\MinHeap.cs" />
     <Compile Include="Queue\MonotonicQueue.cs" />
-    <Compile Include="Queue\PriorityQueueDeprecated.cs" />
+    <Compile Include="Queue\PriorityQueue.cs" />
     <Compile Include="Set\BitSet.cs" />
     <Compile Include="Set\ISet.cs" />
     <Compile Include="Tree\AVLTree\AVLTree.cs" />
@@ -137,7 +137,7 @@
     <Compile Include="Graph\Simple2\Graph.cs" />
     <Compile Include="Graph\Simple2\Vertex.cs" />
     <Compile Include="Queue\Queue.cs" />
-    <Compile Include="Queue\PriorityQueue.cs" />
+    <Compile Include="Queue\PriorityQueueArray.cs" />
     <Compile Include="Queue\PriorityQueueSimple.cs" />
     <Compile Include="Graph\Simple\SimpleGraph.cs" />
     <Compile Include="Graph\Simple\BareboneGraph.cs" />

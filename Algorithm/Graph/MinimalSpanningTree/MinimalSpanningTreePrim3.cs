@@ -25,7 +25,7 @@ namespace Algorithm.Graph
     public class MinimalSpanningTreePrim3<V, E> : MinimalSpanningTree<V>
     {
         private bool[] componentOfMST;
-        PriorityQueueDeprecated<IEdge<V, int>> queue;
+        PriorityQueue<IEdge<V, int>> queue;
 
         private IEdge<V, int>[] edgeTo;
         private int[] distTo;
@@ -42,7 +42,7 @@ namespace Algorithm.Graph
 
         private void Init()
         {
-            queue = new PriorityQueueDeprecated<IEdge<V, int>>();
+            queue = new PriorityQueue<IEdge<V, int>>();
 
             for (int i = 0; i < graph.Size; i++)
             {

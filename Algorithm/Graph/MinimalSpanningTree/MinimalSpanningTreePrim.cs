@@ -3,11 +3,11 @@
 namespace Algorithm.Graph
 {
     // https://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/
-    /*
-We have discussed Kruskal’s algorithm for Minimum Spanning Tree. Like Kruskal’s
-algorithm, Prim’s algorithm is also a Greedy algorithm. 
-
-It starts with an empty spanning tree. The idea is to maintain two sets of 
+    /* 
+     * We have discussed Kruskal’s algorithm for Minimum Spanning Tree.
+     * Like Kruskal’s algorithm, Prim’s algorithm is also a Greedy algorithm. 
+     * 
+     * It starts with an empty spanning tree. The idea is to maintain two sets of 
 vertices. The first set contains the vertices already included in the MST, 
 the other set contains the vertices not yet included. At every step, it 
 considers all the edges that connect the two sets, and picks the minimum 
@@ -166,7 +166,7 @@ We use a boolean array mstSet[] to represent the set of vertices included in MST
 
             for (int v = 0; v < distance.Length; v++)
             {
-                if (componentOfMST[v] == false && distance[v] <= min)
+                if (!componentOfMST[v] && distance[v] <= min)
                 {
                     min = distance[v];
                     min_index = v;
@@ -185,14 +185,17 @@ We use a boolean array mstSet[] to represent the set of vertices included in MST
                 neighbor[i] = source;
                 distance[i] = INFINITY;
             }
+
             foreach(var v in graph.GetNeighbours(source))
             {
                 distance[v.ID] = graph.GetEdge(source, v).Value;
             }
+
             foreach(var v in graph.Vertices)
             {
                 MST.AddVertex(v);
             }
+
             componentOfMST[source.ID] = true;
         }
 

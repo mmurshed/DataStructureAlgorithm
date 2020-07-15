@@ -58,7 +58,10 @@ namespace Algorithm.Graph.ShortestPath
             return path;
         }
 
-        public bool Relax(IVertex<V> v, IVertex<V> w) => Relax(graph.GetEdge(v, w));
+        public bool Relax(IVertex<V> v, IVertex<V> w)
+        {
+            return Relax(graph.GetEdge(v, w));
+        }
 
         public bool Relax(IEdge<V, int> edge)
         {

@@ -5,8 +5,11 @@ namespace Algorithm.Graph
 {
     /*
      * Sedgewick Book
-    Prim’s algorithm
-    Our first MST method, known as Prim’s algorithm, is to attach a new edge to a single growing tree at each step. Start with any vertex as a single-ver- tex tree; then add V􏰀1 edges to it, always taking next (coloring black) the minimum-
+     * Prim’s algorithm
+     * 
+     * Our first MST method, known as Prim’s algorithm, is to attach a new edge 
+     * to a single growing tree at each step. Start with any vertex as a 
+     * single vertex tree; then add V􏰀1 edges to it, always taking next (coloring black) the minimum-
 
     Proposition L. Prim’s algorithm computes the MST of any connected edge-weighted graph.
     Proof: Immediate from Proposition K. The growing tree defines a cut with no black edges; the algorithm takes the crossing edge of minimal weight, so it is successively coloring edges black in accordance with the greedy algorithm.
@@ -31,24 +34,19 @@ namespace Algorithm.Graph
     public class MinimalSpanningTreePrim2<V, E> : MinimalSpanningTree<V>
     {
         private bool[] componentOfMST;
-        PriorityQueueDeprecated<IEdge<V, int>> queue;
+        PriorityQueue<IEdge<V, int>> queue;
 
         public MinimalSpanningTreePrim2(IGraph<V, int> graph, IVertex<V> source)
             : base(graph, source)
         {
-            componentOfMST = new bool[graph.Size];
         }
 
 
 
         private void Init()
         {
-            queue = new PriorityQueueDeprecated<IEdge<V, int>>((a, b) => a.Value - b.Value);
-
-            for (int i = 0; i < graph.Size; i++)
-            {
-                componentOfMST[i] = false;
-            }
+            componentOfMST = new bool[graph.Size];
+            queue = new PriorityQueue<IEdge<V, int>>((a, b) => a.Value - b.Value);
 
             foreach (var v in graph.Vertices)
             {

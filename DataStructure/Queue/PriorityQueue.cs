@@ -5,48 +5,40 @@ namespace DataStructure.Queue
 {
     public class PriorityQueue<T>
     {
-        private T[] data;
+        private readonly List<T> data;
+        private readonly Comparison<T> Compare;
 
-        private Comparison<T> Compare;
-
-        public int Count;
-        public bool Empty => Count == 0;
-
-        public PriorityQueue(int count, Comparison<T> comp)
+        public PriorityQueue(int n, Comparison<T> compare)
         {
-            data = new T[count + 1]; // 1 based indexing
-            data[0] = default;
-            this.Compare = comp;
+            Compare = compare;
+            data = new List<T>(n + 1) { default };
         }
 
-        public PriorityQueue(int count, IComparer<T> comp) : this(count, comp.Compare)
-        {   
-        }
-
-        public PriorityQueue(int count) : this(count, Comparer<T>.Default)
-        {   
-        }
-
-        private int Left(int i) => 2 * i;
-        private int Right(int i) => 2 * i + 1;
-        private int Parent(int i) => i / 2;
+        public PriorityQueue(Comparison<T> compare) : this(0, compare) {}
+        public PriorityQueue(int n, IComparer<T> comparer) : this(n, comparer.Compare) {}
+        public PriorityQueue(IComparer<T> comparer) : this(4, comparer.Compare) {}
+        public PriorityQueue() : this(4, Comparer<T>.Default.Compare) {}
+        public PriorityQueue(int n) : this(n, Comparer<T>.Default.Compare) {}
 
         private void Swap(int i, int j)
         {
-            T temp = data[i];
+            T tmp = data[i];
             data[i] = data[j];
-            data[j] = temp;
+            data[j] = tmp;
         }
 
-        private bool Less(int i, int j) => Compare(data[i], data[j]) <= 0;
-       
+        public int Count => data.Count - 1;
+        public bool Empty => Count == 0;
 
-        public void Enqueue(T d)
+        private int Parent(int i) => i / 2;
+        private int Left(int i) => 2 * i;
+        private int Right(int i) => 2 * i + 1;
+
+        private bool Less(int i, int j) => Compare(data[i], data[j]) <= 0;
+
+        public void Enqueue(T obj)
         {
-            if (Count >= data.Length - 1)
-                return;
-            // Push back
-            data[++Count] = d;
+            data.Add(obj);
             Swim(Count);
         }
 
@@ -63,12 +55,30 @@ namespace DataStructure.Queue
                 return data[0];
             T top = data[1];
             Swap(1, Count);
-            --Count;
+            data.RemoveAt(Count);
             Sink(1);
             return top;
         }
 
-        // Search for right place bottom up
+        private void SinkRecursive(int i)
+        {
+            int current = i;
+            int left = Left(i);
+            int right = Right(i);
+
+            if (left < Count && Compare(data[left], data[current]) < 0)
+                current = left;
+
+            if (right < Count && Compare(data[right], data[current]) < 0)
+                current = right;
+
+            if (current != i)
+            {
+                Swap(i, current);
+                SinkRecursive(current);
+            }
+        }
+
         private void Swim(int i)
         {
             while (i > 1)
@@ -109,35 +119,19 @@ namespace DataStructure.Queue
 
                 // Go down
                 i = j;
-            }  
-        }
-
-        // Search for right place top down
-        private void SinkRecursive(int i)
-        {
-            if (i > Count)
-                return;
-
-            int cur = i;
-
-            int l = Left(i);
-            int r = Right(i);
-
-            // If left is less than current value, take left
-            if (l <= Count && Less(l, cur))
-                cur = l;
-
-            // If right is less than current value, take right
-            if (r <= Count && Less(r, cur))
-                cur = r;
-
-            // Swap with the new lesser value
-            if (cur != i)
-            {
-                Swap(cur, i);
-                Sink(cur);
             }
         }
     }
 
+    public class MinComparer<T> : IComparer<T>
+        where T : IComparable
+    {
+        public int Compare(T x, T y) => x.CompareTo(y);
+    }
+
+    public class MaxComparer<T> : IComparer<T>
+        where T : IComparable
+    {
+        public int Compare(T x, T y) => y.CompareTo(x);
+    }
 }
