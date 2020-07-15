@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataStructure.List
 {
-	public class CircularLinkedList<T> : ILinkedList<T>
+	public class CircularLinkedList<T>
 	{
 		public INode<T> Head { get; private set; }
 
@@ -84,10 +84,10 @@ namespace DataStructure.List
 			return head;
 		}
 
-		public void Remove(T Value)
+		public INode<T> Remove(T Value)
 		{
 			if (Head == null)
-                return;
+                return null;
 
 			var head = Head;
 			INode<T> prev = null;
@@ -99,6 +99,8 @@ namespace DataStructure.List
 
 			if(head.Value.Equals(Value) && prev != null)
 				prev.NextNode = prev.NextNode.NextNode;
+
+			return prev;
 		}
 
 	}

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace DataStructure.Queue
 {
-    public class PriorityQueueSimple
+    public class PriorityQueueSimple2
     {
-        private int[] d;
-        public int count { get; private set;}
+        private List<int> d;
+        public int Count => d.Count - 1;
         private readonly Comparison<int> Compare;
 
         private int Left(int i) => 2 * i;
@@ -21,35 +21,33 @@ namespace DataStructure.Queue
             d[j] = t;
         }
 
-        public PriorityQueueSimple(int n, Comparison<int> comp = null)
+        public PriorityQueueSimple2(Comparison<int> comp = null)
         {
-            d = new int[n + 1];
-            d[0] = int.MinValue;
-            count = 0;
+            d = new List<int> { int.MinValue };
             Compare = comp ?? Comparer<int>.Default.Compare;
+        }
+
+        public int Peek()
+        {
+            if (Count < 1)
+                return d[0];
+            return d[1];
         }
 
 
         public void Enqueue(int v)
         {
-            if (count >= d.Length - 1)
-                return;
-            d[++count] = v;
-            Swim(count);
-        }
-
-        public int Peek()
-        {
-            if (count < 1)
-                return d[0];
-            return d[0];
+            d.Add(v);
+            Swim(Count);
         }
 
         public int Dequeue()
         {
-            int v = Peek();
-            Swap(1, count);
-            --count;
+            if (Count < 1)
+                return d[0];
+            int v = d[1];
+            Swap(1, Count);
+            d.RemoveAt(Count);
             Sink(1);
             return v;
         }
@@ -68,17 +66,17 @@ namespace DataStructure.Queue
 
         private void Sink(int i)
         {
-            if (i > count)
+            if (i > Count)
                 return;
             while (true)
             {
                 int j = Left(i);
 
-                if (j > count)
+                if (j > Count)
                     break;
 
                 // Select right if less
-                if (j < count && Less(j + 1, j))
+                if (j < Count && Less(j+1, j))
                     j++;
 
                 // Stop if not less

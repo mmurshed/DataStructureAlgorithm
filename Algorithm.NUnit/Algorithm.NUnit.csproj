@@ -85,6 +85,7 @@
     <Compile Include="StreamCheckerTest.cs" />
     <Compile Include="NaryTreeCodecTest.cs" />
     <Compile Include="RandomizedCollectionTest.cs" />
+    <Compile Include="MedianFinderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

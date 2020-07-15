@@ -133,6 +133,7 @@
     <Compile Include="Tree\Problems\NAryTreeCodec.cs" />
     <Compile Include="Facebook\RandomizedCollection.cs" />
     <Compile Include="DynamicProgramming\Numbers\WaysToCover.cs" />
+    <Compile Include="Facebook\MedianFinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Microsoft\" />

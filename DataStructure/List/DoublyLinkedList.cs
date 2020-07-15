@@ -5,25 +5,23 @@ using System.Text;
 
 namespace DataStructure.List.Doubly
 {
-	public interface IDoublyNode<T>
+	public interface IDoublyNode<T> : INode<T>
 	{
-		T Value { get; set; }
 		IDoublyNode<T> PreviousNode { get; set; }
-		IDoublyNode<T> NextNode { get; set; }
 	}
 
 	public class DoublyNode<T> : IDoublyNode<T>
 	{
 		public T Value { get; set; }
 		public IDoublyNode<T> PreviousNode { get; set; }
-		public IDoublyNode<T> NextNode { get; set; }
+		public INode<T> NextNode { get; set; }
 		public DoublyNode(T Value)
 		{
 			this.Value = Value;
 		}
 	}
 
-	public interface IDoublyLinkedList<T> : IEnumerable<IDoublyNode<T>>
+	public interface IDoublyLinkedList<T> : IEnumerable<INode<T>>
 	{
 		IDoublyNode<T> Head { get; }
 		IDoublyNode<T> Tail { get; }
@@ -64,7 +62,7 @@ namespace DataStructure.List.Doubly
 				var head = Head;
 				while (head != null)
 				{
-					head = head.NextNode;
+					head = head.NextNode as IDoublyNode<T>;
 					length++;
 				}
 				return length;
@@ -79,7 +77,7 @@ namespace DataStructure.List.Doubly
 			var head = Head;
             while (head != null && n >= 0)
             {
-                head = head.NextNode;
+                head = head.NextNode as IDoublyNode<T>;
 				--n;
             }
             return head;
@@ -112,7 +110,7 @@ namespace DataStructure.List.Doubly
 			var head = Head;
 			while (head.NextNode != null && !head.NextNode.Value.Equals(Value))
             {
-                head = head.NextNode;
+                head = head.NextNode as IDoublyNode<T>;
             }
             // If the next node is empty, we didn't find it
 			if (head.NextNode == null)
@@ -129,7 +127,7 @@ namespace DataStructure.List.Doubly
 			var head = Head;
             while (head != null && !head.Value.Equals(Value))
             {
-                head = head.NextNode;
+                head = head.NextNode as IDoublyNode<T>;
             }
             return head;
         }
@@ -159,10 +157,10 @@ namespace DataStructure.List.Doubly
 			var head = Head;
 			while (head.NextNode != null)
 			{
-				head = head.NextNode;
+				head = head.NextNode as IDoublyNode<T>;
 			}
 			head.NextNode = new DoublyNode<T>(Value);
-			Tail = head.NextNode;
+			Tail = head.NextNode as IDoublyNode<T>;
 			Tail.PreviousNode = head;
 			return head;
 		}
@@ -175,7 +173,7 @@ namespace DataStructure.List.Doubly
 			if (Head.Value.Equals(Value))
 			{
 				var oldHead = Head;
-				Head = Head.NextNode;
+				Head = Head.NextNode as IDoublyNode<T>;
 				Head.PreviousNode = null;
 				return oldHead;
 			}
@@ -183,9 +181,9 @@ namespace DataStructure.List.Doubly
 			var previousNode = FindPrevious(Value);
 			if (previousNode == null)
 				return null;
-			var nodeToRemove = previousNode.NextNode;
+			var nodeToRemove = previousNode.NextNode as IDoublyNode<T>;
 			previousNode.NextNode = previousNode.NextNode.NextNode;
-			previousNode.NextNode.PreviousNode = previousNode;
+			((IDoublyNode<T>)previousNode.NextNode).PreviousNode = previousNode;
 			return nodeToRemove;
 		}
 
@@ -222,7 +220,7 @@ namespace DataStructure.List.Doubly
 		//	return newHead;
 		//}
 
-		public IEnumerator<IDoublyNode<T>> GetEnumerator()
+		public IEnumerator<INode<T>> GetEnumerator()
 		{
 			return new LinkedListEnumerator<T>(Head);
 		}
@@ -234,40 +232,4 @@ namespace DataStructure.List.Doubly
 
 	}
 
-	public class LinkedListEnumerator<T> : IEnumerator<IDoublyNode<T>>
-	{
-		private IDoublyNode<T> _head;
-		private IDoublyNode<T> _cursor;
-
-		public LinkedListEnumerator(IDoublyNode<T> Cursor)
-		{
-			_cursor = _head = Cursor;
-		}
-
-		public bool MoveNext()
-		{
-			_cursor = _cursor.NextNode;
-			return true;
-		}
-
-		object IEnumerator.Current => Current;
-		public IDoublyNode<T> Current
-		{
-			get
-			{
-				return _cursor;
-			}
-		}
-
-		public void Reset()
-		{
-			_cursor = _head;
-		}
-
-		public void Dispose()
-		{
-			_cursor = null;
-			_head = null;
-		}
-	}
 }

@@ -26,6 +26,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache\LFUCache.cs" />
@@ -138,6 +142,8 @@
     <Compile Include="Graph\Simple\SimpleGraph.cs" />
     <Compile Include="Graph\Simple\BareboneGraph.cs" />
     <Compile Include="List\CircularLinkedList.cs" />
+    <Compile Include="Queue\PriorityQueueSimple2.cs" />
+    <Compile Include="List\LinkedListEnumerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

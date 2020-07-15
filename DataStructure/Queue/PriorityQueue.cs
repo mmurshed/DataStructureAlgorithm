@@ -7,14 +7,20 @@ namespace DataStructure.Queue
     {
         private T[] data;
 
-        private IComparer<T> comparer;
+        private Comparison<T> Compare;
 
         public int Count;
         public bool Empty => Count == 0;
-        public PriorityQueue(int count, IComparer<T> comp)
-        {   
+
+        public PriorityQueue(int count, Comparison<T> comp)
+        {
             data = new T[count + 1]; // 1 based indexing
-            this.comparer = comp;
+            data[0] = default;
+            this.Compare = comp;
+        }
+
+        public PriorityQueue(int count, IComparer<T> comp) : this(count, comp.Compare)
+        {   
         }
 
         public PriorityQueue(int count) : this(count, Comparer<T>.Default)
@@ -32,7 +38,7 @@ namespace DataStructure.Queue
             data[j] = temp;
         }
 
-        private bool Less(int i, int j) => comparer.Compare(data[i], data[j]) <= 0;
+        private bool Less(int i, int j) => Compare(data[i], data[j]) <= 0;
        
 
         public void Enqueue(T d)
@@ -47,14 +53,14 @@ namespace DataStructure.Queue
         public T Peek()
         {
             if (Count < 1)
-                return default(T);
+                return data[0];
             return data[1];
         }
 
         public T Dequeue()
         {
             if (Count < 1)
-                return default(T);
+                return data[0];
             T top = data[1];
             Swap(1, Count);
             --Count;

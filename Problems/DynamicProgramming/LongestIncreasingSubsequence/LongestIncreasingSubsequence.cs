@@ -85,8 +85,9 @@ namespace Algorithm.DynamicProgramming
             return maxans;
         }
 
-        //Dynamic Programming with Binary Search
         /*
+         * Dynamic Programming with Binary Search
+         * 
          * In this approach, we scan the array from left to right. 
          * We also make use of a dp array initialized with all 0's. This dp 
          * array is meant to store the increasing subsequence formed by 
@@ -123,11 +124,15 @@ namespace Algorithm.DynamicProgramming
         */
         public int GenerateDynamicBinary(int[] nums)
         {
+            if (nums.Length == 0)
+                return 0;
+
             var dp = new int[nums.Length];
             int len = 0;
-            foreach (int num in nums)
+            dp[0] = nums[0];
+
+            for (int j = 1; j < nums.Length; j++)
             {
-                int i = Array.BinarySearch(dp, 0, len, num);
                 // BinarySearch returns the index of the specified value in the
                 // specified array, if value is found; otherwise, a negative 
                 // number.
@@ -141,13 +146,13 @@ namespace Algorithm.DynamicProgramming
                 // than all elements in array, the negative number returned is 
                 // the bitwise complement of (the index of the last element plus 1).
 
+                int i = Array.BinarySearch(dp, 0, len, nums[j]);
                 if (i < 0) // Not found
-                {
-                    i = ~i; // bitwise complement of the index
-                }
-                dp[i] = num;
+                    i = ~i + 1; // bitwise complement of the index
+                dp[i] = nums[j];
+                len = Math.Max(len, i);
             }
-            return len;
+            return len + 1;
         }
 	}
 }

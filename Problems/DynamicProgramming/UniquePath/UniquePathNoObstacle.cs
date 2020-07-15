@@ -24,9 +24,9 @@ namespace Algorithm.DynamicProgramming.UniquePath
      * The algorithm is a simple recursive algorithm, from each cell first print
      * all paths by going down and then print all paths by going right.
      * Do this recursively for each cell encountered.
-        */
+     */
     public class UniquePathNoObstacle
-    {
+    {   
 		/* mat:  Pointer to the starting of mXn matrix
            i, j: Current position of the robot (For the first call use 0,0)
            m, n: Dimentions of given the matrix

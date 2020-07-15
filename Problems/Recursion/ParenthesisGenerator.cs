@@ -17,12 +17,16 @@ namespace Algorithm.Recursion
 
         // https://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
         /*
-Keep track of counts of open and close brackets.
-
-1. Initialize these counts as 0.
-2. Recursively call the GenerateParenthesis function until open bracket count is less than the given n.
-3. If open bracket count becomes more than the close bracket count, then put a closing bracket and recursively call for the remaining brackets.
-4. If open bracket count is less than n, then put an opening bracket and call GenerateParenthesis for the remaining brackets.
+         * Keep track of counts of open and close brackets.
+         * 
+         * 1. Initialize these counts as 0.
+         * 2. Recursively call the GenerateParenthesis function until open 
+         *    bracket count is less than the given n.
+         * 3. If open bracket count becomes more than the close bracket count, 
+         *    then put a closing bracket and recursively call for the 
+         *    remaining brackets.
+         * 4. If open bracket count is less than n, then put an opening 
+         *    bracket and call GenerateParenthesis for the remaining brackets.
         */
         private void GenerateParenthesis(int pos, int n, int open, int close, StringBuilder strb, List<string> list)
         {
